@@ -11,12 +11,15 @@ export const getGitHubContributions = unstable_cache(
   async () => {
     try {
       const res = await fetch(
-        `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`,
-        { next: { revalidate: 86400 } }
+        `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`
       );
 
       if (!res.ok) {
-        console.warn("Failed to fetch GitHub contributions:", res.statusText);
+        console.warn(
+          "Failed to fetch GitHub contributions:",
+          res.status,
+          res.statusText
+        );
         return [];
       }
 
