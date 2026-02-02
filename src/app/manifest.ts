@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 
 import { SITE_INFO } from "@/config/site";
 
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     short_name: SITE_INFO.name,
