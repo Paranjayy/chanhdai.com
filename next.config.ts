@@ -4,7 +4,9 @@ import path from "path";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ["next-mdx-remote"],
-  allowedDevOrigins: ["chanhdai-macbook.local"],
+  // Uncomment the following line and set basePath if deploying to GitHub Pages under a subdirectory
+  // basePath: "/your-repo-name",
+  // output: "export", // Enable for static site export (GitHub Pages)
   turbopack: {
     root: path.join(__dirname, "."),
   },
@@ -13,7 +15,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "assets.chanhdai.com",
+        hostname: "via.placeholder.com", // For placeholder images
         port: "",
       },
       {
