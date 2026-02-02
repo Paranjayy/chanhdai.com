@@ -2,9 +2,25 @@
 
 Your personal portfolio has been successfully converted into a reusable template. All personal information has been removed and replaced with placeholders.
 
-## 📋 Quick Start Checklist
+## ⚡ Super Quick Setup (New!)
 
-Follow these steps to customize your portfolio:
+The **easiest way** to customize your portfolio:
+
+### Just 3 Steps:
+
+1. **Edit** `portfolio.config.json` with your information
+2. **Run** `pnpm setup` to generate all files
+3. **Test** with `pnpm dev`
+
+That's it! 🚀
+
+See [QUICKSTART.md](./QUICKSTART.md) for details.
+
+---
+
+## 📋 Traditional Setup (Alternative)
+
+If you prefer manual configuration, follow this checklist:
 
 ### 1️⃣ Update Your Information (Required)
 
