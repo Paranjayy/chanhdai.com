@@ -1,197 +1,221 @@
-# [chanhdai.com](https://chanhdai.com) &middot; [![GitHub License](https://img.shields.io/github/license/ncdai/chanhdai.com?label=License)](https://github.com/ncdai/chanhdai.com/blob/main/LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/ncdai/chanhdai.com.svg?style=flat&label-color=%23555&color=%23f59e0b)
+# Dev Portfolio Template
 
-A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as a Design Engineer.
+A minimal, pixel-perfect developer portfolio, component registry, and blog template built with Next.js 16, Tailwind CSS v4, and shadcn/ui.
 
-→ Check out the live site: [chanhdai.com](https://chanhdai.com)
+## ⚡ Quick Setup (New!)
 
-[![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?v=5#gh-dark-mode-only)](https://chanhdai.com#gh-dark-mode-only)
-[![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?v=5#gh-light-mode-only)](https://chanhdai.com#gh-light-mode-only)
+The easiest way to get started:
 
-## Overview
+```bash
+# 1. Install dependencies
+pnpm install
 
-### Stack
+# 2. Edit portfolio.config.json with your info
+# 3. Generate all files automatically
+pnpm setup
 
-- Next.js 16
-- Tailwind CSS v4
-- shadcn/ui
+# 4. Start dev server
+pnpm dev
+```
 
-### Featured
+That's it! See [QUICKSTART.md](./QUICKSTART.md) for details.
 
-- Clean & modern design
-- Light/Dark themes
+## Features
+
+- Clean & modern design with Light/Dark themes
+- Portfolio showcase with projects and experience
+- Component registry powered by shadcn CLI
+- Blog with MDX support
+- SEO optimized (JSON-LD schema, sitemap, robots.txt)
 - vCard integration
-- SEO optimized ([JSON-LD schema](https://json-ld.org), sitemap, robots)
-- AI-ready with [/llms.txt](https://llmstxt.org)
-- Spam-protected email
+- Analytics ready (PostHog, OpenPanel)
 - Installable as PWA
-- Analytics with [PostHog](https://posthog.com) and [OpenPanel](https://openpanel.dev)
-- Consent management via [c15t](https://c15t.com)
+- **Automated setup with single config file** ✨
+- Fully customizable
 
-### Blog
+## Getting Started
 
-- Supports MDX & Markdown
-- Raw `.mdx` endpoints for AI readability
-- Syntax highlighting for clear code presentation
-- Dynamic OG images for rich link previews
-- RSS feed for easy content distribution
+### Prerequisites
 
-### Registry
+- Node.js 22.x
+- pnpm 9+
 
-Easily build and distribute reusable components, hooks, and pages using a custom registry powered by the [shadcn CLI](https://ui.shadcn.com/docs/cli).
+### Quick Start (Recommended)
 
-Each entry is well-documented and includes:
+1. Clone this repository:
+```bash
+git clone https://github.com/yourusername/portfolio.git
+cd portfolio
+```
 
-- Live preview & code snippets
-- Beautiful, readable code blocks
-- One-click command blocks (pnpm, npm, yarn, bun)
+2. Install dependencies:
+```bash
+pnpm install
+```
 
-### Analytics
+3. Edit `portfolio.config.json` with your information
 
-User behavior tracking with [PostHog](https://posthog.com) and [OpenPanel](https://openpanel.dev) to understand how visitors interact with the site:
+4. Generate all data files:
+```bash
+pnpm setup
+```
 
-- **Copy events** - Track code & command copies
-- **Engagement** - Monitor name pronunciation plays, command menu usage
-- **Search behavior** - Analyze search queries (debounced)
-- **User actions** - Navigation, theme changes, content interactions
-- **Screen views** - Automatic page view tracking (OpenPanel)
+5. Run the development server:
+```bash
+pnpm dev
+```
 
-Built with privacy in mind:
+Open [http://localhost:1408](http://localhost:1408) to see your portfolio.
 
-- Consent management via [c15t](https://c15t.com)
-- Cookieless mode until consent
-- Production-only tracking
-- Type-safe event schema with Zod
-- Dual analytics setup for redundancy and comprehensive insights
+### Manual Setup (Alternative)
 
-## Development
+If you prefer manual configuration, update the following files in `src/features/portfolio/data/`:
 
-Please refer to the [Development Guide](./DEVELOPMENT.md) for more details.
+- **`user.ts`** - Your name, bio, contact info, job details
+- **`projects.ts`** - Your portfolio projects
+- **`experiences.ts`** - Work history and education
+- **`social-links.ts`** - Social media profiles
+- **`awards.ts`** - Awards and achievements (optional)
+- **`certifications.ts`** - Certifications (optional)
+- **`testimonials.ts`** - Testimonials (optional)
+- **`tech-stack.ts`** - Technologies you use (already populated with common ones)
+
+### Site Configuration
+
+Update `src/config/site.ts`:
+- GitHub username and repository URLs
+- Sponsorship URL (if applicable)
+
+### Package Information
+
+Update `package.json`:
+- `name`, `description`, `homepage`
+- `author` information
+- `repository` URL
+
+### Environment Variables
+
+Create a `.env.local` file (copy from `.env.example` if available):
+
+```env
+APP_URL=https://yourdomain.com
+
+# Registry Configuration (for component registry)
+REGISTRY_NAMESPACE=@yournamespace
+REGISTRY_NAMESPACE_URL=https://yourdomain.com/r/{name}.json
+
+# Optional: Analytics
+NEXT_PUBLIC_POSTHOG_KEY=your-posthog-key
+NEXT_PUBLIC_POSTHOG_HOST=https://your-posthog-host
+NEXT_PUBLIC_POSTHOG_UI_HOST=https://us.i.posthog.com
+
+# Optional: GitHub API Token
+GITHUB_API_TOKEN=your-github-token
+```
+
+### Assets
+
+Replace placeholder images:
+- Avatar and OG images - Update URLs in `user.ts`
+- Project logos - Update URLs in `projects.ts`
+- Company logos - Update URLs in `experiences.ts`
+- Remove or replace `public/audio/chanhdai.mp3` if you want name pronunciation
+
+### Blog Content
+
+Add your blog posts in `src/features/blog/content/` as `.mdx` files. Example structure:
+
+```mdx
+---
+title: "Your Blog Post Title"
+publishedAt: "2024-01-01"
+description: "A brief description"
+---
+
+Your blog post content here...
+```
+
+## Development Commands
+
+```bash
+pnpm dev          # Start development server (port 1408)
+pnpm build        # Build for production
+pnpm start        # Start production server
+pnpm preview      # Build and preview locally
+pnpm lint         # Run ESLint
+pnpm format:write # Format code with Prettier
+pnpm check-types  # TypeScript type checking
+```
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import your repository in [Vercel](https://vercel.com)
+3. Configure environment variables
+4. Deploy!
+
+### GitHub Pages
+
+1. Update the base path in `next.config.ts` if deploying to a subdomain
+2. Set up GitHub Actions workflow for deployment
+3. Configure GitHub Pages in repository settings
+
+Example GitHub Actions workflow (`.github/workflows/deploy.yml`):
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+```
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui, Radix UI, Base UI
+- **Animations**: Motion
+- **Content**: MDX
+- **Package Manager**: pnpm
+- **Language**: TypeScript
 
 ## License
 
 Licensed under the [MIT license](./LICENSE).
 
-You're free to use my code! Just make sure to <ins>remove all my personal information</ins> before publishing your website. It's awesome to see my code being useful to someone!
+## Original Project
 
-## Contributors
+This template is based on [chanhdai.com](https://github.com/ncdai/chanhdai.com) by Nguyen Chanh Dai.
 
-[![Contributors](https://contrib.rocks/image?repo=ncdai/chanhdai.com)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
+## Support
 
-> Made with [contrib.rocks](https://contrib.rocks)
+If you find this template useful, consider:
+- Starring the repository ⭐
+- Sharing it with others
+- Contributing improvements
 
-## Sponsors
+---
 
-This project is proudly supported by:
-
-<table>
-  <tbody>
-    <tr>
-      <td>
-        <a href="https://shadcnstudio.com?utm_source=chanhdai.com&utm_medium=banner&utm_campaign=github#gh-light-mode-only">
-          <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio.svg?v=2#gh-light-mode-only" alt="shadcnstudio.com" />
-        </a>
-        <a href="https://shadcnstudio.com?utm_source=chanhdai.com&utm_medium=banner&utm_campaign=github#gh-dark-mode-only">
-          <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio-dark.svg?v=2#gh-dark-mode-only" alt="shadcnstudio.com" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://shadcraft.com?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcraft.svg?v=1#gh-light-mode-only"
-            alt="Shadcraft"
-          />
-        </a>
-        <a href="https://shadcraft.com?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcraft-dark.svg?v=1#gh-dark-mode-only"
-            alt="Shadcraft"
-          />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://uirules.com?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/uirules.svg?v=1#gh-light-mode-only"
-            alt="UI Rules"
-          />
-        </a>
-        <a href="https://uirules.com?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/uirules-dark.svg?v=1#gh-dark-mode-only"
-            alt="UI Rules"
-          />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/reactbits.svg?v=1#gh-light-mode-only"
-            alt="React Bits"
-          />
-        </a>
-        <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/reactbits-dark.svg?v=1#gh-dark-mode-only"
-            alt="React Bits"
-          />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://openpanel.dev?utm_source=chanhdai.com#gh-light-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/openpanel.svg?v=1#gh-light-mode-only"
-            alt="OpenPanel"
-          />
-        </a>
-        <a href="https://openpanel.dev?utm_source=chanhdai.com#gh-dark-mode-only">
-          <img
-            src="https://assets.chanhdai.com/images/sponsors/openpanel-dark.svg?v=1#gh-dark-mode-only"
-            alt="OpenPanel"
-          />
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-> Found this project useful? [Sponsor me](https://github.com/sponsors/ncdai) to help with support and maintenance.
-
-## Stats
-
-![Stats](https://repobeats.axiom.co/api/embed/583bf08fbdef57c3921d3cfda902d546df3e6ed1.svg "Repobeats analytics image")
-
-## Star History
-
-[![Star History](https://starchart.cc/ncdai/chanhdai.com.svg?variant=adaptive&line=%23d37f2c)](https://starchart.cc/ncdai/chanhdai.com)
-
-## Acknowledgments
-
-- [React](https://react.dev)
-- [Next.js](https://nextjs.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Radix UI](https://www.radix-ui.com)
-- [Base UI](https://base-ui.com)
-- [Motion](https://motion.dev)
-- [shadcn/ui](https://ui.shadcn.com)
-- [Aceternity UI](https://ui.aceternity.com)
-- [Kibo UI](https://www.kibo-ui.com)
-- [Lucide](https://lucide.dev)
-- [Fumadocs](https://fumadocs.dev)
-- [PostHog](https://posthog.com)
-- [OpenPanel](https://openpanel.dev)
-- [c15t](https://c15t.com)
-- And many other open-source libraries used in `package.json`
-
-## GitAds Sponsored
-
-[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=ncdai/chanhdai.com@github)](https://gitads.dev/v1/ad-track?source=ncdai/chanhdai.com@github)
-
-<!-- GitAds-Verify: QICCAB4PFWV9MHUGPGPN5B2I8SAXLAOK -->
+**Note**: Make sure to remove all placeholder content and replace it with your actual information before deploying!
