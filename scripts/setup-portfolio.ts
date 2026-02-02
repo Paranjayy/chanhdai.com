@@ -2,7 +2,7 @@
 
 /**
  * Portfolio Setup Script
- * 
+ *
  * This script reads portfolio.config.json and generates all data files
  * Usage: pnpm setup
  */
@@ -44,17 +44,26 @@ interface PortfolioConfig {
     avatar: string;
     ogImage: string;
     namePronunciationUrl: string | null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     affiliateBadge: any | null;
   };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   socialLinks: any[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   projects: any[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   experiences: any[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   awards: any[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   certifications: any[];
   testimonials: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     long: any[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     short: any[];
   };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   bookmarks: any[];
   siteConfig: {
     githubUsername: string;
@@ -77,6 +86,26 @@ interface PortfolioConfig {
   };
 }
 
+interface PackageJson {
+  name: string;
+  description: string;
+  homepage: string;
+  author: {
+    name: string;
+    email: string;
+    url: string;
+  };
+  contributors: Array<{
+    name: string;
+    email: string;
+    url: string;
+  }>;
+  repository: {
+    type: string;
+    url: string;
+  };
+}
+
 function base64Encode(str: string): string {
   return Buffer.from(str).toString("base64");
 }
@@ -90,12 +119,12 @@ function loadConfig(): PortfolioConfig {
   }
 
   const configContent = fs.readFileSync(configPath, "utf-8");
-  return JSON.parse(configContent);
+  return JSON.parse(configContent) as PortfolioConfig;
 }
 
 function generateUserTs(config: PortfolioConfig): string {
   const { personal, jobs, about, assets } = config;
-  
+
   return `import type { User } from "@/features/portfolio/types/user";
 
 export const USER = {
@@ -230,16 +259,21 @@ export const UTM_PARAMS = {
 
 function updatePackageJson(config: PortfolioConfig): void {
   const packageJsonPath = path.join(rootDir, "package.json");
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
-  
+  const packageJson = JSON.parse(
+    fs.readFileSync(packageJsonPath, "utf-8")
+  ) as PackageJson;
+
   packageJson.name = config.packageConfig.name;
   packageJson.description = config.packageConfig.description;
   packageJson.homepage = config.packageConfig.homepage;
   packageJson.author = config.packageConfig.author;
   packageJson.contributors = [config.packageConfig.author];
   packageJson.repository = config.packageConfig.repository;
-  
-  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2) + "\n");
+
+  fs.writeFileSync(
+    packageJsonPath,
+    JSON.stringify(packageJson, null, 2) + "\n"
+  );
 }
 
 function main() {
@@ -252,14 +286,38 @@ function main() {
 
   const files = [
     { path: path.join(dataDir, "user.ts"), content: generateUserTs(config) },
-    { path: path.join(dataDir, "projects.ts"), content: generateProjectsTs(config) },
-    { path: path.join(dataDir, "experiences.ts"), content: generateExperiencesTs(config) },
-    { path: path.join(dataDir, "social-links.ts"), content: generateSocialLinksTs(config) },
-    { path: path.join(dataDir, "awards.ts"), content: generateAwardsTs(config) },
-    { path: path.join(dataDir, "certifications.ts"), content: generateCertificationsTs(config) },
-    { path: path.join(dataDir, "testimonials.ts"), content: generateTestimonialsTs(config) },
-    { path: path.join(dataDir, "bookmarks.ts"), content: generateBookmarksTs(config) },
-    { path: path.join(configDir, "site.ts"), content: generateSiteConfigTs(config) },
+    {
+      path: path.join(dataDir, "projects.ts"),
+      content: generateProjectsTs(config),
+    },
+    {
+      path: path.join(dataDir, "experiences.ts"),
+      content: generateExperiencesTs(config),
+    },
+    {
+      path: path.join(dataDir, "social-links.ts"),
+      content: generateSocialLinksTs(config),
+    },
+    {
+      path: path.join(dataDir, "awards.ts"),
+      content: generateAwardsTs(config),
+    },
+    {
+      path: path.join(dataDir, "certifications.ts"),
+      content: generateCertificationsTs(config),
+    },
+    {
+      path: path.join(dataDir, "testimonials.ts"),
+      content: generateTestimonialsTs(config),
+    },
+    {
+      path: path.join(dataDir, "bookmarks.ts"),
+      content: generateBookmarksTs(config),
+    },
+    {
+      path: path.join(configDir, "site.ts"),
+      content: generateSiteConfigTs(config),
+    },
   ];
 
   console.log("📝 Generating data files...");
