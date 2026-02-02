@@ -29,6 +29,8 @@ import type { Post } from "@/features/blog/types/post";
 import { USER } from "@/features/portfolio/data/user";
 import { cn } from "@/lib/utils";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const posts = getPostsByCategory("components");
   return posts.map((post) => ({
