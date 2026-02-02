@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  output: "export",
   reactStrictMode: true,
   transpilePackages: ["next-mdx-remote"],
   allowedDevOrigins: ["chanhdai-macbook.local"],
@@ -10,6 +11,7 @@ const nextConfig: NextConfig = {
   },
   devIndicators: false,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -24,36 +26,37 @@ const nextConfig: NextConfig = {
     ],
     qualities: [75, 100],
   },
-  async redirects() {
-    return [
-      {
-        source:
-          "/:section(blog|components)/writing-effect-inspired-by-apple:extension(.mdx)?",
-        destination: "/:section/apple-hello-effect:extension",
-        permanent: true,
-      },
-    ];
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/blog/:slug.mdx",
-        destination: "/blog.mdx/:slug",
-      },
-      {
-        source: "/components/:slug.mdx",
-        destination: "/blog.mdx/:slug",
-      },
-      {
-        source: "/rss",
-        destination: "/blog/rss",
-      },
-      {
-        source: "/registry/rss",
-        destination: "/components/rss",
-      },
-    ];
-  },
+  // Static export does not support redirects/rewrites
+  // async redirects() {
+  //   return [
+  //     {
+  //       source:
+  //         "/:section(blog|components)/writing-effect-inspired-by-apple:extension(.mdx)?",
+  //       destination: "/:section/apple-hello-effect:extension",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/blog/:slug.mdx",
+  //       destination: "/blog.mdx/:slug",
+  //     },
+  //     {
+  //       source: "/components/:slug.mdx",
+  //       destination: "/blog.mdx/:slug",
+  //     },
+  //     {
+  //       source: "/rss",
+  //       destination: "/blog/rss",
+  //     },
+  //     {
+  //       source: "/registry/rss",
+  //       destination: "/components/rss",
+  //     },
+  //   ];
+  // },
   // async headers() {
   //   return [
   //     {
