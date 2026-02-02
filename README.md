@@ -2,6 +2,24 @@
 
 A minimal, pixel-perfect developer portfolio, component registry, and blog template built with Next.js 16, Tailwind CSS v4, and shadcn/ui.
 
+## ⚡ Quick Setup (New!)
+
+The easiest way to get started:
+
+```bash
+# 1. Install dependencies
+pnpm install
+
+# 2. Edit portfolio.config.json with your info
+# 3. Generate all files automatically
+pnpm setup
+
+# 4. Start dev server
+pnpm dev
+```
+
+That's it! See [QUICKSTART.md](./QUICKSTART.md) for details.
+
 ## Features
 
 - Clean & modern design with Light/Dark themes
@@ -12,6 +30,7 @@ A minimal, pixel-perfect developer portfolio, component registry, and blog templ
 - vCard integration
 - Analytics ready (PostHog, OpenPanel)
 - Installable as PWA
+- **Automated setup with single config file** ✨
 - Fully customizable
 
 ## Getting Started
@@ -21,7 +40,7 @@ A minimal, pixel-perfect developer portfolio, component registry, and blog templ
 - Node.js 22.x
 - pnpm 9+
 
-### Installation
+### Quick Start (Recommended)
 
 1. Clone this repository:
 ```bash
@@ -34,20 +53,23 @@ cd portfolio
 pnpm install
 ```
 
-3. Update your personal information in the data files (see Configuration section below)
+3. Edit `portfolio.config.json` with your information
 
-4. Run the development server:
+4. Generate all data files:
+```bash
+pnpm setup
+```
+
+5. Run the development server:
 ```bash
 pnpm dev
 ```
 
 Open [http://localhost:1408](http://localhost:1408) to see your portfolio.
 
-## Configuration
+### Manual Setup (Alternative)
 
-### Personal Information
-
-Update the following files in `src/features/portfolio/data/`:
+If you prefer manual configuration, update the following files in `src/features/portfolio/data/`:
 
 - **`user.ts`** - Your name, bio, contact info, job details
 - **`projects.ts`** - Your portfolio projects
