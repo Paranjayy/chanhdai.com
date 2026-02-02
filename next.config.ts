@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   transpilePackages: ["next-mdx-remote"],
   // Uncomment the following line and set basePath if deploying to GitHub Pages under a subdirectory
   // basePath: "/your-repo-name",
-  // output: "export", // Enable for static site export (GitHub Pages)
+  output: "export", // Enable for static site export (GitHub Pages)
   turbopack: {
     root: path.join(__dirname, "."),
   },
