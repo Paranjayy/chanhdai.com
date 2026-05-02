@@ -1,13 +1,12 @@
 "use client";
 
-import { DownloadIcon, TriangleDashedIcon, TypeIcon } from "lucide-react";
-import Link from "next/link";
+import { TypeIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { toast } from "sonner";
 
 import { copyText } from "@/utils/copy";
 
-import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark";
+import { getMarkSVG,KPMark } from "./chanhdai-mark";
 import { getWordmarkSVG } from "./chanhdai-wordmark";
 import {
   ContextMenu,
@@ -31,7 +30,7 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
             toast.success("Copied Mark as SVG");
           }}
         >
-          <ChanhDaiMark />
+          <KPMark />
           Copy Mark as SVG
         </ContextMenuItem>
 
@@ -48,19 +47,6 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
           Copy Logotype as SVG
         </ContextMenuItem>
 
-        <ContextMenuItem asChild>
-          <Link href="/blog/chanhdai-brand">
-            <TriangleDashedIcon />
-            Brand Guidelines
-          </Link>
-        </ContextMenuItem>
-
-        <ContextMenuItem asChild>
-          <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download>
-            <DownloadIcon />
-            Download Brand Assets
-          </a>
-        </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>
   );

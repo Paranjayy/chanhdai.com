@@ -7,25 +7,25 @@ Fill this out and share it with me - I'll implement everything for you!
 ## 👤 Basic Info
 
 **First Name:**  
-> 
+> Your first name
 
 **Last Name:**  
-> 
+> Your last name
 
 **Display Name (what to call you on the site):**  
-> 
+> Your display name
 
-**Username (short handle like "johndoe"):**  
-> 
+**GitHub Username (short handle like "johndoe"):**  
+> your-handle
 
 **Pronouns:**  
-> e.g., he/him, she/her, they/them
+> they/them
 
 **Bio (one catchy sentence):**  
-> e.g., "Building cool stuff with code"
+> A short sentence about what you build.
 
 **Job Title:**  
-> e.g., "Software Engineer", "Full-stack Developer", "Design Engineer"
+> Your role or title
 
 **Current Jobs (list your current positions):**
 ```
@@ -34,40 +34,37 @@ Fill this out and share it with me - I'll implement everything for you!
    Website: 
 
 2. Title: 
-   Company: 
-   Website: 
-```
-
+   
 **About (a longer paragraph about yourself, use markdown):**  
 > 
 
 **Location (City, Country):**  
-> 
+> Your city, your country
 
 **Email (will be protected/encoded on site):**  
-> 
+> hello@example.com
 
 **Phone Number (optional, E.164 format like +1234567890):**  
-> 
+> +1 555 0100
 
 **Time Zone (for local time display):**  
-> e.g., "Asia/Kolkata", "America/New_York"
+> UTC
 
 **Portfolio Started Date (YYYY-MM-DD):**  
-> 
+> 2026-02-03
 
 ---
 
 ## 🖼️ Images & Branding
 
 **Avatar URL (your profile picture URL):**  
-> 
+> /public/avatar.svg
 
 **OG Image URL (for social sharing, 1200x630px):**  
-> 
+> placeholder
 
 **Name Pronunciation Audio URL (optional):**  
-> 
+> optional
 
 **Affiliate/Current Company Badge (optional):**
 ```
@@ -83,30 +80,30 @@ Logo URL:
 Fill in the ones you have:
 
 **Twitter/X:**  
-> username: 
-> URL: https://x.com/
+> username: paranjayy
+> URL: https://x.com/paranjay245
 
 **GitHub:**  
-> username: 
-> URL: https://github.com/
+> username: paranjayy
+> URL: https://github.com/paranjayy
 
 **LinkedIn:**  
-> username: 
-> URL: https://linkedin.com/in/
+> username: paranjayy
+> URL: https://linkedin.com/in/paranjayy
 
 **YouTube (optional):**  
-> username: 
-> URL: 
+> username: MichealScott24
+> URL: https://www.youtube.com/@MichealScott24
 
 **Other Social Links (list any others):**
 ```
-1. Platform: 
-   Username: 
-   URL: 
+1. Platform: Twitch
+   Username: MichealScott245
+   URL: https://www.twitch.tv/michaelscott245
 
-2. Platform: 
-   Username: 
-   URL: 
+2. Platform: Gravatar(All Socials)
+   Username: your-handle
+   URL: https://gravatar.com/
 ```
 
 ---
@@ -298,7 +295,7 @@ List your preferred technologies (I'll auto-format these):
 > e.g., https://myname.com or https://username.github.io
 
 **GitHub Username:**  
-> 
+> paranjayy
 
 **Source Code Repo (if public):**  
 > e.g., username/portfolio

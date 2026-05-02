@@ -2,12 +2,12 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "flip-sentences",
   "title": "Flip Sentences",
-  "author": "ncdai <dai@chanhdai.com>",
+  "author": "Template Author <hello@example.com>",
   "dependencies": [
     "motion"
   ],
   "registryDependencies": [
-    "@ncdai/utils"
+    "@template/utils"
   ],
   "files": [
     {

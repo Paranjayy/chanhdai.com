@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "work-experience",
   "title": "Work Experience",
-  "author": "ncdai <dai@chanhdai.com>",
+  "author": "Template Author <hello@example.com>",
   "description": "Displays a list of work experiences with role details and durations.",
   "dependencies": [
     "react-markdown",
@@ -13,7 +13,7 @@
     "tw-animate-css"
   ],
   "registryDependencies": [
-    "@ncdai/utils",
+    "@template/utils",
     "collapsible",
     "separator"
   ],
@@ -42,6 +42,6 @@
     "@import \"tw-animate-css\"": {},
     "@plugin @tailwindcss/typography": {}
   },
-  "docs": "https://chanhdai.com/components/work-experience-component",
+  "docs": "https://paranjay.dev/components/work-experience-component",
   "type": "registry:component"
 }

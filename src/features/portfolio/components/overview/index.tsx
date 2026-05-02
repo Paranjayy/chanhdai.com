@@ -1,4 +1,5 @@
 import {
+  CakeIcon,
   LinkIcon,
   MapPinIcon,
   MarsIcon,
@@ -21,6 +22,7 @@ import {
   IntroItemLink,
 } from "./intro-item";
 import { JobItem } from "./job-item";
+import { LiveAgeCounter } from "./live-age-counter";
 import { PhoneItem } from "./phone-item";
 
 export function Overview() {
@@ -84,6 +86,16 @@ export function Overview() {
             <IntroItemIcon>{getGenderIcon(USER.gender)}</IntroItemIcon>
             <IntroItemContent aria-label={`Pronouns: ${USER.pronouns}`}>
               {USER.pronouns}
+            </IntroItemContent>
+          </IntroItem>
+
+          <IntroItem>
+            <IntroItemIcon>
+              <CakeIcon />
+            </IntroItemIcon>
+            <IntroItemContent aria-label="Age">
+              <LiveAgeCounter className="tabular-nums" />
+              <span className="text-muted-foreground"> years</span>
             </IntroItemContent>
           </IntroItem>
         </div>

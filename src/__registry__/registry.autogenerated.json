@@ -1,12 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "ncdai",
-  "homepage": "https://chanhdai.com/components",
+  "name": "template",
+  "homepage": "https://paranjay.dev/components",
   "items": [
     {
       "name": "utils",
       "title": "Utility Functions",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "dependencies": [
         "clsx",
         "tailwind-merge"
@@ -49,7 +49,7 @@
     {
       "name": "theme-switcher",
       "title": "Theme Switcher",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "description": "A theme switcher component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
       "dependencies": [
         "next-themes",
@@ -57,7 +57,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "@ncdai/utils"
+        "@template/utils"
       ],
       "files": [
         {
@@ -65,18 +65,18 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://chanhdai.com/components/theme-switcher-component",
+      "docs": "https://paranjay.dev/components/theme-switcher-component",
       "type": "registry:component"
     },
     {
       "name": "flip-sentences",
       "title": "Flip Sentences",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "dependencies": [
         "motion"
       ],
       "registryDependencies": [
-        "@ncdai/utils"
+        "@template/utils"
       ],
       "files": [
         {
@@ -89,13 +89,13 @@
     {
       "name": "apple-hello-effect",
       "title": "Apple Hello Effect",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "description": "Create a Xin chào and Hello writing effect inspired by Apple using Motion for React.",
       "dependencies": [
         "motion"
       ],
       "registryDependencies": [
-        "@ncdai/utils"
+        "@template/utils"
       ],
       "files": [
         {
@@ -103,19 +103,19 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://chanhdai.com/components/apple-hello-effect",
+      "docs": "https://paranjay.dev/components/apple-hello-effect",
       "type": "registry:component"
     },
     {
       "name": "wheel-picker",
       "title": "Wheel Picker",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "description": "iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support.",
       "dependencies": [
-        "@ncdai/react-wheel-picker"
+        "@template/react-wheel-picker"
       ],
       "registryDependencies": [
-        "@ncdai/utils"
+        "@template/utils"
       ],
       "files": [
         {
@@ -123,13 +123,13 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://chanhdai.com/components/react-wheel-picker",
+      "docs": "https://paranjay.dev/components/react-wheel-picker",
       "type": "registry:component"
     },
     {
       "name": "work-experience",
       "title": "Work Experience",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "description": "Displays a list of work experiences with role details and durations.",
       "dependencies": [
         "react-markdown",
@@ -140,7 +140,7 @@
         "tw-animate-css"
       ],
       "registryDependencies": [
-        "@ncdai/utils",
+        "@template/utils",
         "collapsible",
         "separator"
       ],
@@ -168,19 +168,19 @@
         "@import \"tw-animate-css\"": {},
         "@plugin @tailwindcss/typography": {}
       },
-      "docs": "https://chanhdai.com/components/work-experience-component",
+      "docs": "https://paranjay.dev/components/work-experience-component",
       "type": "registry:component"
     },
     {
       "name": "shimmering-text",
       "title": "Shimmering Text",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "description": "Smooth shimmering text animation built with Motion.",
       "dependencies": [
         "motion"
       ],
       "registryDependencies": [
-        "@ncdai/utils"
+        "@template/utils"
       ],
       "files": [
         {
@@ -193,14 +193,14 @@
     {
       "name": "slide-to-unlock",
       "title": "Slide to Unlock",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "description": "A sleek, interactive slider inspired by the classic iPhone OS 'slide to unlock' gesture.",
       "dependencies": [
         "motion"
       ],
       "registryDependencies": [
-        "@ncdai/utils",
-        "@ncdai/shimmering-text"
+        "@template/utils",
+        "@template/shimmering-text"
       ],
       "files": [
         {
@@ -208,16 +208,16 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://chanhdai.com/components/slide-to-unlock",
+      "docs": "https://paranjay.dev/components/slide-to-unlock",
       "type": "registry:component"
     },
     {
       "name": "testimonials-marquee",
       "title": "Testimonials Marquee",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "description": "A testimonials marquee component for showcasing user feedback in a scrolling format.",
       "registryDependencies": [
-        "@ncdai/utils",
+        "@template/utils",
         "@kibo-ui/marquee"
       ],
       "files": [
@@ -226,13 +226,13 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://chanhdai.com/components/testimonials-marquee",
+      "docs": "https://paranjay.dev/components/testimonials-marquee",
       "type": "registry:component"
     },
     {
       "name": "github-stars",
       "title": "GitHub Stars",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "description": "Display GitHub repository star count with formatted numbers and a tooltip showing the full count.",
       "registryDependencies": [
         "button",
@@ -249,10 +249,10 @@
     {
       "name": "scroll-fade-effect",
       "title": "Scroll Fade Effect",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "description": "A React component that adds a fade effect to content as you scroll.",
       "registryDependencies": [
-        "@ncdai/utils"
+        "@template/utils"
       ],
       "files": [
         {
@@ -339,13 +339,13 @@
     {
       "name": "consent-manager",
       "title": "Consent Manager",
-      "author": "ncdai <dai@chanhdai.com>",
+      "author": "Template Author <hello@example.com>",
       "description": "A React component for managing user consent for cookies and tracking in Next.js applications.",
       "dependencies": [
         "@c15t/nextjs"
       ],
       "registryDependencies": [
-        "@ncdai/utils",
+        "@template/utils",
         "button"
       ],
       "files": [

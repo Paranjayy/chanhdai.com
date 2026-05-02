@@ -1,17 +1,16 @@
 import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
-  // Add your projects here! Example:
-  // {
-  //   id: "my-project",
-  //   title: "My Awesome Project",
-  //   period: {
-  //     start: "01.2024",
-  //   },
-  //   link: "https://github.com/paranjayy/my-project",
-  //   skills: ["React", "TypeScript", "Tailwind CSS"],
-  //   description: "A cool project I built.",
-  //   logo: "/project-logo.png",
-  //   isExpanded: true,
-  // },
+  {
+    id: "sample-project",
+    title: "Sample Project",
+    period: {
+      start: "01.2026",
+    },
+    link: "https://example.com",
+    skills: ["React", "TypeScript", "Tailwind CSS"],
+    description: "A placeholder project entry you can replace with your own work.",
+    logo: "/favicon.svg",
+    isExpanded: true,
+  },
 ];

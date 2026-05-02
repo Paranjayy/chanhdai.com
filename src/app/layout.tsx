@@ -50,11 +50,11 @@ export const metadata: Metadata = {
   keywords: SITE_INFO.keywords,
   authors: [
     {
-      name: "paranjayy",
+      name: "Your Name",
       url: SITE_INFO.url,
     },
   ],
-  creator: "paranjayy",
+  creator: "your-handle",
   openGraph: {
     siteName: SITE_INFO.name,
     url: "/",
@@ -75,25 +75,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@paranjay245",
+    creator: "@your-handle",
     images: [SITE_INFO.ogImage],
   },
   icons: {
     icon: [
       {
-        url: "https://assets.chanhdai.com/images/favicon.ico",
-        sizes: "any",
-      },
-      {
-        url: "https://assets.chanhdai.com/images/favicon.svg",
+        url: "/favicon.svg",
         type: "image/svg+xml",
       },
     ],
-    apple: {
-      url: "https://assets.chanhdai.com/images/apple-touch-icon.png",
-      type: "image/png",
-      sizes: "180x180",
-    },
   },
 };
 

@@ -1,11 +1,11 @@
-# [chanhdai.com](https://chanhdai.com) &middot; [![GitHub License](https://img.shields.io/github/license/ncdai/chanhdai.com?label=License)](https://github.com/ncdai/chanhdai.com/blob/main/LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/ncdai/chanhdai.com.svg?style=flat&label-color=%23555&color=%23f59e0b)
+# [Portfolio Template](https://paranjay.dev) &middot; [![GitHub License](https://img.shields.io/github/license/your-handle/portfolio-template?label=License)](https://github.com/your-handle/portfolio-template/blob/main/LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/your-handle/portfolio-template.svg?style=flat&label-color=%23555&color=%23f59e0b)
 
 A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as a Design Engineer.
 
-→ Check out the live site: [chanhdai.com](https://chanhdai.com)
+→ Check out the live site: [paranjay.dev](https://paranjay.dev)
 
-[![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?v=5#gh-dark-mode-only)](https://chanhdai.com#gh-dark-mode-only)
-[![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?v=5#gh-light-mode-only)](https://chanhdai.com#gh-light-mode-only)
+[![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?v=5#gh-dark-mode-only)](https://paranjay.dev#gh-dark-mode-only)
+[![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?v=5#gh-light-mode-only)](https://paranjay.dev#gh-light-mode-only)
 
 ## Overview
 
@@ -75,7 +75,7 @@ You're free to use my code! Just make sure to <ins>remove all my personal inform
 
 ## Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=ncdai/chanhdai.com)](https://github.com/ncdai/chanhdai.com/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=your-handle/portfolio-template)](https://github.com/your-handle/portfolio-template/graphs/contributors)
 
 > Made with [contrib.rocks](https://contrib.rocks)
 
@@ -87,23 +87,23 @@ This project is proudly supported by:
   <tbody>
     <tr>
       <td>
-        <a href="https://shadcnstudio.com?utm_source=chanhdai.com&utm_medium=banner&utm_campaign=github#gh-light-mode-only">
+        <a href="https://shadcnstudio.com?utm_source=paranjay.dev&utm_medium=banner&utm_campaign=github#gh-light-mode-only">
           <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio.svg?v=2#gh-light-mode-only" alt="shadcnstudio.com" />
         </a>
-        <a href="https://shadcnstudio.com?utm_source=chanhdai.com&utm_medium=banner&utm_campaign=github#gh-dark-mode-only">
+        <a href="https://shadcnstudio.com?utm_source=paranjay.dev&utm_medium=banner&utm_campaign=github#gh-dark-mode-only">
           <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio-dark.svg?v=2#gh-dark-mode-only" alt="shadcnstudio.com" />
         </a>
       </td>
     </tr>
     <tr>
       <td>
-        <a href="https://shadcraft.com?utm_source=chanhdai.com#gh-light-mode-only">
+        <a href="https://shadcraft.com?utm_source=paranjay.dev#gh-light-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/shadcraft.svg?v=1#gh-light-mode-only"
             alt="Shadcraft"
           />
         </a>
-        <a href="https://shadcraft.com?utm_source=chanhdai.com#gh-dark-mode-only">
+        <a href="https://shadcraft.com?utm_source=paranjay.dev#gh-dark-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/shadcraft-dark.svg?v=1#gh-dark-mode-only"
             alt="Shadcraft"
@@ -113,13 +113,13 @@ This project is proudly supported by:
     </tr>
     <tr>
       <td>
-        <a href="https://uirules.com?utm_source=chanhdai.com#gh-light-mode-only">
+        <a href="https://uirules.com?utm_source=paranjay.dev#gh-light-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/uirules.svg?v=1#gh-light-mode-only"
             alt="UI Rules"
           />
         </a>
-        <a href="https://uirules.com?utm_source=chanhdai.com#gh-dark-mode-only">
+        <a href="https://uirules.com?utm_source=paranjay.dev#gh-dark-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/uirules-dark.svg?v=1#gh-dark-mode-only"
             alt="UI Rules"
@@ -129,13 +129,13 @@ This project is proudly supported by:
     </tr>
     <tr>
       <td>
-        <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-light-mode-only">
+        <a href="https://reactbits.dev?utm_source=paranjay.dev#gh-light-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/reactbits.svg?v=1#gh-light-mode-only"
             alt="React Bits"
           />
         </a>
-        <a href="https://reactbits.dev?utm_source=chanhdai.com#gh-dark-mode-only">
+        <a href="https://reactbits.dev?utm_source=paranjay.dev#gh-dark-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/reactbits-dark.svg?v=1#gh-dark-mode-only"
             alt="React Bits"
@@ -145,13 +145,13 @@ This project is proudly supported by:
     </tr>
     <tr>
       <td>
-        <a href="https://openpanel.dev?utm_source=chanhdai.com#gh-light-mode-only">
+        <a href="https://openpanel.dev?utm_source=paranjay.dev#gh-light-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/openpanel.svg?v=1#gh-light-mode-only"
             alt="OpenPanel"
           />
         </a>
-        <a href="https://openpanel.dev?utm_source=chanhdai.com#gh-dark-mode-only">
+        <a href="https://openpanel.dev?utm_source=paranjay.dev#gh-dark-mode-only">
           <img
             src="https://assets.chanhdai.com/images/sponsors/openpanel-dark.svg?v=1#gh-dark-mode-only"
             alt="OpenPanel"
@@ -162,7 +162,7 @@ This project is proudly supported by:
   </tbody>
 </table>
 
-> Found this project useful? [Sponsor me](https://github.com/sponsors/ncdai) to help with support and maintenance.
+> Found this project useful? [Sponsor me](https://github.com/sponsors/your-handle) to help with support and maintenance.
 
 ## Stats
 
@@ -170,7 +170,7 @@ This project is proudly supported by:
 
 ## Star History
 
-[![Star History](https://starchart.cc/ncdai/chanhdai.com.svg?variant=adaptive&line=%23d37f2c)](https://starchart.cc/ncdai/chanhdai.com)
+[![Star History](https://starchart.cc/your-handle/portfolio-template.svg?variant=adaptive&line=%23d37f2c)](https://starchart.cc/your-handle/portfolio-template)
 
 ## Acknowledgments
 
@@ -192,6 +192,6 @@ This project is proudly supported by:
 
 ## GitAds Sponsored
 
-[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=ncdai/chanhdai.com@github)](https://gitads.dev/v1/ad-track?source=ncdai/chanhdai.com@github)
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=your-handle/portfolio-template@github)](https://gitads.dev/v1/ad-track?source=your-handle/portfolio-template@github)
 
 <!-- GitAds-Verify: QICCAB4PFWV9MHUGPGPN5B2I8SAXLAOK -->

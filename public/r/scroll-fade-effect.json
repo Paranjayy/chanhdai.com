@@ -2,10 +2,10 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "scroll-fade-effect",
   "title": "Scroll Fade Effect",
-  "author": "ncdai <dai@chanhdai.com>",
+  "author": "Template Author <hello@example.com>",
   "description": "A React component that adds a fade effect to content as you scroll.",
   "registryDependencies": [
-    "@ncdai/utils"
+    "@template/utils"
   ],
   "files": [
     {

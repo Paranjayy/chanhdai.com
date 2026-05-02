@@ -2,13 +2,13 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shimmering-text",
   "title": "Shimmering Text",
-  "author": "ncdai <dai@chanhdai.com>",
+  "author": "Template Author <hello@example.com>",
   "description": "Smooth shimmering text animation built with Motion.",
   "dependencies": [
     "motion"
   ],
   "registryDependencies": [
-    "@ncdai/utils"
+    "@template/utils"
   ],
   "files": [
     {

@@ -18,11 +18,11 @@ export function SiteFooter() {
           Built by{" "}
           <a
             className="link"
-            href="https://x.com/iamncdai"
+            href="https://x.com/your-handle"
             target="_blank"
             rel="noopener"
           >
-            ncdai
+            your-handle
           </a>
           . The source code is available on{" "}
           <a
@@ -77,7 +77,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-colors hover:text-foreground"
-              href="https://x.com/iamncdai?utm_source=chanhdai.com"
+              href="https://x.com/your-handle"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -89,7 +89,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-colors hover:text-foreground"
-              href="https://github.com/ncdai?utm_source=chanhdai.com"
+              href="https://github.com/your-handle"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -101,7 +101,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-colors hover:text-foreground"
-              href="https://www.linkedin.com/in/ncdai?utm_source=chanhdai.com"
+              href="https://linkedin.com/in/your-handle"
               target="_blank"
               rel="noopener noreferrer"
             >

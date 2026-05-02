@@ -1,19 +1,19 @@
 {
-  "name": "paranjay-portfolio",
+  "name": "portfolio-template",
   "version": "0.1.0",
-  "description": "Personal portfolio - Building cool stuff with code.",
-  "homepage": "https://paranjayy.github.io",
+  "description": "Portfolio template - build your own personal site.",
+  "homepage": "https://paranjay.dev",
   "license": "MIT",
   "author": {
-    "name": "Paranjay Khachar",
-    "email": "kparanjay245@gmail.com",
-    "url": "https://github.com/Paranjayy"
+    "name": "Your Name",
+    "email": "hello@example.com",
+    "url": "https://github.com/your-handle"
   },
   "contributors": [
     {
-      "name": "Paranjay Khachar",
-      "email": "kparanjay245@gmail.com",
-      "url": "https://github.com/Paranjayy"
+      "name": "Your Name",
+      "email": "hello@example.com",
+      "url": "https://github.com/your-handle"
     },
     {
       "name": "Nguyen Chanh Dai",
@@ -23,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Paranjayy/chanhdai.com.git"
+    "url": "git+https://github.com/your-handle/portfolio-template.git"
   },
   "scripts": {
     "dev": "next dev -p 1408",
@@ -64,7 +64,7 @@
     "lucide-react": "^0.544.0",
     "motion": "^12.18.1",
     "next": "16.1.6",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "next-themes": "^0.4.6",
     "nuqs": "^2.8.0",
     "posthog-js": "^1.297.2",

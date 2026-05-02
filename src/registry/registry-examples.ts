@@ -4,7 +4,7 @@ export const examples: Registry["items"] = [
   {
     name: "apple-hello-effect-vi-demo",
     type: "registry:example",
-    registryDependencies: ["@ncdai/apple-hello-effect"],
+    registryDependencies: ["@template/apple-hello-effect"],
     files: [
       {
         path: "examples/apple-hello-effect-vi-demo.tsx",
@@ -15,7 +15,7 @@ export const examples: Registry["items"] = [
   {
     name: "apple-hello-effect-en-demo",
     type: "registry:example",
-    registryDependencies: ["@ncdai/apple-hello-effect"],
+    registryDependencies: ["@template/apple-hello-effect"],
     files: [
       {
         path: "examples/apple-hello-effect-en-demo.tsx",
@@ -26,7 +26,7 @@ export const examples: Registry["items"] = [
   {
     name: "theme-switcher-demo",
     type: "registry:example",
-    registryDependencies: ["@ncdai/theme-switcher"],
+    registryDependencies: ["@template/theme-switcher"],
     files: [
       {
         path: "examples/theme-switcher-demo.tsx",
@@ -37,7 +37,7 @@ export const examples: Registry["items"] = [
   {
     name: "wheel-picker-demo",
     type: "registry:example",
-    registryDependencies: ["@ncdai/wheel-picker"],
+    registryDependencies: ["@template/wheel-picker"],
     files: [
       {
         path: "examples/wheel-picker-demo.tsx",
@@ -48,7 +48,7 @@ export const examples: Registry["items"] = [
   {
     name: "wheel-picker-form-demo",
     type: "registry:example",
-    registryDependencies: ["@ncdai/wheel-picker", "form"],
+    registryDependencies: ["@template/wheel-picker", "form"],
     files: [
       {
         path: "examples/wheel-picker-form-demo.tsx",
@@ -59,7 +59,7 @@ export const examples: Registry["items"] = [
   {
     name: "work-experience-demo",
     type: "registry:example",
-    registryDependencies: ["@ncdai/work-experience"],
+    registryDependencies: ["@template/work-experience"],
     files: [
       {
         path: "examples/work-experience-demo.tsx",
@@ -70,7 +70,7 @@ export const examples: Registry["items"] = [
   {
     name: "shimmering-text-demo-01",
     type: "registry:example",
-    registryDependencies: ["@ncdai/shimmering-text"],
+    registryDependencies: ["@template/shimmering-text"],
     files: [
       {
         path: "examples/shimmering-text-demo-01.tsx",
@@ -81,7 +81,7 @@ export const examples: Registry["items"] = [
   {
     name: "shimmering-text-demo-02",
     type: "registry:example",
-    registryDependencies: ["@ncdai/shimmering-text"],
+    registryDependencies: ["@template/shimmering-text"],
     files: [
       {
         path: "examples/shimmering-text-demo-02.tsx",
@@ -92,7 +92,7 @@ export const examples: Registry["items"] = [
   {
     name: "slide-to-unlock-demo-01",
     type: "registry:example",
-    registryDependencies: ["@ncdai/slide-to-unlock", "@ncdai/use-sound"],
+    registryDependencies: ["@template/slide-to-unlock", "@template/use-sound"],
     files: [
       {
         path: "examples/slide-to-unlock-demo-01.tsx",
@@ -103,7 +103,7 @@ export const examples: Registry["items"] = [
   {
     name: "slide-to-unlock-demo-02",
     type: "registry:example",
-    registryDependencies: ["@ncdai/slide-to-unlock"],
+    registryDependencies: ["@template/slide-to-unlock"],
     files: [
       {
         path: "examples/slide-to-unlock-demo-02.tsx",
@@ -114,7 +114,7 @@ export const examples: Registry["items"] = [
   {
     name: "slide-to-unlock-demo-03",
     type: "registry:example",
-    registryDependencies: ["@ncdai/slide-to-unlock"],
+    registryDependencies: ["@template/slide-to-unlock"],
     files: [
       {
         path: "examples/slide-to-unlock-demo-03.tsx",
@@ -125,7 +125,7 @@ export const examples: Registry["items"] = [
   {
     name: "testimonials-marquee-demo-01",
     type: "registry:example",
-    registryDependencies: ["@ncdai/testimonials-marquee"],
+    registryDependencies: ["@template/testimonials-marquee"],
     files: [
       {
         path: "examples/testimonials-marquee-demo-01.tsx",
@@ -136,7 +136,7 @@ export const examples: Registry["items"] = [
   {
     name: "testimonials-marquee-demo-02",
     type: "registry:example",
-    registryDependencies: ["@ncdai/testimonials-marquee"],
+    registryDependencies: ["@template/testimonials-marquee"],
     files: [
       {
         path: "examples/testimonials-marquee-demo-02.tsx",
@@ -147,7 +147,7 @@ export const examples: Registry["items"] = [
   {
     name: "github-stars-demo",
     type: "registry:example",
-    registryDependencies: ["@ncdai/github-stars"],
+    registryDependencies: ["@template/github-stars"],
     files: [
       {
         path: "examples/github-stars-demo.tsx",
@@ -159,7 +159,7 @@ export const examples: Registry["items"] = [
     name: "scroll-fade-effect-demo-01",
     type: "registry:example",
     description: "A scroll fade effect demo with a list of tags.",
-    registryDependencies: ["@ncdai/scroll-fade-effect"],
+    registryDependencies: ["@template/scroll-fade-effect"],
     files: [
       {
         path: "examples/scroll-fade-effect-demo-01.tsx",
@@ -171,7 +171,7 @@ export const examples: Registry["items"] = [
     name: "scroll-fade-effect-demo-02",
     type: "registry:example",
     description: "A scroll fade effect demo with horizontal scrolling.",
-    registryDependencies: ["@ncdai/scroll-fade-effect"],
+    registryDependencies: ["@template/scroll-fade-effect"],
     files: [
       {
         path: "examples/scroll-fade-effect-demo-02.tsx",
@@ -184,7 +184,7 @@ export const examples: Registry["items"] = [
     type: "registry:example",
     description: "A scroll fade effect demo using shadcn/ui Scroll Area.",
     registryDependencies: [
-      "@ncdai/scroll-fade-effect",
+      "@template/scroll-fade-effect",
       "scroll-area",
       "separator",
     ],
@@ -200,7 +200,7 @@ export const examples: Registry["items"] = [
     type: "registry:example",
     description:
       "A demo of ScrollFadeEffect with shadcn/ui Scroll Area (horizontal scrolling).",
-    registryDependencies: ["@ncdai/scroll-fade-effect", "scroll-area"],
+    registryDependencies: ["@template/scroll-fade-effect", "scroll-area"],
     files: [
       {
         path: "examples/scroll-fade-effect-demo-04.tsx",

@@ -1,39 +1,46 @@
 import type { User } from "@/features/portfolio/types/user";
 
 export const USER: User = {
-  firstName: "Paranjay",
-  lastName: "Khachar",
-  displayName: "Paranjay Khachar",
-  username: "paranjayy",
-  gender: "male",
-  pronouns: "he/him",
-  bio: "Building cool stuff with code.",
+  firstName: "Your",
+  lastName: "Name",
+  displayName: "Your Name",
+  username: "your-handle",
+  gender: "non-binary",
+  pronouns: "they/them",
+  bio: "Template portfolio for your work, experiments, and links.",
   flipSentences: [
-    "Building cool stuff with code.",
-    "Student & Developer",
-    "Open Source Enthusiast",
+    "Building thoughtful web experiences.",
+    "Shipping polished interfaces.",
+    "Replace this with your own tagline.",
   ],
-  address: "India",
-  phoneNumber: "", // Will add later
-  email: "a3BhcmFuamF5MjQ1QGdtYWlsLmNvbQ==", // base64 encoded: kparanjay245@gmail.com
-  website: "https://paranjayy.github.io",
-  jobTitle: "Student & Developer",
+  address: "Your City, Your Country",
+  phoneNumber: "KzEgNTU1IDAxMDA=",
+  email: "dGVtcGxhdGVAZXhhbXBsZS5jb20=",
+  website: "https://paranjay.dev",
+  jobTitle: "Template Portfolio",
   jobs: [
     {
-      title: "Student",
-      company: "IIT Madras",
-      website: "https://www.iitm.ac.in",
+      title: "Your Role",
+      company: "Your Company",
+      website: "https://example.com",
     },
   ],
   about: `
-- Currently a **Student** at IIT Madras, passionate about building cool things with code.
-- Exploring **web development**, **open source**, and modern technologies.
-- Love creating projects and learning new things every day.
+- Write a short introduction about yourself here.
+- Keep it focused on what you do, what you like building, and what you want people to remember.
+- Use markdown if you want bullets, links, or emphasis.
+- Replace this placeholder with your own story.
 `,
-  avatar: "/pfp.jpeg",
-  ogImage: "/og-image.png", // Will generate later
-  namePronunciationUrl: "", // Will add later
-  timeZone: "Asia/Kolkata",
-  keywords: ["paranjay", "paranjay khachar", "paranjayy", "kparanjay245"],
+  avatar: "/favicon.svg",
+  ogImage: "/og-image.png",
+  namePronunciationUrl: "",
+  timeZone: "UTC",
+  keywords: [
+    "template",
+    "portfolio",
+    "developer",
+    "designer",
+    "builder",
+  ],
   dateCreated: "2026-02-03",
 };

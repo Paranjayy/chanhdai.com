@@ -6,13 +6,13 @@ export const EXPERIENCES: Experience[] = [
     companyName: "Education",
     positions: [
       {
-        id: "iitm-student",
-        title: "IIT Madras",
+        id: "template-education",
+        title: "Your School or Program",
         employmentPeriod: {
           start: "2024",
         },
         icon: "education",
-        description: `Currently pursuing studies at IIT Madras.`,
+        description: `Replace this with your education, apprenticeship, or work background.`,
         skills: ["Computer Science", "Programming", "Problem Solving"],
         isExpanded: true,
       },
