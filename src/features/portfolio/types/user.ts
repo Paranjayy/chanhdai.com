@@ -31,9 +31,12 @@ export type User = {
     company: string
     website: string
     experienceId?: string
+    logo?: string
   }[]
   /** Rich about section; supports Markdown */
   about: string
+  /** Date of birth in YYYY-MM-DD */
+  dob?: string
   /** Public URL to avatar image */
   avatar: string
   /** Open Graph image URL for social sharing */
