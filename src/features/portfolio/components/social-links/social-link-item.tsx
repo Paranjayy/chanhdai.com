@@ -6,7 +6,7 @@ import type { SocialLink } from "@/features/portfolio/types/social-links"
 import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
 
-export function SocialLinkItem({ icon, title, href }: SocialLink) {
+export function SocialLinkItem({ icon, title, subtitle, href }: SocialLink) {
   return (
     <a
       className={cn(
@@ -31,10 +31,12 @@ export function SocialLinkItem({ icon, title, href }: SocialLink) {
         <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-black/10 ring-inset dark:ring-white/15" />
       </div>
 
-      <div className="flex flex-1 flex-col gap-0.5">
-        <h3 className="text-sm leading-none font-medium">{title}</h3>
+      <div className="flex flex-1 flex-col gap-1">
+        <h3 className="text-sm leading-none font-semibold tracking-tight">
+          {title}
+        </h3>
         {subtitle && (
-          <span className="text-[11px] leading-none text-muted-foreground">
+          <span className="font-mono text-[10px] leading-none text-muted-foreground/70">
             {subtitle}
           </span>
         )}
