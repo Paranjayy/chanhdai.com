@@ -12,7 +12,8 @@ import {
 import { cn } from "@/lib/utils"
 
 export async function SiteFooter() {
-  const stargazersCount = await getStargazerCount()
+  const ORIGINAL_REPO = "ncdai/chanhdai.com"
+  const stargazersCount = await getStargazerCount(ORIGINAL_REPO)
 
   return (
     <footer className="max-w-screen overflow-x-hidden px-2">
@@ -46,7 +47,7 @@ export async function SiteFooter() {
               ncdai/chanhdai.com
             </a>
             <GitHubStars
-              repo={SOURCE_CODE_GITHUB_REPO}
+              repo={ORIGINAL_REPO}
               stargazersCount={stargazersCount}
             />
           </span>

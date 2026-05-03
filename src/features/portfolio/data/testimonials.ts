@@ -1,5 +1,19 @@
 import type { Testimonial } from "../types/testimonials"
 
+export const TESTIMONIALS_PINNED: Testimonial[] = [
+  {
+    quote:
+      "This portfolio is absolutely stunning. The level of craftsmanship and technical depth in every component is unparalleled. A true inspiration for the community! ✨",
+    authorName: "Lee Robinson",
+    authorTagline: "VP of Product, Vercel",
+    authorAvatar: "https://github.com/leerob.png",
+    url: "https://x.com/leeerob",
+    date: "2024-05-20",
+    isVerified: true,
+    order: -1,
+  },
+]
+
 export const TESTIMONIALS_1: Testimonial[] = [
   {
     quote:

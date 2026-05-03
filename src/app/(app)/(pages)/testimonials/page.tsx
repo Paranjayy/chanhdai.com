@@ -10,6 +10,7 @@ import { VerifiedIcon } from "@/features/portfolio/components/verified-icon"
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
+  TESTIMONIALS_PINNED,
 } from "@/features/portfolio/data/testimonials"
 import { cn } from "@/lib/utils"
 import {
@@ -54,9 +55,11 @@ export const metadata: Metadata = {
   },
 }
 
-const TESTIMONIALS = [...TESTIMONIALS_1, ...TESTIMONIALS_2].sort(
-  (a, b) => Number(a.order ?? 999) - Number(b.order ?? 999)
-)
+const TESTIMONIALS = [
+  ...TESTIMONIALS_PINNED,
+  ...TESTIMONIALS_1,
+  ...TESTIMONIALS_2,
+].sort((a, b) => Number(a.order ?? 999) - Number(b.order ?? 999))
 
 export default function TestimonialsPage() {
   return (

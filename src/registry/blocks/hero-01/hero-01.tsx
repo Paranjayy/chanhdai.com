@@ -222,17 +222,20 @@ function MainContent({ className }: { className?: string }) {
       </h1>
 
       <p className="mb-6 text-base leading-normal! text-muted-foreground sm:mb-8 sm:text-xl sm:text-balance md:text-lg lg:text-xl">
-        Acme{" "}
+        Paranjay{" "}
         <button
           className="relative top-0.75 inline-flex transition-[scale] outline-none active:scale-[0.97] sm:top-1"
           aria-label="Pronunciation"
         >
           <Volume2Icon className="size-[1em]" />
         </button>{" "}
-        provides{" "}
-        <strong className="font-normal text-foreground">professional,</strong>{" "}
-        <strong className="font-normal text-foreground">high-quality</strong>{" "}
-        software design and development services based on your ideas.
+        is an{" "}
+        <strong className="font-normal text-foreground">
+          IIT Madras student
+        </strong>{" "}
+        building{" "}
+        <strong className="font-normal text-foreground">high-quality,</strong>{" "}
+        modular software solutions and AI-powered tools.
       </p>
 
       <div className="mb-6 grid grid-cols-2 items-center gap-4 sm:mb-8 sm:flex">

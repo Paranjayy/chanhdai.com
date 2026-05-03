@@ -7,10 +7,10 @@ export const USER: User = {
   username: "Paranjayy",
   gender: "male",
   pronouns: "he/him",
-  bio: "Software Engineer focused on building robust, scalable AI systems.",
+  bio: "BS Student (Data Science & Applications) @ IIT Madras. Passionate about building robust, scalable AI systems.",
   flipSentences: [
     "Building AI-powered developer tools.",
-    "Student @ IIT Madras (BS in DS & Applications).",
+    "IIT Madras BS Student (DS & Applications).",
     "Passionate about open-source and modular design.",
   ],
   address: "Gujarat, India",
@@ -18,7 +18,7 @@ export const USER: User = {
   secondaryEmail: "cGFyYW5qYXlAcGFyYW5qYXkuZGV2", // paranjay@paranjay.dev
   studentEmail: "MjVmMzAwNTkyOEBkcy5zdHVkeS5paXRtLmFjLmlu", // 25f3005928@ds.study.iitm.ac.in
   website: "https://paranjay.dev",
-  jobTitle: "IITM BS DS Student",
+  jobTitle: "IIT Madras BS Student",
   jobs: [
     {
       title: "BS Student (Data Science & Applications)",

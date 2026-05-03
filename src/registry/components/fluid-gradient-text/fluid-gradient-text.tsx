@@ -16,27 +16,27 @@ export function FluidGradientText({
   svgViewBoxWidth = 1200,
   svgViewBoxHeight = 300,
 }: FluidGradientTextProps) {
-  const gradientX1Raw = useMotionValue(svgViewBoxWidth / 2)
-  const gradientX1 = useSpring(gradientX1Raw, {
-    stiffness: 200,
-    damping: 30,
-    mass: 0.5,
-  })
+  const xRaw = useMotionValue(svgViewBoxWidth / 2)
+  const yRaw = useMotionValue(svgViewBoxHeight / 2)
+
+  const x = useSpring(xRaw, { stiffness: 150, damping: 25 })
+  const y = useSpring(yRaw, { stiffness: 150, damping: 25 })
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    const container = event.currentTarget
-    const containerRect = container.getBoundingClientRect()
-    const mouseX = event.clientX - containerRect.left
-    const containerWidth = containerRect.width
+    const rect = event.currentTarget.getBoundingClientRect()
+    const mouseX = event.clientX - rect.left
+    const mouseY = event.clientY - rect.top
 
-    const normalizedX = (mouseX / containerWidth) * svgViewBoxWidth
-    const clampedX = Math.max(0, Math.min(svgViewBoxWidth, normalizedX))
+    const normalizedX = (mouseX / rect.width) * svgViewBoxWidth
+    const normalizedY = (mouseY / rect.height) * svgViewBoxHeight
 
-    gradientX1Raw.set(clampedX)
+    xRaw.set(normalizedX)
+    yRaw.set(normalizedY)
   }
 
   const handleMouseLeave = () => {
-    gradientX1Raw.set(svgViewBoxWidth / 2)
+    xRaw.set(svgViewBoxWidth / 2)
+    yRaw.set(svgViewBoxHeight / 2)
   }
 
   return (
@@ -57,13 +57,16 @@ export function FluidGradientText({
           textAnchor="middle"
           dominantBaseline="central"
           stroke="currentColor"
-          strokeOpacity="0.2"
-          strokeWidth="1.5"
+          strokeOpacity="0.3"
+          strokeWidth="0.5"
           fill="url(#fluid_gradient_text_linear)"
+          filter="drop-shadow(0 0 1px currentColor)"
           style={{
-            fontFamily: "Helvetica",
-            fontSize: svgViewBoxHeight,
-            fontWeight: "bold",
+            fontFamily: "Helvetica, sans-serif",
+            fontSize: svgViewBoxHeight * 0.75,
+            fontWeight: "900",
+            letterSpacing: "-0.05em",
+            textTransform: "uppercase",
           }}
         >
           {text}
@@ -71,14 +74,17 @@ export function FluidGradientText({
         <defs>
           <motion.linearGradient
             id="fluid_gradient_text_linear"
-            x1={gradientX1}
-            y1="0"
-            x2={svgViewBoxWidth / 2}
+            x1={x}
+            y1={y}
+            x2={svgViewBoxWidth}
             y2={svgViewBoxHeight}
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.625" stopColor="currentColor" stopOpacity="0.2" />
-            <stop offset="1" stopColor="currentColor" />
+            <stop offset="0" stopColor="currentColor" stopOpacity="0.1" />
+            <stop offset="0.45" stopColor="currentColor" stopOpacity="0.2" />
+            <stop offset="0.5" stopColor="currentColor" stopOpacity="1" />
+            <stop offset="0.55" stopColor="currentColor" stopOpacity="0.2" />
+            <stop offset="1" stopColor="currentColor" stopOpacity="0.1" />
           </motion.linearGradient>
         </defs>
       </svg>
