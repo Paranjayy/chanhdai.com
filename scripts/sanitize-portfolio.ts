@@ -63,7 +63,6 @@ export const USER: User = {
   bio: "Software Engineer & Designer based in San Francisco.",
   flipSentences: ["Building modern web apps", "Designing pixel-perfect UIs", "Open source enthusiast"],
   address: "San Francisco, CA",
-  phoneNumber: "KzExMTIyMjMzMzQ0NA==", // "+111222333444" in base64
   email: "aGVsbG9AZXhhbXBsZS5jb20=", // "hello@example.com" in base64
   website: "https://example.com",
   jobTitle: "Software Engineer",

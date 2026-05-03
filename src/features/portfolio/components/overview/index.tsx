@@ -22,7 +22,6 @@ import {
 } from "./intro-item"
 import { JobItem } from "./job-item"
 import { LiveAgeCounter } from "./live-age-counter"
-import { PhoneItem } from "./phone-item"
 
 export function Overview() {
   return (
@@ -59,8 +58,6 @@ export function Overview() {
           </IntroItem>
 
           <CurrentLocalTimeItem timeZone={USER.timeZone} />
-
-          <PhoneItem phoneNumber={USER.phoneNumber} />
 
           <EmailItem email={USER.email} />
 
