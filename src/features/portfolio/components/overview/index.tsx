@@ -38,6 +38,7 @@ export function Overview() {
               company={job.company}
               website={job.website}
               experienceId={job.experienceId}
+              logo={job.logo}
             />
           )
         })}

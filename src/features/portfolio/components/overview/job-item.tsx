@@ -15,6 +15,7 @@ type JobItemProps = {
   company: string
   website: string
   experienceId?: string
+  logo?: string
 }
 
 export function JobItem({
@@ -22,10 +23,17 @@ export function JobItem({
   company,
   website,
   experienceId,
+  logo,
 }: JobItemProps) {
   return (
     <IntroItem>
-      <IntroItemIcon>{getJobIcon(title)}</IntroItemIcon>
+      <IntroItemIcon>
+        {logo ? (
+          <img src={logo} alt={company} className="size-full rounded-sm" />
+        ) : (
+          getJobIcon(title)
+        )}
+      </IntroItemIcon>
 
       <IntroItemContent>
         {title} @
