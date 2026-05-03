@@ -18,20 +18,20 @@ export function SiteFooter() {
           Built with care by{" "}
           <a
             className="font-medium text-foreground link-underline"
-            href="https://x.com/iamncdai"
+            href="https://github.com/Paranjayy"
             target="_blank"
             rel="noopener"
           >
-            your-handle
+            Paranjay Khachar
           </a>
-          . The source code is available on{" "}
+          . Forked from{" "}
           <a
             className="font-medium text-foreground link-underline"
-            href={SOURCE_CODE_GITHUB_URL}
+            href="https://github.com/ncdai/chanhdai.com"
             target="_blank"
             rel="noopener"
           >
-            GitHub
+            ncdai
           </a>
           .
         </p>
@@ -51,7 +51,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://x.com/iamncdai?utm_source=chanhdai.com"
+              href="https://x.com/paranjay_k?utm_source=paranjay.dev"
               target="_blank"
               rel="noopener"
               aria-label="X"
@@ -63,7 +63,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://github.com/ncdai?utm_source=chanhdai.com"
+              href="https://github.com/Paranjayy?utm_source=paranjay.dev"
               target="_blank"
               rel="noopener"
               aria-label="GitHub"
@@ -75,7 +75,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://www.linkedin.com/in/ncdai?utm_source=chanhdai.com"
+              href="https://www.linkedin.com/in/paranjay-khachar?utm_source=paranjay.dev"
               target="_blank"
               rel="noopener"
               aria-label="LinkedIn"
@@ -93,21 +93,6 @@ export function SiteFooter() {
               aria-label="RSS"
             >
               <RssIcon className="size-4" />
-            </a>
-
-            <Separator />
-
-            <a
-              className="flex text-muted-foreground transition-[color] hover:text-foreground"
-              href={
-                process.env.NEXT_PUBLIC_DMCA_URL ||
-                "https://www.dmca.com/ProtectionPro.aspx"
-              }
-              target="_blank"
-              rel="noopener"
-              aria-label="DMCA.com Protection Status"
-            >
-              <Icons.dmca className="h-4.5 w-auto" />
             </a>
           </div>
         </div>

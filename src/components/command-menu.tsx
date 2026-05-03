@@ -12,6 +12,7 @@ import {
   Download,
   FileText,
   Layers,
+  Mail,
   MoonStar,
   Quote,
   RssIcon,
@@ -36,6 +37,7 @@ import {
 } from "@/components/ui/command"
 import type { DocPreview } from "@/features/doc/types/document"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
+import { USER } from "@/features/portfolio/data/user"
 import { useClickSound } from "@/hooks/soundcn/use-click-sound"
 import { trackEvent } from "@/lib/events"
 import { copyToClipboardWithEvent } from "@/utils/copy"
@@ -344,6 +346,46 @@ export function CommandMenu({
             onLinkSelect={handleOpenLink}
           />
 
+          <CommandGroup heading="Contact">
+            <CommandItem
+              onSelect={() =>
+                handleCopyText(
+                  atob(USER.email),
+                  "Personal email copied to clipboard"
+                )
+              }
+            >
+              <Mail />
+              Copy Personal Email
+            </CommandItem>
+            {USER.studentEmail && (
+              <CommandItem
+                onSelect={() =>
+                  handleCopyText(
+                    atob(USER.studentEmail!),
+                    "Student email copied to clipboard"
+                  )
+                }
+              >
+                <Mail />
+                Copy Student Email
+              </CommandItem>
+            )}
+            {USER.secondaryEmail && (
+              <CommandItem
+                onSelect={() =>
+                  handleCopyText(
+                    atob(USER.secondaryEmail!),
+                    "Domain email copied to clipboard"
+                  )
+                }
+              >
+                <Mail />
+                Copy Domain Email
+              </CommandItem>
+            )}
+          </CommandGroup>
+
           <CommandGroup heading="Brand Assets">
             <CommandItem
               onSelect={() => {
@@ -546,6 +588,10 @@ function buildCommandMetaMap() {
   commandMetaMap.set("Download Brand Assets", {
     commandKind: "command",
   })
+
+  commandMetaMap.set("Copy Personal Email", { commandKind: "command" })
+  commandMetaMap.set("Copy Student Email", { commandKind: "command" })
+  commandMetaMap.set("Copy Domain Email", { commandKind: "command" })
 
   SOCIAL_LINK_ITEMS.forEach((item) => {
     commandMetaMap.set(item.title, {

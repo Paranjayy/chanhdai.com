@@ -1,15 +1,18 @@
 # Paranjay Khachar
 
-Software Engineer & Founder of Learning OSS. Focused on building robust, scalable AI systems and developer tools.
+Student @ IIT Madras | Exploring, Learning, and Building. Focused on Data Science, AI, and shipping real-world applications.
+
+## Education
+- **IIT Madras**: BS in Data Science and Applications.
 
 ## Projects
-- **Learning OSS**: A platform dedicated to open-source mastery.
 - **Portfolio**: A minimal, pixel-perfect dev portfolio and component registry.
+- More projects coming soon!
 
 ## Socials
 - GitHub: https://github.com/Paranjayy
 - Website: https://paranjay.dev
-- X/Twitter: https://x.com/Paranjayy
+- X/Twitter: https://x.com/paranjay_k
 
 ## Tech Stack
-Next.js, TypeScript, Tailwind CSS, Agentic Workflows.
+Next.js, TypeScript, Tailwind CSS, Data Science, Python.

@@ -1,7 +1,7 @@
 {
-    "short_name": "Portfolio Template",
-    "name": "Portfolio Template",
-    "description": "A template portfolio built with Next.js, Tailwind CSS, and shadcn/ui.",
+    "short_name": "Paranjay",
+    "name": "Paranjay Khachar Portfolio",
+    "description": "Student @ IIT Madras | Exploring, Learning, and Building.",
     "icons": [
         {
             "src": "/favicon.svg",

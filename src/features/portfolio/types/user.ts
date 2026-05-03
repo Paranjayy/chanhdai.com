@@ -17,6 +17,10 @@ export type User = {
   phoneNumber: string
   /** base64 encoded (https://t.io.vn/base64-string-converter) */
   email: string
+  /** secondary/domain email, base64 encoded */
+  secondaryEmail?: string
+  /** student email, base64 encoded */
+  studentEmail?: string
   /** Personal/homepage URL */
   website: string
   /** Primary/current role shown on profile */
