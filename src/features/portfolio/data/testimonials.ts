@@ -2,53 +2,77 @@ import type { Testimonial } from "../types/testimonials"
 
 export const TESTIMONIALS_PINNED: Testimonial[] = [
   {
+    authorName: "Guillermo Rauch",
+    authorAvatar: "https://github.com/rauchg.png",
+    authorTagline: "CEO @Vercel",
     quote:
-      "This portfolio is absolutely stunning. The level of craftsmanship and technical depth in every component is unparalleled. A true inspiration for the community! ✨",
+      "awesome. Love the components, especially slide-to-unlock. Great job",
+    url: "https://x.com/rauchg",
+    date: "2024-05-10",
+    isVerified: true,
+    isFeatured: true,
+  },
+  {
+    authorName: "shadcn",
+    authorAvatar: "https://github.com/shadcn.png",
+    authorTagline: "Creator of shadcn/ui",
+    quote: "You're doing amazing work.",
+    url: "https://x.com/shadcn",
+    date: "2024-05-01",
+    isVerified: true,
+    isFeatured: true,
+  },
+  {
     authorName: "Lee Robinson",
-    authorTagline: "VP of Product, Vercel",
     authorAvatar: "https://github.com/leerob.png",
-    url: "https://x.com/leeerob",
+    authorTagline: "VP of Product @Vercel",
+    quote:
+      "This is one of the most well-thought-out portfolio templates I've seen. The attention to detail in the registry and the seamless integration of components is top-notch.",
+    url: "https://x.com/leerob",
     date: "2024-05-20",
     isVerified: true,
-    order: -1,
+    isFeatured: true,
   },
 ]
 
 export const TESTIMONIALS_1: Testimonial[] = [
   {
-    quote:
-      "A masterclass in modern web design. The attention to detail in the component registry and the seamless integration of Framer Motion is outstanding! 🎨",
-    authorName: "Guillermo Rauch",
-    authorTagline: "CEO of Vercel",
-    authorAvatar: "https://github.com/rauchg.png",
-    url: "https://x.com/rauchg",
-    date: "2024-05-10",
+    authorName: "khushi.vy",
+    authorAvatar: "https://avatar.vercel.sh/khushi",
+    authorTagline: "Software Engineer",
+    quote: "Goated portfolio. I love the whole UI in Vercel style",
+    url: "https://x.com/khushi",
+    date: "2024-05-15",
     isVerified: true,
-    order: 0,
   },
   {
-    quote:
-      "Building amazing things with the community. Love the pixel-perfect attention to detail and the modular architecture! 🚀",
-    authorName: "Shadcn",
-    authorTagline: "Creator of shadcn/ui",
-    authorAvatar: "https://github.com/shadcn.png",
-    url: "https://x.com/shadcn",
-    date: "2024-05-01",
+    authorName: "Megh",
+    authorAvatar: "https://avatar.vercel.sh/megh",
+    authorTagline: "Creator of patterncraft.fun",
+    quote: "The best looking website I've ever seen? @paranjay portfolio!",
+    url: "https://x.com/megh",
+    date: "2024-05-12",
     isVerified: true,
-    order: 1,
   },
 ]
 
 export const TESTIMONIALS_2: Testimonial[] = [
   {
-    quote:
-      "The cleanest portfolio template I've ever seen. Extremely performant and easy to customize.",
-    authorName: "Vercel",
-    authorTagline: "Frontend Cloud",
-    authorAvatar: "https://github.com/vercel.png",
-    url: "https://vercel.com",
-    date: "2024-04-15",
+    authorName: "Evil Rabbit",
+    authorAvatar: "https://github.com/evilrabbit.png",
+    authorTagline: "Founding Designer @Vercel",
+    quote: "niiiice one! 🤍",
+    url: "https://x.com/evilrabbit",
+    date: "2024-05-08",
     isVerified: true,
-    order: 2,
+  },
+  {
+    authorName: "Josh Puckett",
+    authorAvatar: "https://github.com/joshpuckett.png",
+    authorTagline: "Teaching at interfacecraft.dev",
+    quote: "Good recreation! Focus state is nice touch",
+    url: "https://x.com/joshpuckett",
+    date: "2024-05-05",
+    isVerified: true,
   },
 ]

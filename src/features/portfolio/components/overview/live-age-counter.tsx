@@ -1,11 +1,31 @@
-import React from "react"
+"use client"
 
-type Props = React.HTMLAttributes<HTMLSpanElement> & { value?: string }
+import React, { useEffect, useState } from "react"
 
-export function LiveAgeCounter({ className, value = "--", ...props }: Props) {
+import { USER } from "@/features/portfolio/data/user"
+
+type Props = React.HTMLAttributes<HTMLSpanElement>
+
+export function LiveAgeCounter({ className, ...props }: Props) {
+  const [age, setAge] = useState<string>("")
+
+  useEffect(() => {
+    if (!USER.dob) return
+
+    const dob = new Date(USER.dob)
+    const interval = setInterval(() => {
+      const now = new Date()
+      const diff = now.getTime() - dob.getTime()
+      const ageInYears = diff / (1000 * 60 * 60 * 24 * 365.25)
+      setAge(ageInYears.toFixed(9))
+    }, 50)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <span className={className} aria-hidden={false} {...props}>
-      {value}
+      {age || "--"}
     </span>
   )
 }

@@ -68,7 +68,7 @@ export async function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://x.com/paranjay_k?utm_source=paranjay.dev"
+              href="https://x.com/paranjay245"
               target="_blank"
               rel="noopener"
               aria-label="X"
@@ -80,7 +80,7 @@ export async function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://github.com/Paranjayy?utm_source=paranjay.dev"
+              href="https://github.com/Paranjayy"
               target="_blank"
               rel="noopener"
               aria-label="GitHub"
@@ -92,7 +92,7 @@ export async function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://www.linkedin.com/in/paranjay-khachar?utm_source=paranjay.dev"
+              href="https://www.linkedin.com/in/paranjayy/"
               target="_blank"
               rel="noopener"
               aria-label="LinkedIn"

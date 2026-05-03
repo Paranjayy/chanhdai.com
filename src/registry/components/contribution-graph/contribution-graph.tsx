@@ -369,13 +369,24 @@ export const ContributionGraphCalendar = ({
   children,
   ...props
 }: ContributionGraphCalendarProps) => {
-  const { weeks, width, height, blockSize, blockMargin, labels } =
-    useContributionGraph()
+  const {
+    weeks,
+    width,
+    height,
+    blockSize,
+    blockMargin,
+    labels,
+    fontSize,
+    labelHeight,
+  } = useContributionGraph()
 
   const monthLabels = useMemo(
     () => getMonthLabels(weeks, labels.months),
     [weeks, labels.months]
   )
+
+  const DAY_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""]
+  const LABEL_WIDTH = 30
 
   return (
     <div
@@ -385,8 +396,8 @@ export const ContributionGraphCalendar = ({
       <svg
         className="block overflow-visible"
         height={height}
-        viewBox={`0 0 ${width} ${height}`}
-        width={width}
+        viewBox={`-${LABEL_WIDTH} 0 ${width + LABEL_WIDTH} ${height}`}
+        width={width + LABEL_WIDTH}
       >
         <title>{title}</title>
         {!hideMonthLabels && (
@@ -396,12 +407,37 @@ export const ContributionGraphCalendar = ({
                 dominantBaseline="hanging"
                 key={weekIndex}
                 x={(blockSize + blockMargin) * weekIndex}
+                fontSize={fontSize - 4}
+                className="fill-muted-foreground/50 font-mono"
               >
                 {label}
               </text>
             ))}
           </g>
         )}
+
+        <g className="fill-current">
+          {DAY_LABELS.map((label, dayIndex) => {
+            if (!label) return null
+            return (
+              <text
+                key={dayIndex}
+                x={-LABEL_WIDTH + 4}
+                y={
+                  labelHeight +
+                  (blockSize + blockMargin) * dayIndex +
+                  blockSize / 2
+                }
+                dominantBaseline="central"
+                fontSize={fontSize - 4}
+                className="fill-muted-foreground/50 font-mono"
+              >
+                {label}
+              </text>
+            )
+          })}
+        </g>
+
         {weeks.map((week, weekIndex) =>
           week.map((activity, dayIndex) => {
             if (!activity) {

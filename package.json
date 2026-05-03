@@ -1,19 +1,19 @@
 {
-  "name": "portfolio-template",
+  "name": "paranjay-khachar-portfolio",
   "version": "0.1.0",
-  "description": "A minimal, pixel-perfect dev portfolio, shadcn registry, and blog.",
-  "homepage": "https://chanhdai.com",
+  "description": "IIT Madras BS Student, Design Engineer, and Full-stack Developer portfolio.",
+  "homepage": "https://paranjay.dev",
   "license": "MIT",
   "author": {
-    "name": "Your Name",
-    "email": "hello@example.com",
-    "url": "https://github.com/your-handle"
+    "name": "Paranjay Khachar",
+    "email": "paranjay245@gmail.com",
+    "url": "https://github.com/Paranjayy"
   },
   "contributors": [
     {
-      "name": "Your Name",
-      "email": "hello@example.com",
-      "url": "https://github.com/your-handle"
+      "name": "Paranjay Khachar",
+      "email": "paranjay245@gmail.com",
+      "url": "https://github.com/Paranjayy"
     },
     {
       "name": "Nguyen Chanh Dai",
@@ -23,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-handle/portfolio-template.git"
+    "url": "git+https://github.com/Paranjayy/chanhdai.com.git"
   },
   "scripts": {
     "dev": "portless ncdai next dev",

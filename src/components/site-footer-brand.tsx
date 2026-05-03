@@ -47,8 +47,12 @@ export function SiteFooterInteractiveLogotype() {
               x="50%"
               y="100%"
               textAnchor="middle"
+              stroke="currentColor"
+              strokeOpacity="0.15"
+              strokeWidth="1"
               fill="url(#paint0_linear_1145_73)"
               className="font-black"
+              filter="drop-shadow(0 0 1px currentColor)"
               style={{
                 fontSize: "260px",
                 letterSpacing: "-0.05em",

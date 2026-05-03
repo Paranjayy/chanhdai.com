@@ -80,19 +80,35 @@ export default function Page() {
         />
       ))}
 
-      <div className="flex justify-center py-2">
-        <Button
-          className="gap-2 border-none pr-2.5 pl-3"
-          size="sm"
-          nativeButton={false}
-          render={<a href={SPONSORSHIP_URL} target="_blank" rel="noopener" />}
-        >
-          Sponsor My Work
-          <ArrowUpRightIcon />
-        </Button>
+      <div className="mx-auto max-w-2xl px-4 py-8 text-center sm:py-12">
+        <h2 className="mb-4 text-xl font-semibold tracking-tight">
+          Why sponsor my work?
+        </h2>
+        <p className="mb-8 text-muted-foreground">
+          Your support helps me maintain existing open-source projects, build
+          new developer tools, and continue creating high-quality educational
+          content for the community. Every contribution, no matter the size,
+          makes a difference.
+        </p>
+
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Button
+            className="gap-2 border-none pr-2.5 pl-3"
+            size="lg"
+            nativeButton={false}
+            render={<a href={SPONSORSHIP_URL} target="_blank" rel="noopener" />}
+          >
+            Sponsor on GitHub
+            <ArrowUpRightIcon className="size-4" />
+          </Button>
+          <p className="text-xs text-muted-foreground sm:max-w-xs sm:text-left">
+            Directly supporting the development of next-generation developer
+            tools and open-source templates.
+          </p>
+        </div>
       </div>
 
-      <div className="screen-line-top h-4" />
+      <div className="screen-line-top h-8" />
     </div>
   )
 }

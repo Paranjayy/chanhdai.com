@@ -11,7 +11,8 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "iit-madras",
     companyName: "Indian Institute of Technology Madras",
-    companyLogo: "https://assets.chanhdai.com/images/companies/iitm.svg",
+    companyLogo:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/1280px-IIT_Madras_Logo.svg.png",
     companyWebsite: "https://www.iitm.ac.in/",
     positions: [
       {

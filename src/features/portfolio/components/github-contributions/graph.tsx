@@ -75,7 +75,7 @@ export function GitHubContributionGraph({
             )}
           </ContributionGraphTotalCount>
 
-          <div className="flex items-center gap-4 text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 text-muted-foreground">
             <div className="flex items-center gap-1.5">
               <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
                 Streak
@@ -90,6 +90,24 @@ export function GitHubContributionGraph({
               </span>
               <span className="font-mono text-sm font-medium text-foreground">
                 {bestStreak}
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
+                Most
+              </span>
+              <span className="font-mono text-sm font-medium text-foreground">
+                {Math.max(...data.map((d) => d.count))}
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
+                Average
+              </span>
+              <span className="font-mono text-sm font-medium text-foreground">
+                {(
+                  data.reduce((acc, curr) => acc + curr.count, 0) / data.length
+                ).toFixed(1)}
               </span>
             </div>
           </div>

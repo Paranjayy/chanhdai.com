@@ -3,9 +3,9 @@
 import { useRef } from "react"
 
 import { BrandContextMenu } from "@/components/brand-context-menu"
-import { BrandMark } from "@/components/brand-mark"
 import { Magnet } from "@/components/react-bits/magnet"
 import { cn } from "@/lib/utils"
+import { FluidGradientText } from "@/registry/components/fluid-gradient-text/fluid-gradient-text"
 
 export function ProfileCover() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -22,7 +22,11 @@ export function ProfileCover() {
         )}
       >
         <Magnet containerRef={containerRef} magnetStrength={6}>
-          <BrandMark className="h-14 w-28 sm:h-16 sm:w-32" />
+          <FluidGradientText
+            text="PARANJAY"
+            text2="KHACHAR"
+            className="h-20 w-full sm:h-24"
+          />
         </Magnet>
       </div>
     </BrandContextMenu>

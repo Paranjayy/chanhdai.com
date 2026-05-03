@@ -45,10 +45,11 @@ export const MOBILE_NAV: NavItem[] = [
   ...MAIN_NAV,
 ]
 
-export const X_HANDLE = "@Paranjayy"
+export const X_HANDLE = "@paranjay245"
 export const GITHUB_USERNAME = "Paranjayy"
-export const SOURCE_CODE_GITHUB_REPO = "Paranjayy/portfolio"
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/Paranjayy/portfolio"
+export const SOURCE_CODE_GITHUB_REPO = "Paranjayy/chanhdai.com"
+export const SOURCE_CODE_GITHUB_URL =
+  "https://github.com/Paranjayy/chanhdai.com"
 
 export const SPONSORSHIP_URL = "https://github.com/sponsors/Paranjayy"
 

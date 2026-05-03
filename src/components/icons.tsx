@@ -94,6 +94,14 @@ export const Icons = {
       />
     </svg>
   ),
+  posthog: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden {...props}>
+      <path
+        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18.75a6.75 6.75 0 110-13.5 6.75 6.75 0 010 13.5z"
+        fill="currentColor"
+      />
+    </svg>
+  ),
   github: (props: IconProps) => (
     <svg viewBox="0 0 24 24" aria-hidden {...props}>
       <path

@@ -10,39 +10,25 @@ export function SocialLinkItem({ icon, title, subtitle, href }: SocialLink) {
   return (
     <a
       className={cn(
-        "flex cursor-pointer items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
-        "max-md:nth-[2n+1]:screen-line-top max-md:nth-[2n+1]:screen-line-bottom",
-        "md:nth-[3n+1]:screen-line-top md:nth-[3n+1]:screen-line-bottom"
+        "group flex flex-col items-center justify-center gap-2 p-3 transition-all duration-200 hover:bg-accent-muted",
+        "border-r border-b border-line last:border-r-0"
       )}
       href={addQueryParams(href, UTM_PARAMS)}
       target="_blank"
       rel="noopener"
+      title={`${title}${subtitle ? ` (${subtitle})` : ""}`}
     >
-      <div className="relative size-8 shrink-0">
-        <Image
-          className="rounded-lg select-none"
+      <div className="relative size-6 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+        <img
+          className="size-full object-contain opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 dark:opacity-70 dark:group-hover:opacity-100"
           src={icon}
           alt={title}
-          width={32}
-          height={32}
-          quality={100}
-          unoptimized
+          loading="lazy"
         />
-        <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-black/10 ring-inset dark:ring-white/15" />
       </div>
-
-      <div className="flex flex-1 flex-col gap-1">
-        <h3 className="text-sm leading-none font-semibold tracking-tight">
-          {title}
-        </h3>
-        {subtitle && (
-          <span className="font-mono text-[10px] leading-none text-muted-foreground/70">
-            {subtitle}
-          </span>
-        )}
-      </div>
-
-      <ArrowUpRightIcon className="size-4 text-muted-foreground" />
+      <span className="max-w-full truncate font-mono text-[10px] font-medium text-muted-foreground transition-colors group-hover:text-foreground">
+        {title}
+      </span>
     </a>
   )
 }

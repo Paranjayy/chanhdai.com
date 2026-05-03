@@ -7,6 +7,7 @@ import {
   VenusIcon,
 } from "lucide-react"
 
+import { Icons } from "@/components/icons"
 import { USER } from "@/features/portfolio/data/user"
 import type { User } from "@/features/portfolio/types/user"
 import { urlToName } from "@/utils/url"
@@ -87,8 +88,19 @@ export function Overview() {
               <CakeIcon />
             </IntroItemIcon>
             <IntroItemContent aria-label="Age">
-              <LiveAgeCounter className="tabular-nums" />
+              <LiveAgeCounter className="font-mono tabular-nums" />
               <span className="text-muted-foreground"> years</span>
+            </IntroItemContent>
+          </IntroItem>
+
+          <IntroItem>
+            <IntroItemIcon>
+              <Icons.github className="size-4" />
+            </IntroItemIcon>
+            <IntroItemContent aria-label="GitHub Stats">
+              <span className="font-mono text-xs">
+                Avg: <span className="text-foreground">--</span> / day
+              </span>
             </IntroItemContent>
           </IntroItem>
         </div>
