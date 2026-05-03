@@ -57,8 +57,8 @@ export function FluidGradientText({
           textAnchor="middle"
           dominantBaseline="central"
           stroke="currentColor"
-          strokeOpacity="0.1"
-          strokeWidth="2"
+          strokeOpacity="0.2"
+          strokeWidth="1.5"
           fill="url(#fluid_gradient_text_linear)"
           style={{
             fontFamily: "Helvetica",
@@ -77,7 +77,7 @@ export function FluidGradientText({
             y2={svgViewBoxHeight}
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.625" stopColor="currentColor" stopOpacity="0" />
+            <stop offset="0.625" stopColor="currentColor" stopOpacity="0.2" />
             <stop offset="1" stopColor="currentColor" />
           </motion.linearGradient>
         </defs>

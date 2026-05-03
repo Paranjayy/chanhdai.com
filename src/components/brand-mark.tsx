@@ -12,14 +12,19 @@ export function BrandMark({
       className={cn("h-10 w-12", className)}
       {...props}
     >
-      <rect x="4" y="4" width="4" height="16" fill="currentColor" />
-      <rect x="8" y="10" width="4" height="4" fill="currentColor" />
-      <rect x="12" y="6" width="4" height="4" fill="currentColor" />
-      <rect x="12" y="14" width="4" height="4" fill="currentColor" />
-      <rect x="20" y="4" width="4" height="4" fill="currentColor" />
-      <rect x="20" y="10" width="4" height="4" fill="currentColor" />
-      <rect x="20" y="16" width="4" height="4" fill="currentColor" />
-      <rect x="24" y="6" width="4" height="8" fill="currentColor" />
+      {/* K */}
+      <rect x="4" y="4" width="3" height="16" fill="currentColor" />
+      <rect x="7" y="11" width="3" height="2" fill="currentColor" />
+      <rect x="10" y="7" width="3" height="4" fill="currentColor" />
+      <rect x="10" y="13" width="3" height="4" fill="currentColor" />
+      <rect x="13" y="4" width="3" height="3" fill="currentColor" />
+      <rect x="13" y="17" width="3" height="3" fill="currentColor" />
+
+      {/* P */}
+      <rect x="20" y="4" width="3" height="16" fill="currentColor" />
+      <rect x="23" y="4" width="5" height="2" fill="currentColor" />
+      <rect x="23" y="11" width="5" height="2" fill="currentColor" />
+      <rect x="27" y="6" width="2" height="5" fill="currentColor" />
     </svg>
   )
 }

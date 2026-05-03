@@ -19,11 +19,11 @@ export const USER: User = {
   secondaryEmail: "cGFyYW5qYXlAcGFyYW5qYXkuZGV2", // paranjay@paranjay.dev
   studentEmail: "MjVmMzAwNTkyOEBkcy5zdHVkeS5paXRtLmFjLmlu", // 25f3005928@ds.study.iitm.ac.in
   website: "https://paranjay.dev",
-  jobTitle: "Student @ IIT Madras",
+  jobTitle: "IITM Student",
   jobs: [
     {
-      title: "Student (BS in Data Science & Applications)",
-      company: "Indian Institute of Technology Madras",
+      title: "Student (BS in DS & Applications)",
+      company: "IIT Madras",
       website: "https://www.iitm.ac.in/",
       experienceId: "iit-madras",
     },
