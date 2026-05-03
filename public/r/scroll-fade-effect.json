@@ -2,15 +2,12 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "scroll-fade-effect",
   "title": "Scroll Fade Effect",
-  "author": "Template Author <hello@example.com>",
-  "description": "A React component that adds a fade effect to content as you scroll.",
-  "registryDependencies": [
-    "@template/utils"
-  ],
+  "author": "ncdai <dai@chanhdai.com>",
+  "description": "Fade content edges as you scroll, for both vertical and horizontal layouts.",
   "files": [
     {
-      "path": "src/registry/scroll-fade-effect/scroll-fade-effect.tsx",
-      "content": "import React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport function ScrollFadeEffect({\n  className,\n  orientation = \"vertical\",\n  ...props\n}: React.ComponentProps<\"div\"> & {\n  orientation?: \"horizontal\" | \"vertical\";\n}) {\n  return (\n    <div\n      data-orientation={orientation}\n      className={cn(\n        \"data-[orientation=horizontal]:overflow-x-auto data-[orientation=vertical]:overflow-y-auto\",\n        \"data-[orientation=horizontal]:scroll-fade-effect-x data-[orientation=vertical]:scroll-fade-effect-y\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n",
+      "path": "src/registry/components/scroll-fade-effect/scroll-fade-effect.tsx",
+      "content": "import type { ComponentProps } from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type ScrollFadeEffectProps = ComponentProps<\"div\"> & {\n  /**\n   * Scroll direction to apply the fade effect.\n   * @defaultValue \"vertical\"\n   * */\n  orientation?: \"horizontal\" | \"vertical\"\n}\n\nexport function ScrollFadeEffect({\n  className,\n  orientation = \"vertical\",\n  ...props\n}: ScrollFadeEffectProps) {\n  return (\n    <div\n      data-orientation={orientation}\n      className={cn(\n        \"data-[orientation=horizontal]:overflow-x-auto data-vertical:overflow-y-auto\",\n        \"data-[orientation=horizontal]:scroll-fade-effect-x data-vertical:scroll-fade-effect-y\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n",
       "type": "registry:component"
     }
   ],

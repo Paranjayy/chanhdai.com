@@ -1,27 +1,48 @@
-"use client";
+"use client"
 
-import { PhoneIcon } from "lucide-react";
+import { useTiks } from "@rexa-developer/tiks/react"
+import { PhoneIcon } from "lucide-react"
+import { useHotkeys } from "react-hotkeys-hook"
+import { toast } from "sonner"
 
-import { useIsClient } from "@/hooks/use-is-client";
-import { decodePhoneNumber, formatPhoneNumber } from "@/utils/string";
+import { useIsClient } from "@/hooks/use-is-client"
+import { trackEvent } from "@/lib/events"
+import { CopyButton } from "@/registry/components/copy-button"
+import { copyToClipboardWithEvent } from "@/utils/copy"
+import { decodePhoneNumber, formatPhoneNumber } from "@/utils/string"
 
 import {
   IntroItem,
   IntroItemContent,
   IntroItemIcon,
   IntroItemLink,
-} from "./intro-item";
+} from "./intro-item"
 
 type PhoneItemProps = {
-  phoneNumber: string;
-};
+  phoneNumber: string
+}
 
 export function PhoneItem({ phoneNumber }: PhoneItemProps) {
-  const isClient = useIsClient();
-  const phoneNumberDecoded = decodePhoneNumber(phoneNumber);
+  const isClient = useIsClient()
+  const phoneNumberDecoded = decodePhoneNumber(phoneNumber)
+  const phoneNumberFormatted = formatPhoneNumber(phoneNumberDecoded)
+
+  const { success } = useTiks()
+
+  useHotkeys("shift+p", () => {
+    copyToClipboardWithEvent(phoneNumberDecoded, {
+      name: "copy_phone_number",
+      properties: {
+        method: "keyboard",
+        key: "shift+p",
+      },
+    })
+    success()
+    toast.success("Phone number copied")
+  })
 
   return (
-    <IntroItem>
+    <IntroItem className="group">
       <IntroItemIcon>
         <PhoneIcon />
       </IntroItemIcon>
@@ -30,16 +51,29 @@ export function PhoneItem({ phoneNumber }: PhoneItemProps) {
         <IntroItemLink
           href={isClient ? `tel:${phoneNumberDecoded}` : "#"}
           aria-label={
-            isClient
-              ? `Call ${formatPhoneNumber(phoneNumberDecoded)}`
-              : "Phone number"
+            isClient ? `Call ${phoneNumberFormatted}` : "Phone number"
           }
         >
-          {isClient
-            ? formatPhoneNumber(phoneNumberDecoded)
-            : "[Phone protected]"}
+          {isClient ? phoneNumberFormatted : "[Phone protected]"}
         </IntroItemLink>
       </IntroItemContent>
+
+      <div className="-translate-x-3 opacity-0 transition-opacity ease-out group-hover:opacity-100">
+        <CopyButton
+          className="rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-3.5"
+          variant="ghost"
+          size="icon-xs"
+          text={isClient ? phoneNumberDecoded : "[Phone protected]"}
+          onCopySuccess={() => {
+            trackEvent({
+              name: "copy_phone_number",
+              properties: {
+                method: "button",
+              },
+            })
+          }}
+        />
+      </div>
     </IntroItem>
-  );
+  )
 }

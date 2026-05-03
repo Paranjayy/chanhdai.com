@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { useMemo } from "react";
+import { useMemo } from "react"
 
 import {
   Tabs,
@@ -8,13 +8,13 @@ import {
   TabsIndicator,
   TabsList,
   TabsTrigger,
-} from "@/components/base/ui/tabs";
-import type { PackageManager } from "@/hooks/use-config";
-import { useConfig } from "@/hooks/use-config";
-import type { NpmCommands } from "@/types/unist";
+} from "@/components/base/ui/tabs"
+import type { PackageManager } from "@/hooks/use-package-manager"
+import { usePackageManager } from "@/hooks/use-package-manager"
+import type { NpmCommands } from "@/types/unist"
 
-import { CopyButton } from "./copy-button";
-import { getIconForPackageManager } from "./icons";
+import { CopyButton } from "./copy-button"
+import { getIconForPackageManager } from "./icons"
 
 export function CodeBlockCommand({
   __pnpm__,
@@ -22,9 +22,7 @@ export function CodeBlockCommand({
   __npm__,
   __bun__,
 }: NpmCommands) {
-  const [config, setConfig] = useConfig();
-
-  const packageManager = config.packageManager || "pnpm";
+  const [packageManager, setPackageManager] = usePackageManager()
 
   const tabs = useMemo(() => {
     return {
@@ -32,23 +30,20 @@ export function CodeBlockCommand({
       yarn: __yarn__,
       npm: __npm__,
       bun: __bun__,
-    };
-  }, [__pnpm__, __yarn__, __npm__, __bun__]);
+    }
+  }, [__pnpm__, __yarn__, __npm__, __bun__])
 
   return (
-    <div className="relative overflow-hidden rounded-xl bg-code">
+    <div data-slot="code-block-command" className="relative">
       <Tabs
         className="gap-0"
         value={packageManager}
         onValueChange={(value) => {
-          setConfig((prev) => ({
-            ...prev,
-            packageManager: value as PackageManager,
-          }));
+          setPackageManager(value as PackageManager)
         }}
       >
-        <div className="px-4 shadow-[inset_0_-1px_0_0] shadow-border">
-          <TabsList className="h-10 rounded-none bg-transparent p-0 dark:bg-transparent [&_svg]:me-2 [&_svg]:size-4 [&_svg]:text-muted-foreground">
+        <div className="px-3">
+          <TabsList className="h-10 rounded-none bg-transparent p-0 dark:bg-transparent [&_svg]:mr-2 [&_svg]:size-4 [&_svg]:text-muted-foreground">
             {getIconForPackageManager(packageManager)}
 
             {Object.entries(tabs).map(([key]) => {
@@ -60,35 +55,40 @@ export function CodeBlockCommand({
                 >
                   {key}
                 </TabsTrigger>
-              );
+              )
             })}
 
-            <TabsIndicator className="h-0.5 translate-y-0 rounded-none bg-foreground shadow-none dark:bg-foreground" />
+            <TabsIndicator className="h-0.5 translate-y-px rounded-none bg-foreground shadow-none dark:bg-foreground" />
           </TabsList>
         </div>
 
         {Object.entries(tabs).map(([key, value]) => {
           return (
             <TabsContent key={key} value={key}>
-              <pre>
-                <code
-                  data-slot="code-block"
-                  data-language="bash"
-                  className="font-mono text-sm leading-none text-code-foreground"
-                >
-                  {value}
-                </code>
-              </pre>
+              <div className="rounded-[9px] border bg-background">
+                <pre className="overflow-x-auto overscroll-x-contain leading-5">
+                  <code
+                    data-slot="code-block"
+                    data-language="bash"
+                    className="font-mono text-sm/none text-muted-foreground"
+                  >
+                    <span className="select-none">$ </span>
+                    {value}
+                  </code>
+                </pre>
+              </div>
             </TabsContent>
-          );
+          )
         })}
       </Tabs>
 
       <CopyButton
-        className="absolute top-2 right-2"
-        value={tabs[packageManager] || ""}
+        className="absolute top-1.5 right-0.5 z-10 size-7 rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-4"
+        variant="ghost"
+        size="icon-xs"
+        text={tabs[packageManager] || ""}
         event="copy_npm_command"
       />
     </div>
-  );
+  )
 }

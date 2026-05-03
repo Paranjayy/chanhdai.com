@@ -1,15 +1,14 @@
-import { ArrowRightIcon } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+import { ArrowRightIcon } from "lucide-react"
+import Link from "next/link"
 
-import { Button } from "@/components/ui/button";
-import { PostItem } from "@/features/blog/components/post-item";
-import { getAllPosts } from "@/features/blog/data/posts";
+import { Button } from "@/components/base/ui/button"
+import { PostItem } from "@/features/blog/components/post-item"
+import { getAllDocs } from "@/features/doc/data/documents"
 
-import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel";
+import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
 
 export function Blog() {
-  const allPosts = getAllPosts();
+  const allPosts = getAllDocs()
 
   return (
     <Panel id="blog">
@@ -22,25 +21,28 @@ export function Blog() {
 
       <div className="relative py-4">
         <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
-          <div className="border-r border-edge"></div>
-          <div className="border-l border-edge"></div>
+          <div className="border-r border-line"></div>
+          <div className="border-l border-line"></div>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {allPosts.slice(0, 4).map((post) => (
-            <PostItem key={post.slug} post={post} />
+            <PostItem key={post.slug} post={post} imageLoading="lazy" />
           ))}
         </div>
       </div>
 
-      <div className="screen-line-before flex justify-center py-2">
-        <Button className="px-3" variant="default" asChild>
-          <Link href="/blog">
-            All Posts
-            <ArrowRightIcon />
-          </Link>
+      <div className="screen-line-top flex justify-center py-2">
+        <Button
+          className="gap-2 border-none pr-2.5 pl-3"
+          size="sm"
+          nativeButton={false}
+          render={<Link href="/blog" />}
+        >
+          All Posts
+          <ArrowRightIcon />
         </Button>
       </div>
     </Panel>
-  );
+  )
 }

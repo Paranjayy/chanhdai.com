@@ -1,19 +1,20 @@
-"use client";
+"use client"
 
-import type { HTMLAttributes, ReactNode } from "react";
-import React, { useEffect, useRef, useState } from "react";
+import type { HTMLAttributes, ReactNode } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 interface MagnetProps extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
-  padding?: number;
-  disabled?: boolean;
-  magnetStrength?: number;
-  activeTransition?: string;
-  inactiveTransition?: string;
-  wrapperClassName?: string;
-  innerClassName?: string;
+  children: ReactNode
+  padding?: number
+  disabled?: boolean
+  magnetStrength?: number
+  activeTransition?: string
+  inactiveTransition?: string
+  wrapperClassName?: string
+  innerClassName?: string
+  containerRef?: React.RefObject<HTMLElement | null>
 }
 
 export const Magnet: React.FC<MagnetProps> = ({
@@ -25,51 +26,54 @@ export const Magnet: React.FC<MagnetProps> = ({
   inactiveTransition = "transform 0.5s ease-in-out",
   wrapperClassName = "",
   innerClassName = "",
+  containerRef,
   ...props
 }) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(false)
   const [position, setPosition] = useState<{ x: number; y: number }>({
     x: 0,
     y: 0,
-  });
+  })
 
-  const magnetRef = useRef<HTMLDivElement>(null);
+  const magnetRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (disabled) return;
+    if (disabled) return
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!magnetRef.current) return;
+    const targetElement = containerRef?.current ?? window
+    const handleMouseMove = (e: Event) => {
+      if (!magnetRef.current) return
+      if (!(e instanceof MouseEvent)) return
 
       const { left, top, width, height } =
-        magnetRef.current.getBoundingClientRect();
+        magnetRef.current.getBoundingClientRect()
 
-      const centerX = left + width / 2;
-      const centerY = top + height / 2;
+      const centerX = left + width / 2
+      const centerY = top + height / 2
 
-      const distX = Math.abs(centerX - e.clientX);
-      const distY = Math.abs(centerY - e.clientY);
+      const distX = Math.abs(centerX - e.clientX)
+      const distY = Math.abs(centerY - e.clientY)
 
       if (distX < width / 2 + padding && distY < height / 2 + padding) {
-        setIsActive(true);
-        const offsetX = (e.clientX - centerX) / magnetStrength;
-        const offsetY = (e.clientY - centerY) / magnetStrength;
-        setPosition({ x: offsetX, y: offsetY });
+        setIsActive(true)
+        const offsetX = (e.clientX - centerX) / magnetStrength
+        const offsetY = (e.clientY - centerY) / magnetStrength
+        setPosition({ x: offsetX, y: offsetY })
       } else {
-        setIsActive(false);
-        setPosition({ x: 0, y: 0 });
+        setIsActive(false)
+        setPosition({ x: 0, y: 0 })
       }
-    };
+    }
 
-    window.addEventListener("mousemove", handleMouseMove);
+    targetElement.addEventListener("mousemove", handleMouseMove)
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [padding, disabled, magnetStrength]);
+      targetElement.removeEventListener("mousemove", handleMouseMove)
+    }
+  }, [padding, disabled, magnetStrength, containerRef])
 
-  const finalPosition = disabled ? { x: 0, y: 0 } : position;
-  const transitionStyle = isActive ? activeTransition : inactiveTransition;
+  const finalPosition = disabled ? { x: 0, y: 0 } : position
+  const transitionStyle = isActive ? activeTransition : inactiveTransition
 
   return (
     <div
@@ -87,5 +91,5 @@ export const Magnet: React.FC<MagnetProps> = ({
         {children}
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,46 +1,39 @@
-import type { User } from "@/features/portfolio/types/user";
+import type { User } from "@/features/portfolio/types/user"
 
 export const USER: User = {
-  firstName: "Your",
-  lastName: "Name",
-  displayName: "Your Name",
-  username: "your-handle",
-  gender: "non-binary",
-  pronouns: "they/them",
-  bio: "Template portfolio for your work, experiments, and links.",
+  firstName: "Paranjay",
+  lastName: "",
+  displayName: "Paranjay",
+  username: "Paranjayy",
+  gender: "male",
+  pronouns: "he/him",
+  bio: "Building the future of agentic coding.",
   flipSentences: [
-    "Building thoughtful web experiences.",
-    "Shipping polished interfaces.",
-    "Replace this with your own tagline.",
+    "Software Engineer @ Learning OSS.",
+    "Building AI-powered developer tools.",
+    "Passionate about open source.",
   ],
-  address: "Your City, Your Country",
-  phoneNumber: "KzEgNTU1IDAxMDA=",
-  email: "dGVtcGxhdGVAZXhhbXBsZS5jb20=",
+  address: "London, UK",
+  phoneNumber: "KzQ0IDc0NDIgNTY3ODkw", // Base64 for +44 ... (placeholder)
+  email: "aGVsbG9AcGFyYW5qYXkuZGV2", // hello@paranjay.dev
   website: "https://paranjay.dev",
-  jobTitle: "Template Portfolio",
+  jobTitle: "Software Engineer",
   jobs: [
     {
-      title: "Your Role",
-      company: "Your Company",
-      website: "https://example.com",
+      title: "Founder & Lead",
+      company: "Learning OSS",
+      website: "https://learning.paranjay.dev",
+      experienceId: "learning-oss",
     },
   ],
   about: `
-- Write a short introduction about yourself here.
-- Keep it focused on what you do, what you like building, and what you want people to remember.
-- Use markdown if you want bullets, links, or emphasis.
-- Replace this placeholder with your own story.
+- Software Engineer focused on building robust, scalable AI systems.
+- Founder of Learning OSS, a platform for open-source mastery.
+- Expert in Next.js, TypeScript, and Agentic workflows.
 `,
-  avatar: "/favicon.svg",
-  ogImage: "/og-image.png",
-  namePronunciationUrl: "",
-  timeZone: "UTC",
-  keywords: [
-    "template",
-    "portfolio",
-    "developer",
-    "designer",
-    "builder",
-  ],
-  dateCreated: "2026-02-03",
-};
+  avatar: "https://github.com/Paranjayy.png",
+  ogImage: "https://paranjay.dev/og.png",
+  timeZone: "Europe/London",
+  keywords: ["software engineer", "ai", "next.js", "typescript", "open source"],
+  dateCreated: "2024-05-02",
+}

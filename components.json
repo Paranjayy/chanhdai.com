@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "new-york",
+  "style": "radix-vega",
   "rsc": true,
   "tsx": true,
   "tailwind": {
@@ -11,6 +11,9 @@
     "prefix": ""
   },
   "iconLibrary": "lucide",
+  "rtl": false,
+  "menuColor": "default",
+  "menuAccent": "subtle",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
@@ -19,7 +22,9 @@
     "hooks": "@/hooks"
   },
   "registries": {
+    "@ncdai": "https://chanhdai.com/r/{name}.json",
     "@kibo-ui": "https://kibo-ui.com/r/{name}.json",
-    "@react-bits": "https://reactbits.dev/r/{name}.json"
+    "@react-bits": "https://reactbits.dev/r/{name}.json",
+    "@soundcn": "https://soundcn.xyz/r/{name}.json"
   }
 }

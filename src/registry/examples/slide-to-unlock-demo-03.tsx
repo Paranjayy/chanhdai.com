@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import { toast } from "sonner";
+import { toast } from "sonner"
 
-import { ShimmeringText } from "@/registry/shimmering-text";
+import { ShimmeringText } from "@/registry/components/shimmering-text"
 import {
   SlideToUnlock,
   SlideToUnlockHandle,
   SlideToUnlockText,
   SlideToUnlockTrack,
-} from "@/registry/slide-to-unlock";
+} from "@/registry/components/slide-to-unlock"
 
 export default function SlideToUnlockDemo3() {
   return (
     <SlideToUnlock
-      className="w-[180px] rounded-full ring-0"
+      className="w-45 rounded-full ring-0"
       handleWidth={40}
       onUnlock={() => toast.success("Stopped")}
     >
@@ -38,5 +38,5 @@ export default function SlideToUnlockDemo3() {
         </SlideToUnlockHandle>
       </SlideToUnlockTrack>
     </SlideToUnlock>
-  );
+  )
 }

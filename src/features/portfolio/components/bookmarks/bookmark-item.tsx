@@ -1,26 +1,22 @@
-import { format } from "date-fns";
-import { ArrowUpRightIcon, BookmarkIcon } from "lucide-react";
+import { format } from "date-fns"
+import { ArrowUpRightIcon, BookmarkIcon } from "lucide-react"
 
-import { getIcon } from "@/components/icons";
-import { Separator } from "@/components/ui/separator";
-import { UTM_PARAMS } from "@/config/site";
-import type { Bookmark } from "@/features/portfolio/types/bookmarks";
-import { cn } from "@/lib/utils";
-import { addQueryParams } from "@/utils/url";
+import { Separator } from "@/components/ui/separator"
+import { UTM_PARAMS } from "@/config/site"
+import type { Bookmark } from "@/features/portfolio/types/bookmarks"
+import { cn } from "@/lib/utils"
+import { addQueryParams } from "@/utils/url"
 
 export function BookmarkItem({
   className,
   bookmark,
 }: {
-  className?: string;
-  bookmark: Bookmark;
+  className?: string
+  bookmark: Bookmark
 }) {
   return (
     <a
-      className={cn(
-        "group flex items-center pr-2 hover:bg-accent-muted",
-        className
-      )}
+      className={cn("flex items-center pr-2 hover:bg-accent-muted", className)}
       href={addQueryParams(bookmark.url, UTM_PARAMS)}
       target="_blank"
       rel="noopener"
@@ -28,16 +24,15 @@ export function BookmarkItem({
       <div
         className={cn(
           "mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg select-none",
-          "border border-muted-foreground/15 ring-1 ring-edge ring-offset-1 ring-offset-background",
+          "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
           "bg-muted text-muted-foreground [&_svg]:size-4"
         )}
-        aria-hidden
       >
-        {getIcon(bookmark.iconName) ?? <BookmarkIcon />}
+        {bookmark.icon ?? <BookmarkIcon />}
       </div>
 
-      <div className="flex-1 space-y-1 border-l border-dashed border-edge p-4 pr-2">
-        <h3 className="leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
+      <div className="flex-1 space-y-1 border-l border-dashed border-line p-4 pr-2">
+        <h3 className="leading-snug font-medium text-balance">
           {bookmark.title}
         </h3>
 
@@ -50,7 +45,7 @@ export function BookmarkItem({
               </dl>
 
               <Separator
-                className="data-[orientation=vertical]:h-4"
+                className="data-vertical:h-4 data-vertical:self-center"
                 orientation="vertical"
               />
             </>
@@ -67,10 +62,7 @@ export function BookmarkItem({
         </div>
       </div>
 
-      <ArrowUpRightIcon
-        className="size-4 text-muted-foreground transition-[rotate] duration-300 group-hover:rotate-45"
-        aria-hidden
-      />
+      <ArrowUpRightIcon className="size-4 text-muted-foreground" />
     </a>
-  );
+  )
 }

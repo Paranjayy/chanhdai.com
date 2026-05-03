@@ -1,36 +1,46 @@
-"use client";
+"use client"
 
-import { Volume2Icon } from "lucide-react";
+import { useRef } from "react"
+import { useHotkeys } from "react-hotkeys-hook"
 
-import { useSound } from "@/hooks/use-sound";
-import { trackEvent } from "@/lib/events";
-import { cn } from "@/lib/utils";
+import type { VolumeIconHandle } from "@/components/animated-icons/volume"
+import { VolumeIcon } from "@/components/animated-icons/volume"
+import { trackEvent } from "@/lib/events"
+import { cn } from "@/lib/utils"
+import { useSound } from "@/registry/hooks/sound/use-sound"
 
 export function PronounceMyName({
   className,
   namePronunciationUrl,
 }: {
-  className?: string;
-  namePronunciationUrl: string;
+  className?: string
+  namePronunciationUrl: string
 }) {
-  const play = useSound(namePronunciationUrl);
+  const [play] = useSound(namePronunciationUrl)
+
+  const volumeIconRef = useRef<VolumeIconHandle>(null)
+
+  const handlePlayClick = () => {
+    volumeIconRef.current?.startAnimation()
+    play()
+    trackEvent({
+      name: "play_name_pronunciation",
+    })
+  }
+
+  useHotkeys("p", handlePlayClick)
 
   return (
     <button
       className={cn(
-        "relative text-muted-foreground transition-[color,scale] select-none hover:text-foreground active:scale-[0.9]",
-        "after:absolute after:-inset-1",
+        "relative after:absolute after:-inset-2",
+        "touch-manipulation text-muted-foreground transition-[color,scale] select-none hover:text-foreground active:scale-[0.9]",
         className
       )}
-      onClick={() => {
-        play();
-        trackEvent({
-          name: "play_name_pronunciation",
-        });
-      }}
+      onClick={handlePlayClick}
+      aria-label="Pronounce my name"
     >
-      <Volume2Icon className="size-4.5" />
-      <span className="sr-only">Pronounce my name</span>
+      <VolumeIcon ref={volumeIconRef} className="size-4.5" />
     </button>
-  );
+  )
 }

@@ -1,27 +1,47 @@
-"use client";
+"use client"
 
-import { MailIcon } from "lucide-react";
+import { useTiks } from "@rexa-developer/tiks/react"
+import { MailIcon } from "lucide-react"
+import { useHotkeys } from "react-hotkeys-hook"
+import { toast } from "sonner"
 
-import { useIsClient } from "@/hooks/use-is-client";
-import { decodeEmail } from "@/utils/string";
+import { useIsClient } from "@/hooks/use-is-client"
+import { trackEvent } from "@/lib/events"
+import { CopyButton } from "@/registry/components/copy-button"
+import { copyToClipboardWithEvent } from "@/utils/copy"
+import { decodeEmail } from "@/utils/string"
 
 import {
   IntroItem,
   IntroItemContent,
   IntroItemIcon,
   IntroItemLink,
-} from "./intro-item";
+} from "./intro-item"
 
 type EmailItemProps = {
-  email: string;
-};
+  email: string
+}
 
 export function EmailItem({ email }: EmailItemProps) {
-  const isClient = useIsClient();
-  const emailDecoded = decodeEmail(email);
+  const isClient = useIsClient()
+  const emailDecoded = decodeEmail(email)
+
+  const { success } = useTiks()
+
+  useHotkeys("shift+e", () => {
+    copyToClipboardWithEvent(emailDecoded, {
+      name: "copy_email",
+      properties: {
+        method: "keyboard",
+        key: "shift+e",
+      },
+    })
+    success()
+    toast.success("Email copied")
+  })
 
   return (
-    <IntroItem>
+    <IntroItem className="group">
       <IntroItemIcon>
         <MailIcon />
       </IntroItemIcon>
@@ -36,6 +56,23 @@ export function EmailItem({ email }: EmailItemProps) {
           {isClient ? emailDecoded : "[Email protected]"}
         </IntroItemLink>
       </IntroItemContent>
+
+      <div className="-translate-x-3 translate-y-px opacity-0 transition-opacity ease-out group-hover:opacity-100">
+        <CopyButton
+          className="rounded-md border-none text-muted-foreground [&_svg:not([class*='size-'])]:size-3.5"
+          variant="ghost"
+          size="icon-xs"
+          text={isClient ? emailDecoded : "[Email protected]"}
+          onCopySuccess={() => {
+            trackEvent({
+              name: "copy_email",
+              properties: {
+                method: "button",
+              },
+            })
+          }}
+        />
+      </div>
     </IntroItem>
-  );
+  )
 }

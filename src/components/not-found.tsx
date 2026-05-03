@@ -1,8 +1,8 @@
-import { ArrowRightIcon } from "lucide-react";
-import Link from "next/link";
+import { ArrowRightIcon } from "lucide-react"
+import Link from "next/link"
 
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 export function NotFound({ className }: { className?: string }) {
   return (
@@ -30,12 +30,12 @@ export function NotFound({ className }: { className?: string }) {
         404
       </h1>
 
-      <Button variant="default" asChild>
+      <Button asChild>
         <Link href="/">
           Go to Home
           <ArrowRightIcon />
         </Link>
       </Button>
     </div>
-  );
+  )
 }

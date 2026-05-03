@@ -1,53 +1,37 @@
-"use client";
+"use client"
 
-import { TypeIcon } from "lucide-react";
-import { useTheme } from "next-themes";
-import { toast } from "sonner";
+import { DownloadIcon, TriangleDashedIcon, TypeIcon } from "lucide-react"
+import Link from "next/link"
+import { useTheme } from "next-themes"
+import { toast } from "sonner"
 
-import { copyText } from "@/utils/copy";
+import { copyText } from "@/utils/copy"
 
-import { getMarkSVG,KPMark } from "./chanhdai-mark";
-import { getWordmarkSVG } from "./chanhdai-wordmark";
+import { BrandMark } from "./brand-mark"
 import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
-} from "./ui/context-menu";
+} from "./ui/context-menu"
 
 export function BrandContextMenu({ children }: { children: React.ReactNode }) {
-  const { resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme()
 
   return (
     <ContextMenu>
       <ContextMenuTrigger asChild>{children}</ContextMenuTrigger>
 
-      <ContextMenuContent className="w-64">
+      <ContextMenuContent className="w-fit">
         <ContextMenuItem
           onClick={() => {
-            const svg = getMarkSVG(resolvedTheme === "light" ? "#000" : "#fff");
-            copyText(svg);
-            toast.success("Copied Mark as SVG");
+            toast.info("SVG export not implemented for template placeholders.")
           }}
         >
-          <KPMark />
+          <BrandMark className="size-4" />
           Copy Mark as SVG
         </ContextMenuItem>
-
-        <ContextMenuItem
-          onClick={() => {
-            const svg = getWordmarkSVG(
-              resolvedTheme === "light" ? "#000" : "#fff"
-            );
-            copyText(svg);
-            toast.success("Copied Logotype as SVG");
-          }}
-        >
-          <TypeIcon />
-          Copy Logotype as SVG
-        </ContextMenuItem>
-
       </ContextMenuContent>
     </ContextMenu>
-  );
+  )
 }

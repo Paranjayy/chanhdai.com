@@ -1,16 +1,15 @@
-import "@/styles/globals.css";
+import "@/styles/globals.css"
 
-import type { Metadata, Viewport } from "next";
-import Script from "next/script";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
-import type { WebSite, WithContext } from "schema-dts";
+import { GoogleTagManager } from "@next/third-parties/google"
+import type { Metadata, Viewport } from "next"
+import Script from "next/script"
+import { NuqsAdapter } from "nuqs/adapters/next/app"
+import type { WebSite, WithContext } from "schema-dts"
 
-import { ConsentManager } from "@/components/consent-manager";
-import { DuckFollower } from "@/components/duck-follower";
-import { Providers } from "@/components/providers";
-import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
-import { USER } from "@/features/portfolio/data/user";
-import { fontMono, fontSans } from "@/lib/fonts";
+import { Providers } from "@/components/providers"
+import { META_THEME_COLORS, SITE_INFO, X_HANDLE } from "@/config/site"
+import { USER } from "@/features/portfolio/data/user"
+import { fontVariables } from "@/lib/fonts"
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -19,7 +18,7 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
     name: SITE_INFO.name,
     url: SITE_INFO.url,
     alternateName: [USER.username],
-  };
+  }
 }
 
 // Thanks @shadcn-ui, @tailwindcss
@@ -35,13 +34,10 @@ const darkModeScript = String.raw`
       document.documentElement.classList.add('os-macos')
     }
   } catch (_) {}
-`;
+`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_INFO.url),
-  alternates: {
-    canonical: "/",
-  },
   title: {
     template: `%s – ${SITE_INFO.name}`,
     default: `${USER.displayName} – ${USER.jobTitle}`,
@@ -75,37 +71,46 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@your-handle",
+    site: X_HANDLE,
+    creator: X_HANDLE,
     images: [SITE_INFO.ogImage],
   },
   icons: {
     icon: [
       {
-        url: "/favicon.svg",
+        url: "https://assets.chanhdai.com/images/favicon.ico",
+        sizes: "32x32",
+      },
+      {
+        url: "https://assets.chanhdai.com/images/favicon.svg",
+        sizes: "any",
         type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "https://assets.chanhdai.com/images/favicon-dark.svg",
+        sizes: "any",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
       },
     ],
   },
-};
+}
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
   themeColor: META_THEME_COLORS.light,
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={`${fontSans.variable} ${fontMono.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
       <head>
         <script
           type="text/javascript"
@@ -124,16 +129,15 @@ export default function RootLayout({
         />
       </head>
 
+      {process.env.NEXT_PUBLIC_GTM_ID && (
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+      )}
+
       <body>
         <Providers>
-          <NuqsAdapter>
-            <ConsentManager>
-              {children}
-              <DuckFollower />
-            </ConsentManager>
-          </NuqsAdapter>
+          <NuqsAdapter>{children}</NuqsAdapter>
         </Providers>
       </body>
     </html>
-  );
+  )
 }

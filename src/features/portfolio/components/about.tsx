@@ -1,8 +1,8 @@
-import { Markdown } from "@/components/markdown";
-import { ProseMono } from "@/components/ui/typography";
-import { USER } from "@/features/portfolio/data/user";
+import { Markdown } from "@/components/markdown"
+import { Prose } from "@/components/ui/typography"
+import { USER } from "@/features/portfolio/data/user"
 
-import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
+import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel"
 
 export function About() {
   return (
@@ -12,10 +12,10 @@ export function About() {
       </PanelHeader>
 
       <PanelContent>
-        <ProseMono>
+        <Prose>
           <Markdown>{USER.about}</Markdown>
-        </ProseMono>
+        </Prose>
       </PanelContent>
     </Panel>
-  );
+  )
 }

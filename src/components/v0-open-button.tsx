@@ -1,24 +1,31 @@
-import { Button } from "@/components/ui/button";
+import type { ComponentProps } from "react"
 
-import { Icons } from "./icons";
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
-export function OpenInV0Button({ url }: { url: string }) {
+import { Icons } from "./icons"
+
+export function OpenInV0Button({
+  url,
+  className,
+  ...props
+}: ComponentProps<typeof Button> & { url: string }) {
   return (
     <Button
-      className="not-prose gap-1 rounded-md"
-      variant="secondary"
+      className={cn("not-prose border-none px-2", className)}
+      variant="ghost"
       size="sm"
       asChild
+      {...props}
     >
       <a
         href={`https://v0.app/chat/api/open?url=${url}`}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener"
         aria-label="Open in v0"
       >
-        Open in
         <Icons.v0 className="size-5" />
       </a>
     </Button>
-  );
+  )
 }

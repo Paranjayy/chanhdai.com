@@ -1,11 +1,11 @@
 # [Portfolio Template](https://paranjay.dev) &middot; [![GitHub License](https://img.shields.io/github/license/your-handle/portfolio-template?label=License)](https://github.com/your-handle/portfolio-template/blob/main/LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/your-handle/portfolio-template.svg?style=flat&label-color=%23555&color=%23f59e0b)
 
-A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as a Design Engineer.
+A minimal, pixel-perfect dev portfolio, shadcn registry, and blog to showcase my work as a Design Engineer.
 
 → Check out the live site: [paranjay.dev](https://paranjay.dev)
 
-[![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?v=5#gh-dark-mode-only)](https://paranjay.dev#gh-dark-mode-only)
-[![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?v=5#gh-light-mode-only)](https://paranjay.dev#gh-light-mode-only)
+[![screenshot-dark](https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?v=9#gh-dark-mode-only)](https://chanhdai.com#gh-dark-mode-only)
+[![screenshot-light](https://assets.chanhdai.com/images/screenshot-desktop-light.webp?v=9#gh-light-mode-only)](https://chanhdai.com#gh-light-mode-only)
 
 ## Overview
 
@@ -27,13 +27,16 @@ A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase
 - Analytics with [PostHog](https://posthog.com) and [OpenPanel](https://openpanel.dev)
 - Consent management via [c15t](https://c15t.com)
 
-### Blog
+### Content
 
-- Supports MDX & Markdown
+Centralized document system powered by MDX:
+
+- Unified content layer for blog posts and component docs
+- Category-based content organization
 - Raw `.mdx` endpoints for AI readability
-- Syntax highlighting for clear code presentation
+- Syntax highlighting with code blocks
 - Dynamic OG images for rich link previews
-- RSS feed for easy content distribution
+- RSS feed for content distribution
 
 ### Registry
 
@@ -44,24 +47,6 @@ Each entry is well-documented and includes:
 - Live preview & code snippets
 - Beautiful, readable code blocks
 - One-click command blocks (pnpm, npm, yarn, bun)
-
-### Analytics
-
-User behavior tracking with [PostHog](https://posthog.com) and [OpenPanel](https://openpanel.dev) to understand how visitors interact with the site:
-
-- **Copy events** - Track code & command copies
-- **Engagement** - Monitor name pronunciation plays, command menu usage
-- **Search behavior** - Analyze search queries (debounced)
-- **User actions** - Navigation, theme changes, content interactions
-- **Screen views** - Automatic page view tracking (OpenPanel)
-
-Built with privacy in mind:
-
-- Consent management via [c15t](https://c15t.com)
-- Cookieless mode until consent
-- Production-only tracking
-- Type-safe event schema with Zod
-- Dual analytics setup for redundancy and comprehensive insights
 
 ## Development
 
@@ -86,6 +71,43 @@ This project is proudly supported by:
 <table>
   <tbody>
     <tr>
+      <td colspan="3"><strong>Open Source Program</strong></td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://openpanel.dev/open-source?utm_source=chanhdai.com#gh-light-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/openpanel.svg?v=1#gh-light-mode-only"
+            alt="OpenPanel"
+          />
+        </a>
+        <a href="https://openpanel.dev/open-source?utm_source=chanhdai.com#gh-dark-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/openpanel-dark.svg?v=1#gh-dark-mode-only"
+            alt="OpenPanel"
+          />
+        </a>
+      </td>
+      <td>
+        <a href="https://posthog.com/startups?utm_source=chanhdai.com#gh-light-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/posthog.svg?v=1#gh-light-mode-only"
+            alt="PostHog"
+          />
+        </a>
+        <a href="https://posthog.com/startups?utm_source=chanhdai.com#gh-dark-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/posthog-dark.svg?v=1#gh-dark-mode-only"
+            alt="PostHog"
+          />
+        </a>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Gold Sponsors</strong></td>
+    </tr>
+    <tr>
       <td>
         <a href="https://shadcnstudio.com?utm_source=paranjay.dev&utm_medium=banner&utm_campaign=github#gh-light-mode-only">
           <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio.svg?v=2#gh-light-mode-only" alt="shadcnstudio.com" />
@@ -94,40 +116,54 @@ This project is proudly supported by:
           <img src="https://assets.chanhdai.com/images/sponsors/shadcnstudio-dark.svg?v=2#gh-dark-mode-only" alt="shadcnstudio.com" />
         </a>
       </td>
-    </tr>
-    <tr>
       <td>
-        <a href="https://shadcraft.com?utm_source=paranjay.dev#gh-light-mode-only">
+        <a href="https://shadcnspace.com#gh-light-mode-only">
           <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcraft.svg?v=1#gh-light-mode-only"
-            alt="Shadcraft"
+            src="https://assets.chanhdai.com/images/sponsors/shadcnspace.svg?v=3#gh-light-mode-only"
+            alt="Shadcn Space"
           />
         </a>
-        <a href="https://shadcraft.com?utm_source=paranjay.dev#gh-dark-mode-only">
+        <a href="https://shadcnspace.com#gh-dark-mode-only">
           <img
-            src="https://assets.chanhdai.com/images/sponsors/shadcraft-dark.svg?v=1#gh-dark-mode-only"
-            alt="Shadcraft"
+            src="https://assets.chanhdai.com/images/sponsors/shadcnspace-dark.svg?v=3#gh-dark-mode-only"
+            alt="Shadcn Space"
           />
         </a>
       </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Silver Sponsors</strong></td>
     </tr>
     <tr>
       <td>
-        <a href="https://uirules.com?utm_source=paranjay.dev#gh-light-mode-only">
+        <a href="https://shadcncraft.com?utm_source=chanhdai.com#gh-light-mode-only">
           <img
-            src="https://assets.chanhdai.com/images/sponsors/uirules.svg?v=1#gh-light-mode-only"
-            alt="UI Rules"
+            src="https://assets.chanhdai.com/images/sponsors/shadcncraft.svg?v=1#gh-light-mode-only"
+            alt="shadcncraft"
           />
         </a>
-        <a href="https://uirules.com?utm_source=paranjay.dev#gh-dark-mode-only">
+        <a href="https://shadcncraft.com?utm_source=chanhdai.com#gh-dark-mode-only">
           <img
-            src="https://assets.chanhdai.com/images/sponsors/uirules-dark.svg?v=1#gh-dark-mode-only"
-            alt="UI Rules"
+            src="https://assets.chanhdai.com/images/sponsors/shadcncraft-dark.svg?v=1#gh-dark-mode-only"
+            alt="shadcncraft"
           />
         </a>
       </td>
-    </tr>
-    <tr>
+      <td>
+        <a href="https://www.shadcnblocks.com?utm_source=chanhdai.com#gh-light-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/shadcnblocks.svg?v=1#gh-light-mode-only"
+            alt="Shadcnblocks"
+          />
+        </a>
+        <a href="https://www.shadcnblocks.com?utm_source=chanhdai.com#gh-dark-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/shadcnblocks-dark.svg?v=1#gh-dark-mode-only"
+            alt="Shadcnblocks"
+          />
+        </a>
+      </td>
       <td>
         <a href="https://reactbits.dev?utm_source=paranjay.dev#gh-light-mode-only">
           <img
@@ -144,20 +180,38 @@ This project is proudly supported by:
       </td>
     </tr>
     <tr>
+      <td colspan="3"><strong>Spark Supporters</strong></td>
+    </tr>
+    <tr>
       <td>
-        <a href="https://openpanel.dev?utm_source=paranjay.dev#gh-light-mode-only">
+        <a href="https://uirules.com?utm_source=chanhdai.com#gh-light-mode-only">
           <img
-            src="https://assets.chanhdai.com/images/sponsors/openpanel.svg?v=1#gh-light-mode-only"
-            alt="OpenPanel"
+            src="https://assets.chanhdai.com/images/sponsors/uirules.svg?v=1#gh-light-mode-only"
+            alt="UI Rules"
           />
         </a>
-        <a href="https://openpanel.dev?utm_source=paranjay.dev#gh-dark-mode-only">
+        <a href="https://uirules.com?utm_source=chanhdai.com#gh-dark-mode-only">
           <img
-            src="https://assets.chanhdai.com/images/sponsors/openpanel-dark.svg?v=1#gh-dark-mode-only"
-            alt="OpenPanel"
+            src="https://assets.chanhdai.com/images/sponsors/uirules-dark.svg?v=1#gh-dark-mode-only"
+            alt="UI Rules"
           />
         </a>
       </td>
+      <td>
+        <a href="https://shoogle.dev?utm_source=chanhdai.com#gh-light-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/shoogle.svg?v=1#gh-light-mode-only"
+            alt="Shoogle"
+          />
+        </a>
+        <a href="https://shoogle.dev?utm_source=chanhdai.com#gh-dark-mode-only">
+          <img
+            src="https://assets.chanhdai.com/images/sponsors/shoogle-dark.svg?v=1#gh-dark-mode-only"
+            alt="Shoogle"
+          />
+        </a>
+      </td>
+      <td></td>
     </tr>
   </tbody>
 </table>
@@ -170,28 +224,5 @@ This project is proudly supported by:
 
 ## Star History
 
-[![Star History](https://starchart.cc/your-handle/portfolio-template.svg?variant=adaptive&line=%23d37f2c)](https://starchart.cc/your-handle/portfolio-template)
-
-## Acknowledgments
-
-- [React](https://react.dev)
-- [Next.js](https://nextjs.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Radix UI](https://www.radix-ui.com)
-- [Base UI](https://base-ui.com)
-- [Motion](https://motion.dev)
-- [shadcn/ui](https://ui.shadcn.com)
-- [Aceternity UI](https://ui.aceternity.com)
-- [Kibo UI](https://www.kibo-ui.com)
-- [Lucide](https://lucide.dev)
-- [Fumadocs](https://fumadocs.dev)
-- [PostHog](https://posthog.com)
-- [OpenPanel](https://openpanel.dev)
-- [c15t](https://c15t.com)
-- And many other open-source libraries used in `package.json`
-
-## GitAds Sponsored
-
-[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=your-handle/portfolio-template@github)](https://gitads.dev/v1/ad-track?source=your-handle/portfolio-template@github)
-
-<!-- GitAds-Verify: QICCAB4PFWV9MHUGPGPN5B2I8SAXLAOK -->
+[![RepoStars-dark](https://www.repostars.dev/api/embed?repo=ncdai%2Fchanhdai.com&theme=dark#gh-dark-mode-only)](https://www.repostars.dev/?repos=ncdai%2Fchanhdai.com&theme=dark#gh-dark-mode-only)
+[![RepoStars-light](https://www.repostars.dev/api/embed?repo=ncdai%2Fchanhdai.com&theme=light#gh-light-mode-only)](https://www.repostars.dev/?repos=ncdai%2Fchanhdai.com&theme=light#gh-light-mode-only)

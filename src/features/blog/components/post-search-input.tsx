@@ -1,24 +1,24 @@
-"use client";
+"use client"
 
-import { XIcon } from "lucide-react";
-import { useEffect } from "react";
-import { useHotkeys } from "react-hotkeys-hook";
+import { XIcon } from "lucide-react"
+import { useEffect } from "react"
+import { useHotkeys } from "react-hotkeys-hook"
 
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/icons"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/components/ui/input-group";
-import { trackEvent } from "@/lib/events";
+} from "@/components/ui/input-group"
+import { trackEvent } from "@/lib/events"
 
-import { useSearchQuery } from "../hooks/use-search-query";
+import { useSearchQuery } from "../hooks/use-search-query"
 
 export function PostSearchInput() {
-  const { query, setQuery } = useSearchQuery();
+  const { query, setQuery } = useSearchQuery()
 
-  useHotkeys("esc", () => setQuery(null), { enableOnFormTags: true });
+  useHotkeys("esc", () => setQuery(null), { enableOnFormTags: true })
 
   useEffect(() => {
     if (query && query.length >= 2) {
@@ -29,41 +29,42 @@ export function PostSearchInput() {
             query: query,
             query_length: query.length,
           },
-        });
-      }, 500);
+        })
+      }, 500)
 
-      return () => clearTimeout(timeoutId);
+      return () => clearTimeout(timeoutId)
     }
-  }, [query]);
+  }, [query])
 
   return (
-    <InputGroup className="rounded-lg">
-      <InputGroupAddon className="pl-2">
-        <Icons.search />
-      </InputGroupAddon>
-
+    <InputGroup className="rounded-lg shadow-none">
       <InputGroupInput
         placeholder="Search Blog…"
         value={query}
         onChange={(e) => {
-          setQuery(e.target.value);
+          setQuery(e.target.value)
         }}
       />
 
+      <InputGroupAddon align="inline-start">
+        <Icons.search />
+      </InputGroupAddon>
+
       <InputGroupAddon
-        className="data-[disabled=true]:hidden"
+        className="pr-2.25 data-[disabled=true]:hidden"
         align="inline-end"
         data-disabled={!query.length}
       >
         <InputGroupButton
-          aria-label="Clear"
-          title="Clear"
+          className="rounded-sm border-none"
           size="icon-xs"
+          title="Clear"
+          aria-label="Clear"
           onClick={() => setQuery(null)}
         >
           <XIcon />
         </InputGroupButton>
       </InputGroupAddon>
     </InputGroup>
-  );
+  )
 }

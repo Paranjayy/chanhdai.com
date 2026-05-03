@@ -1,20 +1,33 @@
-import { GeistMono } from "geist/font/mono";
-import {
-  // IBM_Plex_Mono as FontMono,
-  IBM_Plex_Sans as FontSans,
-} from "next/font/google";
+import { GeistMono } from "geist/font/mono"
+import { GeistPixelSquare } from "geist/font/pixel"
+import { GeistSans } from "geist/font/sans"
+import localFont from "next/font/local"
 
-export const fontSans = FontSans({
-  weight: ["400", "500", "600"],
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+import { cn } from "@/lib/utils"
 
-// export const fontMono = FontMono({
-//   weight: ["400", "500", "600"],
-//   display: "swap",
-//   subsets: ["latin"],
-//   variable: "--font-mono",
-// });
-export const fontMono = GeistMono;
+const fontSans = GeistSans
+const fontMono = GeistMono
+
+const fontSerif = localFont({
+  src: "../assets/fonts/charter_regular.woff2",
+  weight: "400",
+  fallback: ["Georgia", "serif"],
+  variable: "--font-serif",
+})
+
+const fontPixel = localFont({
+  src: "../assets/fonts/DepartureMono-Regular.woff2",
+  weight: "400",
+  fallback: ["monospace"],
+  variable: "--font-pixel",
+})
+
+export const fontVariables = cn(
+  fontSans.variable,
+  fontMono.variable,
+  fontSerif.variable,
+  fontPixel.variable,
+  GeistPixelSquare.variable,
+  "[--font-sans:var(--font-geist-sans)]",
+  "[--font-mono:var(--font-geist-mono)]"
+)

@@ -1,26 +1,23 @@
-import { format } from "date-fns";
-import { ArrowUpRightIcon, CircleCheckBigIcon } from "lucide-react";
-import Image from "next/image";
+import { format } from "date-fns"
+import { ArrowUpRightIcon, CircleCheckBigIcon } from "lucide-react"
+import Image from "next/image"
 
-import { getIcon } from "@/components/icons";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
+import { getIcon } from "@/components/icons"
+import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 
-import type { Certification } from "../../types/certifications";
+import type { Certification } from "../../types/certifications"
 
 export function CertificationItem({
   className,
   certification,
 }: {
-  className?: string;
-  certification: Certification;
+  className?: string
+  certification: Certification
 }) {
   return (
     <a
-      className={cn(
-        "group flex items-center pr-2 hover:bg-accent-muted",
-        className
-      )}
+      className={cn("flex items-center pr-2 hover:bg-accent-muted", className)}
       href={certification.credentialURL}
       target="_blank"
       rel="noopener"
@@ -40,17 +37,16 @@ export function CertificationItem({
         <div
           className={cn(
             "mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg select-none",
-            "border border-muted-foreground/15 ring-1 ring-edge ring-offset-1 ring-offset-background",
+            "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
             "bg-muted text-muted-foreground [&_svg]:size-4"
           )}
-          aria-hidden
         >
           {getIcon(certification.issuerIconName) ?? <CircleCheckBigIcon />}
         </div>
       )}
 
-      <div className="flex-1 space-y-1 border-l border-dashed border-edge p-4 pr-2">
-        <h3 className="leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
+      <div className="flex-1 space-y-1 border-l border-dashed border-line p-4 pr-2">
+        <h3 className="leading-snug font-medium text-balance">
           {certification.title}
         </h3>
 
@@ -64,7 +60,7 @@ export function CertificationItem({
           </dl>
 
           <Separator
-            className="data-[orientation=vertical]:h-4"
+            className="data-vertical:h-4 data-vertical:self-center"
             orientation="vertical"
           />
 
@@ -80,11 +76,8 @@ export function CertificationItem({
       </div>
 
       {certification.credentialURL && (
-        <ArrowUpRightIcon
-          className="size-4 text-muted-foreground transition-[rotate] duration-300 group-hover:rotate-45"
-          aria-hidden
-        />
+        <ArrowUpRightIcon className="size-4 text-muted-foreground" />
       )}
     </a>
-  );
+  )
 }

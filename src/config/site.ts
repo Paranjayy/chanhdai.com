@@ -1,5 +1,5 @@
-import { USER } from "@/features/portfolio/data/user";
-import type { NavItem } from "@/types/nav";
+import { USER } from "@/features/portfolio/data/user"
+import type { NavItem } from "@/types/nav"
 
 export const SITE_INFO = {
   name: USER.displayName,
@@ -7,34 +7,48 @@ export const SITE_INFO = {
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
-};
+}
 
 export const META_THEME_COLORS = {
   light: "#ffffff",
   dark: "#09090b",
-};
+}
 
 export const MAIN_NAV: NavItem[] = [
-  {
-    title: "Portfolio",
-    href: "/",
-  },
   {
     title: "Components",
     href: "/components",
   },
   {
+    title: "Blocks",
+    href: "/blocks",
+  },
+  {
     title: "Blog",
     href: "/blog",
   },
-];
+  {
+    title: "Sponsors",
+    href: "/sponsors",
+  },
+]
 
-export const GITHUB_USERNAME = "your-handle";
-export const SOURCE_CODE_GITHUB_REPO = "your-handle/portfolio-template";
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/your-handle/portfolio-template";
+export const MOBILE_NAV: NavItem[] = [
+  {
+    title: "Home",
+    href: "/",
+  },
+  ...MAIN_NAV,
+]
 
-export const SPONSORSHIP_URL = "https://github.com/sponsors/your-handle";
+export const X_HANDLE = "@Paranjayy"
+export const GITHUB_USERNAME = "Paranjayy"
+export const SOURCE_CODE_GITHUB_REPO = "Paranjayy/chanhdai.com"
+export const SOURCE_CODE_GITHUB_URL =
+  "https://github.com/Paranjayy/chanhdai.com"
+
+export const SPONSORSHIP_URL = "https://github.com/sponsors/Paranjayy"
 
 export const UTM_PARAMS = {
   utm_source: "paranjay.dev",
-};
+}

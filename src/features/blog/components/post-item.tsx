@@ -1,24 +1,25 @@
-import { format } from "date-fns";
-import Image from "next/image";
-import Link from "next/link";
+import { format } from "date-fns"
+import type { ImageProps } from "next/image"
+import Image from "next/image"
+import Link from "next/link"
 
-import type { Post } from "@/features/blog/types/post";
-import { cn } from "@/lib/utils";
+import type { Doc } from "@/features/doc/types/document"
+import { cn } from "@/lib/utils"
 
 export function PostItem({
   post,
-  shouldPreloadImage,
+  imageLoading = "lazy",
 }: {
-  post: Post;
-  shouldPreloadImage?: boolean;
+  post: Doc
+  imageLoading?: ImageProps["loading"]
 }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
       className={cn(
-        "group flex flex-col gap-2 p-2",
-        "max-sm:screen-line-before max-sm:screen-line-after",
-        "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
+        "group flex flex-col gap-2 p-2 transition-[background-color] ease-out hover:bg-accent-muted",
+        "max-sm:screen-line-top max-sm:screen-line-bottom",
+        "sm:nth-[2n+1]:screen-line-top sm:nth-[2n+1]:screen-line-bottom"
       )}
     >
       {post.metadata.image && (
@@ -29,28 +30,22 @@ export function PostItem({
             width={1200}
             height={630}
             quality={100}
-            priority={shouldPreloadImage}
+            loading={imageLoading}
             unoptimized
           />
 
           <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
-
-          {/* {post.metadata.pinned && (
-            <span className="absolute top-1.5 right-1.5 flex size-6 items-center justify-center rounded-md bg-secondary">
-              <PinIcon className="size-4 rotate-45 text-secondary-foreground" />
-              <span className="sr-only">Pinned</span>
-            </span>
-          )} */}
         </div>
       )}
 
       <div className="flex flex-col gap-1 p-2">
-        <h3 className="text-lg leading-snug font-medium text-balance underline-offset-4 group-hover:underline">
+        <h3 className="text-lg leading-snug font-medium text-balance">
           {post.metadata.title}
           {post.metadata.new && (
-            <span className="ml-2 inline-block size-2 -translate-y-px rounded-full bg-info">
-              <span className="sr-only">New</span>
-            </span>
+            <span
+              className="ml-2 inline-block size-2 -translate-y-px rounded-full bg-info"
+              aria-label="New"
+            />
           )}
         </h3>
 
@@ -64,5 +59,5 @@ export function PostItem({
         </dl>
       </div>
     </Link>
-  );
+  )
 }

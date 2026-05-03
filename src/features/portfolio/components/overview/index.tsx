@@ -5,29 +5,28 @@ import {
   MarsIcon,
   NonBinaryIcon,
   VenusIcon,
-} from "lucide-react";
+} from "lucide-react"
 
-import { USER } from "@/features/portfolio/data/user";
-import type { User } from "@/features/portfolio/types/user";
-import { cn } from "@/lib/utils";
-import { urlToName } from "@/utils/url";
+import { USER } from "@/features/portfolio/data/user"
+import type { User } from "@/features/portfolio/types/user"
+import { urlToName } from "@/utils/url"
 
-import { Panel, PanelContent } from "../panel";
-import { CurrentLocalTimeItem } from "./current-local-time-item";
-import { EmailItem } from "./email-item";
+import { Panel, PanelContent } from "../panel"
+import { CurrentLocalTimeItem } from "./current-local-time-item"
+import { EmailItem } from "./email-item"
 import {
   IntroItem,
   IntroItemContent,
   IntroItemIcon,
   IntroItemLink,
-} from "./intro-item";
-import { JobItem } from "./job-item";
-import { LiveAgeCounter } from "./live-age-counter";
-import { PhoneItem } from "./phone-item";
+} from "./intro-item"
+import { JobItem } from "./job-item"
+import { LiveAgeCounter } from "./live-age-counter"
+import { PhoneItem } from "./phone-item"
 
 export function Overview() {
   return (
-    <Panel>
+    <Panel className="after:content-none">
       <h2 className="sr-only">Overview</h2>
 
       <PanelContent className="space-y-2.5">
@@ -38,16 +37,12 @@ export function Overview() {
               title={job.title}
               company={job.company}
               website={job.website}
+              experienceId={job.experienceId}
             />
-          );
+          )
         })}
 
-        <div
-          className={cn(
-            "relative grid gap-x-4 gap-y-2.5 sm:grid-cols-2",
-            "before:absolute before:-top-4 before:-right-8 before:w-[calc(50%+var(--spacing)*14)] before:border-t before:border-dashed before:border-edge/80 max-sm:before:content-none"
-          )}
-        >
+        <div className="grid gap-x-4 gap-y-2.5 sm:grid-cols-2">
           <IntroItem>
             <IntroItemIcon>
               <MapPinIcon />
@@ -100,19 +95,17 @@ export function Overview() {
           </IntroItem>
         </div>
       </PanelContent>
-
-      <div className="absolute top-0 left-[calc(50%-var(--spacing)*2-1px)] -z-1 h-full border-r border-edge/80 max-sm:hidden" />
     </Panel>
-  );
+  )
 }
 
 function getGenderIcon(gender: User["gender"]) {
   switch (gender) {
     case "male":
-      return <MarsIcon />;
+      return <MarsIcon />
     case "female":
-      return <VenusIcon />;
+      return <VenusIcon />
     case "non-binary":
-      return <NonBinaryIcon />;
+      return <NonBinaryIcon />
   }
 }
