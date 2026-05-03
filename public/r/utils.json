@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "utils",
   "title": "Utility Functions",
-  "author": "Template Author <hello@example.com>",
+  "author": "ncdai <dai@chanhdai.com>",
   "dependencies": [
     "clsx",
     "tailwind-merge"

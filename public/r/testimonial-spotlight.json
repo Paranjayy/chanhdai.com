@@ -5,7 +5,7 @@
   "author": "ncdai <dai@chanhdai.com>",
   "description": "Testimonial card with spotlight effect on hover.",
   "registryDependencies": [
-    "https://chanhdai.com/r/testimonial.json"
+    "https://paranjay.dev/r/testimonial.json"
   ],
   "files": [
     {

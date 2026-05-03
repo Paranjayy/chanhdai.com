@@ -11,8 +11,8 @@
   "registryDependencies": [
     "collapsible",
     "separator",
-    "https://chanhdai.com/r/chevrons-up-down-icon.json",
-    "https://chanhdai.com/r/typography.json"
+    "https://paranjay.dev/r/chevrons-up-down-icon.json",
+    "https://paranjay.dev/r/typography.json"
   ],
   "files": [
     {

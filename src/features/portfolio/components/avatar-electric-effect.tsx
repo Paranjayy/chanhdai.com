@@ -7,7 +7,7 @@ import { ElectricBorder } from "@/components/react-bits/electric-border"
 import { useSound } from "@/hooks/soundcn/use-sound"
 import { laserSmall001Sound } from "@/lib/soundcn/laser-small-001"
 
-const HOVER_DELAY_MS = 150
+const HOVER_DELAY_MS = 50
 
 export function AvatarElectricEffect({ children }: { children: JSX.Element }) {
   const [isHovered, setIsHovered] = useState(false)

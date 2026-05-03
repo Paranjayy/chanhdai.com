@@ -1,11 +1,19 @@
 import { RssIcon } from "lucide-react"
 
+import { GitHubStars } from "@/components/github-stars"
 import { Icons } from "@/components/icons"
+import { getStargazerCount } from "@/components/nav-item-github"
 import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
-import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site"
+import {
+  SITE_INFO,
+  SOURCE_CODE_GITHUB_REPO,
+  SOURCE_CODE_GITHUB_URL,
+} from "@/config/site"
 import { cn } from "@/lib/utils"
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const stargazersCount = await getStargazerCount()
+
   return (
     <footer className="max-w-screen overflow-x-hidden px-2">
       <div className="screen-line-top mx-auto border-x border-line pt-4 group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
@@ -14,27 +22,35 @@ export function SiteFooter() {
           vercel.com<span>/</span>evilcharts.com
         </p>
 
-        <p className="mb-4 px-4 text-center font-mono text-sm text-balance text-muted-foreground">
-          Built with care by{" "}
-          <a
-            className="font-medium text-foreground link-underline"
-            href="https://github.com/Paranjayy"
-            target="_blank"
-            rel="noopener"
-          >
-            Paranjay Khachar
-          </a>
-          . Forked from{" "}
-          <a
-            className="font-medium text-foreground link-underline"
-            href="https://github.com/ncdai/chanhdai.com"
-            target="_blank"
-            rel="noopener"
-          >
-            ncdai
-          </a>
-          .
-        </p>
+        <div className="mb-4 flex flex-col items-center gap-1.5 px-4 text-center font-mono text-sm text-balance text-muted-foreground sm:flex-row sm:justify-center">
+          <span>
+            Built by{" "}
+            <a
+              className="font-medium text-foreground link-underline"
+              href="https://github.com/Paranjayy"
+              target="_blank"
+              rel="noopener"
+            >
+              Paranjay Khachar
+            </a>
+          </span>
+          <span className="hidden opacity-40 sm:inline">•</span>
+          <span className="flex items-center gap-1">
+            Forked from{" "}
+            <a
+              className="font-medium text-foreground link-underline"
+              href="https://github.com/ncdai/chanhdai.com"
+              target="_blank"
+              rel="noopener"
+            >
+              ncdai
+            </a>
+            <GitHubStars
+              repo={SOURCE_CODE_GITHUB_REPO}
+              stargazersCount={stargazersCount}
+            />
+          </span>
+        </div>
 
         <div className="screen-line-top screen-line-bottom flex w-full before:z-1 after:z-1">
           <div className="mx-auto flex items-center justify-center gap-3 border-x border-line bg-background px-4">

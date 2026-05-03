@@ -69,7 +69,7 @@ export function SiteFooterInteractiveLogotype() {
                 <stop
                   offset="0.625"
                   stopColor="var(--foreground)"
-                  stopOpacity="0"
+                  stopOpacity="0.15"
                 />
                 <stop offset="1" stopColor="var(--foreground)" />
               </motion.linearGradient>
