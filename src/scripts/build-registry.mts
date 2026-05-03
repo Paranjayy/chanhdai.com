@@ -4,7 +4,7 @@ import path from "node:path"
 import { rimraf } from "rimraf"
 import { type Registry, registrySchema } from "shadcn/schema"
 
-import { getAllBlocks } from "@/lib/blocks"
+import { getAllBlocks } from "../lib/blocks"
 
 const REGISTRY_PATH = path.join(process.cwd(), "src/__registry__")
 const PUBLIC_REGISTRY_PATH = path.join(process.cwd(), "public/r")
@@ -129,7 +129,7 @@ async function buildBlocksIndex() {
 try {
   console.log("💽 Building registry...")
 
-  const { registry } = await import("@/registry/index")
+  const { registry } = await import("../registry/index")
 
   const result = registrySchema.safeParse(registry)
 
