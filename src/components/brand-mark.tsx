@@ -1,19 +1,40 @@
-import React from "react"
+import { cn } from "@/lib/utils"
 
-export function BrandMark({ className }: { className?: string }) {
+export function BrandMark({
+  className,
+  ...props
+}: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 100 100"
       fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("h-10 w-10", className)}
+      {...props}
     >
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-      <path d="M2 12h20" />
+      <rect
+        width="100"
+        height="100"
+        rx="24"
+        fill="currentColor"
+        fillOpacity="0.1"
+      />
+      {/* K */}
+      <path
+        d="M25 30V70M45 30L25 50L45 70"
+        stroke="currentColor"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* P */}
+      <path
+        d="M55 30V70M55 30H70C75 30 80 35 80 40C80 45 75 50 70 50H55"
+        stroke="currentColor"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }

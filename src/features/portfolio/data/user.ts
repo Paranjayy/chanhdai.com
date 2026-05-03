@@ -34,6 +34,7 @@ export const USER: User = {
   avatar: "https://github.com/Paranjayy.png",
   ogImage: "https://paranjay.dev/og.png",
   timeZone: "Europe/London",
+  namePronunciationUrl: "",
   keywords: ["software engineer", "ai", "next.js", "typescript", "open source"],
   dateCreated: "2024-05-02",
 }

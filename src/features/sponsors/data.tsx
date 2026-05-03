@@ -1,4 +1,4 @@
-import type { Sponsor } from "./types";
+import type { Sponsor } from "../sponsor/types"
 
 export const sponsors: Sponsor[] = [
   // Add your sponsors here! Example:
@@ -11,4 +11,4 @@ export const sponsors: Sponsor[] = [
   //   },
   //   tier: "gold",
   // },
-];
+]
