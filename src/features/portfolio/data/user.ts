@@ -9,7 +9,8 @@ export const USER: User = {
   pronouns: "he/him",
   bio: "BS Student (Data Science & Applications) @ IIT Madras. Passionate about building robust, scalable AI systems.",
   flipSentences: [
-    "Building AI-powered developer tools.",
+    "Night Owl 🦉 building scalable AI systems.",
+    "2,500+ GitHub Contributions in 2026.",
     "IIT Madras BS Student (DS & Applications).",
     "Passionate about open-source and modular design.",
   ],
