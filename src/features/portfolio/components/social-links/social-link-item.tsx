@@ -31,7 +31,14 @@ export function SocialLinkItem({ icon, title, href }: SocialLink) {
         <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-black/10 ring-inset dark:ring-white/15" />
       </div>
 
-      <h3 className="flex-1 font-medium">{title}</h3>
+      <div className="flex flex-1 flex-col gap-0.5">
+        <h3 className="text-sm leading-none font-medium">{title}</h3>
+        {subtitle && (
+          <span className="text-[11px] leading-none text-muted-foreground">
+            {subtitle}
+          </span>
+        )}
+      </div>
 
       <ArrowUpRightIcon className="size-4 text-muted-foreground" />
     </a>

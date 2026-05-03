@@ -14,20 +14,21 @@ export const USER: User = {
     "Passionate about open-source and modular design.",
   ],
   address: "Gujarat, India",
-  phoneNumber: "",
   email: "a3BhcmFuamF5MjQ1QGdtYWlsLmNvbQ==", // kparanjay245@gmail.com
   secondaryEmail: "cGFyYW5qYXlAcGFyYW5qYXkuZGV2", // paranjay@paranjay.dev
   studentEmail: "MjVmMzAwNTkyOEBkcy5zdHVkeS5paXRtLmFjLmlu", // 25f3005928@ds.study.iitm.ac.in
   website: "https://paranjay.dev",
-  jobTitle: "IITM Student",
+  jobTitle: "IITM BS DS Student",
   jobs: [
     {
-      title: "Student (BS in DS & Applications)",
+      title: "BS Student (Data Science & Applications)",
       company: "IIT Madras",
       website: "https://www.iitm.ac.in/",
       experienceId: "iit-madras",
+      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/1280px-IIT_Madras_Logo.svg.png",
     },
   ],
+  dob: "2005-12-24",
   about: `
 Student at Indian Institute of Technology Madras pursuing a BS in Data Science and Applications. 
 Exploring, learning and building interesting projects. 

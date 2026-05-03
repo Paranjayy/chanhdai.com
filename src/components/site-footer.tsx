@@ -43,7 +43,7 @@ export async function SiteFooter() {
               target="_blank"
               rel="noopener"
             >
-              ncdai
+              ncdai/chanhdai.com
             </a>
             <GitHubStars
               repo={SOURCE_CODE_GITHUB_REPO}

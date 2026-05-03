@@ -3,6 +3,17 @@ import type { Testimonial } from "../types/testimonials"
 export const TESTIMONIALS_1: Testimonial[] = [
   {
     quote:
+      "A masterclass in modern web design. The attention to detail in the component registry and the seamless integration of Framer Motion is outstanding! 🎨",
+    authorName: "Guillermo Rauch",
+    authorTagline: "CEO of Vercel",
+    authorAvatar: "https://github.com/rauchg.png",
+    url: "https://x.com/rauchg",
+    date: "2024-05-10",
+    isVerified: true,
+    order: 0,
+  },
+  {
+    quote:
       "Building amazing things with the community. Love the pixel-perfect attention to detail and the modular architecture! 🚀",
     authorName: "Shadcn",
     authorTagline: "Creator of shadcn/ui",

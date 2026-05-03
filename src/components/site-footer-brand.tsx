@@ -2,8 +2,8 @@
 
 import { motion, useMotionValue, useSpring } from "motion/react"
 
-const VIEWBOX_WIDTH = 1410
-const DEFAULT_GRADIENT_X = 705
+const VIEWBOX_WIDTH = 2800
+const DEFAULT_GRADIENT_X = 1400
 
 export function SiteFooterInteractiveLogotype() {
   const gradientX1Raw = useMotionValue(DEFAULT_GRADIENT_X)
@@ -39,7 +39,7 @@ export function SiteFooterInteractiveLogotype() {
         <div className="flex w-full translate-y-[37.5%] items-center justify-center">
           <svg
             className="container size-full"
-            viewBox="0 0 1410 258"
+            viewBox="0 0 2800 258"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -55,7 +55,7 @@ export function SiteFooterInteractiveLogotype() {
                 fontFamily: "var(--font-mono), monospace",
               }}
             >
-              PARANJAY
+              PARANJAY KHACHAR
             </text>
             <defs>
               <motion.linearGradient

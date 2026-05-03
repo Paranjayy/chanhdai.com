@@ -37,4 +37,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
     subtitle: "@Paranjayy",
     href: "https://t.me/Paranjayy",
   },
+  {
+    icon: "https://assets.chanhdai.com/images/link-icons/twitch.webp?v=2",
+    title: "Twitch",
+    subtitle: "@paranjayy",
+    href: "https://www.twitch.tv/paranjayy",
+  },
 ]
