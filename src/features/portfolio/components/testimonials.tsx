@@ -35,37 +35,57 @@ export function Testimonials() {
       className="before:content-none after:content-none [&_.rfm-initial-child-container]:items-stretch! [&_.rfm-marquee]:items-stretch!"
     >
       <h2 className="sr-only">Testimonials</h2>
-
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-8 py-4">
         <div className="flex flex-col gap-2">
           <div className="px-4 font-mono text-[10px] font-bold tracking-widest text-muted-foreground/60 uppercase">
             Pinned
           </div>
-          <TestimonialList data={TESTIMONIALS_PINNED} />
+          <TestimonialList data={TESTIMONIALS_PINNED.slice(0, 2)} />
         </div>
 
         <div className="flex flex-col gap-2">
           <div className="px-4 font-mono text-[10px] font-bold tracking-widest text-muted-foreground/60 uppercase">
-            Others
+            Community
           </div>
-          <Marquee className="py-2">
-            <MarqueeFade side="left" />
-            <MarqueeContent pauseOnHover speed={40}>
-              {[...TESTIMONIALS_1, ...TESTIMONIALS_2].map((item) => (
-                <MarqueeItem key={item.url}>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener"
-                    className="block w-80 cursor-crosshair rounded-xl ring-1 ring-foreground/10 transition-[background-color] ease-out ring-inset hover:bg-accent-muted"
-                  >
-                    <TestimonialItem {...item} />
-                  </a>
-                </MarqueeItem>
-              ))}
-            </MarqueeContent>
-            <MarqueeFade side="right" />
-          </Marquee>
+          <div className="flex flex-col gap-2">
+            <Marquee className="py-1">
+              <MarqueeFade side="left" />
+              <MarqueeContent pauseOnHover speed={40}>
+                {[...TESTIMONIALS_1, TESTIMONIALS_PINNED[2]].map((item) => (
+                  <MarqueeItem key={item.url}>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener"
+                      className="block w-80 cursor-crosshair rounded-xl ring-1 ring-foreground/10 transition-[background-color] ease-out ring-inset hover:bg-accent-muted"
+                    >
+                      <TestimonialItem {...item} />
+                    </a>
+                  </MarqueeItem>
+                ))}
+              </MarqueeContent>
+              <MarqueeFade side="right" />
+            </Marquee>
+
+            <Marquee className="py-1" reverse>
+              <MarqueeFade side="left" />
+              <MarqueeContent pauseOnHover speed={35}>
+                {TESTIMONIALS_2.map((item) => (
+                  <MarqueeItem key={item.url}>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener"
+                      className="block w-80 cursor-crosshair rounded-xl ring-1 ring-foreground/10 transition-[background-color] ease-out ring-inset hover:bg-accent-muted"
+                    >
+                      <TestimonialItem {...item} />
+                    </a>
+                  </MarqueeItem>
+                ))}
+              </MarqueeContent>
+              <MarqueeFade side="right" />
+            </Marquee>
+          </div>
         </div>
       </div>
 

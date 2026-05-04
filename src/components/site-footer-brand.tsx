@@ -60,7 +60,7 @@ export function SiteFooterInteractiveLogotype() {
                 fillOpacity: 0,
               }}
             >
-              PARANJAY KHACHAR
+              KP
             </text>
             <text
               x="50%"
@@ -74,7 +74,7 @@ export function SiteFooterInteractiveLogotype() {
                 fontFamily: "var(--font-mono), monospace",
               }}
             >
-              PARANJAY KHACHAR
+              KP
             </text>
             <defs>
               <motion.linearGradient

@@ -19,6 +19,8 @@ import {
   ContributionGraphLegend,
   ContributionGraphTotalCount,
 } from "@/registry/components/contribution-graph"
+import { useState } from "react"
+import { GitHubStatsModal } from "./stats-modal"
 import { addQueryParams } from "@/utils/url"
 
 export function GitHubContributionGraph({
@@ -35,52 +37,55 @@ export function GitHubContributionGraph({
     currentStreakEnd,
     bestStreakStart,
     bestStreakEnd,
+    peak,
+    peakDate,
   } = calculateStreaks(data)
 
-  return (
-    <ContributionGraph
-      className="mx-auto py-2"
-      data={data}
-      blockSize={11}
-      blockMargin={3}
-      blockRadius={2}
-    >
-      <ContributionGraphCalendar
-        className="no-scrollbar px-2"
-        title="GitHub Contributions"
-        showWeekNumbers
-      >
-        {({ activity, dayIndex, weekIndex }) => (
-          <Tooltip>
-            <TooltipTrigger
-              render={
-                <a
-                  href={`https://github.com/${GITHUB_USERNAME}/${GITHUB_USERNAME}`}
-                  target="_blank"
-                  rel="noopener"
-                  className="cursor-pointer"
-                >
-                  <ContributionGraphBlock
-                    activity={activity}
-                    dayIndex={dayIndex}
-                    weekIndex={weekIndex}
-                  />
-                </a>
-              }
-            />
-            <TooltipContent className="font-sans">
-              <p className="font-medium">
-                {activity.count} contribution{activity.count !== 1 ? "s" : null}
-              </p>
-              <p className="text-[10px] text-muted-foreground">
-                {format(new Date(activity.date), "EEEE, do MMMM yyyy")}
-              </p>
-            </TooltipContent>
-          </Tooltip>
-        )}
-      </ContributionGraphCalendar>
+  const [modalOpen, setModalOpen] = useState(false)
 
-      <ContributionGraphFooter className="px-2">
+  return (
+    <>
+      <ContributionGraph
+        className="mx-auto py-2"
+        data={data}
+        blockSize={11}
+        blockMargin={3}
+        blockRadius={2}
+      >
+        <ContributionGraphCalendar
+          className="no-scrollbar px-2"
+          title="GitHub Contributions"
+          showWeekNumbers
+        >
+          {({ activity, dayIndex, weekIndex }) => (
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <div
+                    onClick={() => setModalOpen(true)}
+                    className="cursor-pointer"
+                  >
+                    <ContributionGraphBlock
+                      activity={activity}
+                      dayIndex={dayIndex}
+                      weekIndex={weekIndex}
+                    />
+                  </div>
+                }
+              />
+              <TooltipContent className="font-sans">
+                <p className="font-medium">
+                  {activity.count} contribution{activity.count !== 1 ? "s" : null}
+                </p>
+                <p className="text-[10px] text-muted-foreground">
+                  {format(new Date(activity.date), "EEEE, do MMMM yyyy")}
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          )}
+        </ContributionGraphCalendar>
+
+        <ContributionGraphFooter className="px-2">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
           <ContributionGraphTotalCount>
             {({ totalCount, year }) => (
@@ -149,13 +154,18 @@ export function GitHubContributionGraph({
                       Peak
                     </span>
                     <span className="font-mono text-lg font-bold text-foreground">
-                      {Math.max(...data.map((d) => d.count))}
+                      {peak}
                     </span>
                   </div>
                 }
               />
-              <TooltipContent>
-                Highest number of contributions in a single day
+              <TooltipContent className="space-y-1">
+                <p>Highest number of contributions in a single day</p>
+                {peakDate && (
+                  <p className="text-[10px] text-muted-foreground">
+                    Achieved on {format(new Date(peakDate), "MMMM do, yyyy")}
+                  </p>
+                )}
               </TooltipContent>
             </Tooltip>
 
@@ -182,7 +192,9 @@ export function GitHubContributionGraph({
 
         <ContributionGraphLegend />
       </ContributionGraphFooter>
-    </ContributionGraph>
+      </ContributionGraph>
+      <GitHubStatsModal open={modalOpen} onOpenChange={setModalOpen} />
+    </>
   )
 }
 
@@ -193,9 +205,16 @@ function calculateStreaks(activities: Activity[]) {
   let tempStreakStart: string | null = null
   let bestStreakStart: string | null = null
   let bestStreakEnd: string | null = null
+  let peak = 0
+  let peakDate: string | null = null
 
   // Activities are usually sorted by date (ascending)
   activities.forEach((activity) => {
+    if (activity.count > peak) {
+      peak = activity.count
+      peakDate = activity.date
+    }
+
     if (activity.count > 0) {
       if (tempStreak === 0) tempStreakStart = activity.date
       tempStreak++
@@ -230,6 +249,8 @@ function calculateStreaks(activities: Activity[]) {
     currentStreakEnd,
     bestStreakStart,
     bestStreakEnd,
+    peak,
+    peakDate,
   }
 }
 

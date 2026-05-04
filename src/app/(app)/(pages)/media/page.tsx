@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function MediaPage() {
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl border-x border-line px-0">
+    <main className="container mx-auto min-h-screen max-w-5xl border-x border-line px-0">
       <div className="screen-line-bottom flex h-16 items-center px-4">
         <Button variant="ghost" size="sm" asChild className="-ml-2 gap-2">
           <Link href="/">

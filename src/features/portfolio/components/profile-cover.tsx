@@ -23,9 +23,8 @@ export function ProfileCover() {
       >
         <Magnet containerRef={containerRef} magnetStrength={6}>
           <FluidGradientText
-            text="PARANJAY"
-            text2="KHACHAR"
-            className="h-20 w-full sm:h-24"
+            text="KP"
+            className="h-24 w-full sm:h-32"
           />
         </Magnet>
       </div>

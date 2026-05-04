@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <div className="container py-8">
+    <div className="container mx-auto max-w-5xl py-8">
       <div className="mb-8 h-40 w-full overflow-hidden border-y border-line">
         <FluidGradientText text="GALLERY" />
       </div>
