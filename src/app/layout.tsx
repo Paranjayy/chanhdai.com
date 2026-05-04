@@ -1,6 +1,7 @@
 import "@/styles/globals.css"
 
 import { GoogleTagManager } from "@next/third-parties/google"
+import { Analytics } from "@vercel/analytics/react"
 import type { Metadata, Viewport } from "next"
 import Script from "next/script"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
@@ -46,11 +47,11 @@ export const metadata: Metadata = {
   keywords: SITE_INFO.keywords,
   authors: [
     {
-      name: "Your Name",
+      name: USER.displayName,
       url: SITE_INFO.url,
     },
   ],
-  creator: "your-handle",
+  creator: USER.username,
   openGraph: {
     siteName: SITE_INFO.name,
     url: "/",
@@ -137,6 +138,7 @@ export default function RootLayout({
         <Providers>
           <NuqsAdapter>{children}</NuqsAdapter>
         </Providers>
+        <Analytics />
       </body>
     </html>
   )

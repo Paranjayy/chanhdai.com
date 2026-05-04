@@ -40,25 +40,6 @@ export function Testimonials() {
     >
       <h2 className="sr-only">Testimonials</h2>
 
-      <div className="grid gap-2 px-2 sm:grid-cols-2">
-        {FEATURED_TESTIMONIALS.map((item) => (
-          <a
-            key={item.url}
-            className="flex"
-            href={item.url}
-            target="_blank"
-            rel="noopener"
-          >
-            <TestimonialSpotlight
-              className="flex-1 bg-accent-muted"
-              spotlightSize="50%"
-            >
-              <TestimonialItem {...item} />
-            </TestimonialSpotlight>
-          </a>
-        ))}
-      </div>
-
       <div className="flex h-2 w-full" />
 
       <TestimonialList data={TESTIMONIALS_1} />
@@ -96,24 +77,22 @@ function TestimonialList({
       <MarqueeFade side="right" />
 
       <MarqueeContent direction={direction} autoFill={false}>
-        {data
-          .filter((item) => !item.isFeatured)
-          .map((item) => (
-            <MarqueeItem
-              key={item.url}
-              className="mx-1 h-full max-w-xs min-w-2xs"
-              style={item.style}
+        {data.map((item) => (
+          <MarqueeItem
+            key={item.url}
+            className="mx-1 h-full max-w-xs min-w-2xs"
+            style={item.style}
+          >
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener"
+              className="block h-full rounded-xl ring-1 ring-foreground/10 transition-[background-color] ease-out ring-inset hover:bg-accent-muted"
             >
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener"
-                className="block h-full rounded-xl ring-1 ring-foreground/10 transition-[background-color] ease-out ring-inset hover:bg-accent-muted"
-              >
-                <TestimonialItem {...item} />
-              </a>
-            </MarqueeItem>
-          ))}
+              <TestimonialItem {...item} />
+            </a>
+          </MarqueeItem>
+        ))}
       </MarqueeContent>
     </Marquee>
   )

@@ -8,24 +8,40 @@ export async function getStargazerCount(
 ) {
   return unstable_cache(
     async () => {
-      try {
-        const response = await fetch(`https://api.github.com/repos/${repo}`, {
-          headers: {
+      const fetchWithToken = async (token?: string) => {
+        try {
+          const headers: HeadersInit = {
             Accept: "application/vnd.github+json",
-            Authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
             "X-GitHub-Api-Version": "2022-11-28",
-          },
-        })
+          }
 
-        if (!response.ok) {
-          return 0
+          if (token) {
+            headers["Authorization"] = `Bearer ${token}`
+          }
+
+          const response = await fetch(`https://api.github.com/repos/${repo}`, {
+            headers,
+            next: { revalidate: 3600 }, // Shorter revalidate for internal fetch
+          })
+
+          if (!response.ok) return null
+
+          const json = (await response.json()) as { stargazers_count?: number }
+          return Number(json?.stargazers_count) ?? 0
+        } catch {
+          return null
         }
-
-        const json = (await response.json()) as { stargazers_count?: number }
-        return Number(json?.stargazers_count) || 0
-      } catch {
-        return 0
       }
+
+      // Try with token if available
+      if (process.env.GITHUB_API_TOKEN) {
+        const count = await fetchWithToken(process.env.GITHUB_API_TOKEN)
+        if (count !== null) return count
+      }
+
+      // Fallback to without token
+      const countWithoutToken = await fetchWithToken()
+      return countWithoutToken ?? 0
     },
     ["github-stargazer-count", repo],
     { revalidate: 86400 } // Cache for 1 day

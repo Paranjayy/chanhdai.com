@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
 
 export function SocialLinkItem({ icon, title, subtitle, href }: SocialLink) {
+  const isComponent = typeof icon !== "string"
+
   return (
     <a
       className={cn(
@@ -19,15 +21,21 @@ export function SocialLinkItem({ icon, title, subtitle, href }: SocialLink) {
       title={`${title}${subtitle ? ` (${subtitle})` : ""}`}
     >
       <div className="relative size-6 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-        <img
-          className="size-full object-contain opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 dark:opacity-70 dark:group-hover:opacity-100"
-          src={icon}
-          alt={title}
-          loading="lazy"
-        />
+        {isComponent ? (
+          <div className="size-full text-muted-foreground transition-colors group-hover:text-foreground">
+            {icon}
+          </div>
+        ) : (
+          <img
+            className="size-full object-contain opacity-70 transition-all duration-300 group-hover:opacity-100"
+            src={icon as string}
+            alt={title}
+            loading="lazy"
+          />
+        )}
       </div>
       <span className="max-w-full truncate font-mono text-[10px] font-medium text-muted-foreground transition-colors group-hover:text-foreground">
-        {title}
+        {subtitle || title}
       </span>
     </a>
   )

@@ -1,20 +1,21 @@
+import * as Icons from "../components/social-links/icons"
 import type { SocialLink } from "../types/social-links"
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    icon: "https://cdn.simpleicons.org/x",
+    icon: <Icons.XIcon />,
     title: "X",
-    subtitle: "@paranjay245",
+    subtitle: "paranjay245",
     href: "https://x.com/paranjay245",
   },
   {
-    icon: "https://cdn.simpleicons.org/github",
+    icon: <Icons.GitHubIcon />,
     title: "GitHub",
     subtitle: "Paranjayy",
     href: "https://github.com/Paranjayy",
   },
   {
-    icon: "https://cdn.simpleicons.org/linkedin",
+    icon: <Icons.LinkedInIcon />,
     title: "LinkedIn",
     subtitle: "paranjayy",
     href: "https://www.linkedin.com/in/paranjayy/",
@@ -22,7 +23,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     icon: "https://cdn.simpleicons.org/discord",
     title: "Discord",
-    subtitle: "@paranjayy",
+    subtitle: "paranjayy",
     href: "https://discord.com/users/999432437740347486",
   },
   {
@@ -34,7 +35,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     icon: "https://cdn.simpleicons.org/telegram",
     title: "Telegram",
-    subtitle: "@Paranjayy",
+    subtitle: "Paranjayy",
     href: "https://t.me/Paranjayy",
   },
   {
@@ -56,31 +57,31 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: "https://www.youtube.com/channel/UCSy5SX23Xrdxbxp0sh8i-hw",
   },
   {
-    icon: "https://cdn.simpleicons.org/duolingo",
+    icon: <Icons.DuolingoIcon />,
     title: "Duolingo",
     subtitle: "Paranjayy",
     href: "https://www.duolingo.com/profile/Paranjayy",
   },
   {
-    icon: "https://cdn.simpleicons.org/gravatar",
+    icon: <Icons.GravatarIcon />,
     title: "Gravatar",
-    subtitle: "sweetly00638681c8",
+    subtitle: "kparanjay",
     href: "https://gravatar.com/sweetly00638681c8",
   },
   {
-    icon: "https://cdn.simpleicons.org/lastfm",
+    icon: <Icons.VoltIcon />,
     title: "Volt.fm",
     subtitle: "paranjay",
     href: "https://volt.fm/paranjay",
   },
   {
-    icon: "https://cdn.simpleicons.org/typescript",
+    icon: "https://www.boot.dev/blog/img/800/boots_face_logo_full.png",
     title: "Boot.dev",
     subtitle: "paranjay",
     href: "https://www.boot.dev/u/paranjay",
   },
   {
-    icon: "https://cdn.simpleicons.org/lichess",
+    icon: <Icons.ChessMonitorIcon />,
     title: "ChessMonitor",
     subtitle: "Paranjay",
     href: "https://www.chessmonitor.com/u/CVGtzOa4szU1fVg3IHif",

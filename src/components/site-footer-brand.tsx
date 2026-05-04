@@ -38,7 +38,7 @@ export function SiteFooterInteractiveLogotype() {
       >
         <div className="flex w-full translate-y-[37.5%] items-center justify-center">
           <svg
-            className="container size-full"
+            className="group/footer-text container size-full"
             viewBox="0 0 2800 258"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -51,8 +51,23 @@ export function SiteFooterInteractiveLogotype() {
               strokeOpacity="0.15"
               strokeWidth="1"
               fill="url(#paint0_linear_1145_73)"
-              className="font-black"
+              className="font-black transition-all duration-700"
               filter="drop-shadow(0 0 1px currentColor)"
+              style={{
+                fontSize: "260px",
+                letterSpacing: "-0.05em",
+                fontFamily: "var(--font-mono), monospace",
+                fillOpacity: 0,
+              }}
+            >
+              PARANJAY KHACHAR
+            </text>
+            <text
+              x="50%"
+              y="100%"
+              textAnchor="middle"
+              fill="url(#paint0_linear_1145_73)"
+              className="pointer-events-none font-black opacity-0 transition-opacity duration-700 group-hover/footer-text:opacity-100"
               style={{
                 fontSize: "260px",
                 letterSpacing: "-0.05em",
@@ -66,16 +81,21 @@ export function SiteFooterInteractiveLogotype() {
                 id="paint0_linear_1145_73"
                 x1={gradientX1}
                 y1="1"
-                x2="705"
+                x2="1400"
                 y2="257"
                 gradientUnits="userSpaceOnUse"
               >
                 <stop
-                  offset="0.625"
+                  offset="0"
                   stopColor="var(--foreground)"
-                  stopOpacity="0.15"
+                  stopOpacity="0.2"
                 />
-                <stop offset="1" stopColor="var(--foreground)" />
+                <stop offset="0.5" stopColor="var(--foreground)" />
+                <stop
+                  offset="1"
+                  stopColor="var(--foreground)"
+                  stopOpacity="0.2"
+                />
               </motion.linearGradient>
             </defs>
           </svg>

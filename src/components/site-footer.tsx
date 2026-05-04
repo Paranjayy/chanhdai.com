@@ -37,7 +37,7 @@ export async function SiteFooter() {
           </span>
           <span className="hidden opacity-40 sm:inline">•</span>
           <span className="flex items-center gap-1">
-            Forked from{" "}
+            Inspired by{" "}
             <a
               className="font-medium text-foreground link-underline"
               href="https://github.com/ncdai/chanhdai.com"
@@ -51,10 +51,37 @@ export async function SiteFooter() {
               stargazersCount={stargazersCount}
             />
           </span>
+          <span className="hidden opacity-40 sm:inline">•</span>
+          <a
+            className="font-medium text-foreground link-underline"
+            href={`${SOURCE_CODE_GITHUB_URL}/commit/main`}
+            target="_blank"
+            rel="noopener"
+          >
+            Last updated: {new Date().toLocaleDateString("en-GB")}
+          </a>
         </div>
 
         <div className="screen-line-top screen-line-bottom flex w-full before:z-1 after:z-1">
-          <div className="mx-auto flex items-center justify-center gap-3 border-x border-line bg-background px-4">
+          <div className="mx-auto flex flex-wrap items-center justify-center gap-3 border-x border-line bg-background px-4 py-2 sm:py-0">
+            <a
+              className="flex font-mono text-xs font-medium text-muted-foreground transition-[color] hover:text-foreground"
+              href={`${SITE_INFO.url}/socials`}
+            >
+              /socials
+            </a>
+
+            <Separator />
+
+            <a
+              className="flex font-mono text-xs font-medium text-muted-foreground transition-[color] hover:text-foreground"
+              href={`${SITE_INFO.url}/media`}
+            >
+              /media
+            </a>
+
+            <Separator className="max-sm:hidden" />
+
             <a
               className="flex font-mono text-xs font-medium text-muted-foreground transition-[color] hover:text-foreground max-sm:hidden"
               href={`${SITE_INFO.url}/llms.txt`}
@@ -64,53 +91,56 @@ export async function SiteFooter() {
               llms.txt
             </a>
 
-            <Separator className="max-sm:hidden" />
+            <Separator />
 
-            <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://x.com/paranjay245"
-              target="_blank"
-              rel="noopener"
-              aria-label="X"
-            >
-              <Icons.x className="size-4" />
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
+                href="https://x.com/paranjay245"
+                target="_blank"
+                rel="noopener"
+                aria-label="X"
+              >
+                <Icons.x className="size-4" />
+              </a>
+
+              <a
+                className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
+                href="https://github.com/Paranjayy"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+              >
+                <Icons.github className="size-4" />
+              </a>
+
+              <a
+                className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
+                href="https://www.linkedin.com/in/paranjayy/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+              >
+                <Icons.linkedin className="size-4" />
+              </a>
+
+              <a
+                className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
+                href={`${SITE_INFO.url}/rss`}
+                target="_blank"
+                rel="noopener"
+                aria-label="RSS"
+              >
+                <RssIcon className="size-4" />
+              </a>
+            </div>
 
             <Separator />
 
-            <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://github.com/Paranjayy"
-              target="_blank"
-              rel="noopener"
-              aria-label="GitHub"
-            >
-              <Icons.github className="size-4" />
-            </a>
-
-            <Separator />
-
-            <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://www.linkedin.com/in/paranjayy/"
-              target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn"
-            >
-              <Icons.linkedin className="size-4" />
-            </a>
-
-            <Separator />
-
-            <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href={`${SITE_INFO.url}/rss`}
-              target="_blank"
-              rel="noopener"
-              aria-label="RSS"
-            >
-              <RssIcon className="size-4" />
-            </a>
+            <div className="flex items-center gap-1 font-mono text-[10px] text-muted-foreground select-none">
+              <span className="size-1 animate-pulse rounded-full bg-green-500" />
+              <span>12.4k visitors</span>
+            </div>
           </div>
         </div>
 

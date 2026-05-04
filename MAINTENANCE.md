@@ -1,45 +1,56 @@
-# Portfolio Maintenance Guide
+# Maintenance & Sync Strategy
 
-This document explains how to maintain your portfolio while tracking updates from the original [chanhdai.com](https://github.com/ncdai/chanhdai.com) repository.
+This document outlines how to maintain your portfolio while keeping it in sync with the upstream [ncdai/chanhdai.com](https://github.com/ncdai/chanhdai.com) template.
 
-## 🏗️ Branch Strategy
+## Workflow Overview
 
-- **`template`**: Your clean, generic baseline. No personal data, no original blog posts. This tracks the upstream repository.
-- **`main`**: Your live portfolio with your personal data, blogs, and customizations.
+1. **Upstream Sync**: Periodically pull new features and UI improvements from the original repository.
+2. **Personal Data Isolation**: Keep your personal data (experiences, projects, social links) separate so they are not overwritten by template updates.
+3. **Build Validation**: Ensure every change passes a local build to prevent production regressions.
 
-## 🔄 Syncing with Upstream (New Features)
+## Upstream Syncing
 
-When the original repository adds new features (e.g., new components, registry updates), follow these steps:
+To pull the latest changes from the original template:
 
-### 1. Update the `template` branch
 ```bash
-git checkout template
-git pull https://github.com/ncdai/chanhdai.com main
+# Add the upstream remote (one-time setup)
+git remote add upstream https://github.com/ncdai/chanhdai.com.git
+
+# Fetch and merge changes
+git fetch upstream
+git merge upstream/main
 ```
 
-### 2. Sanitize the template
-After pulling, the template will contain the original author's blog posts and data. Run the reset script:
-```bash
-pnpm reset:template
-```
-*Note: I've added this script alias to your `package.json`.*
+> [!IMPORTANT]
+> When merging, you may encounter conflicts in `src/features/portfolio/data/`. Always prioritize your custom data files during these merges.
 
-### 3. Merge into `main`
-Now that your template is updated and clean, bring those features into your live site:
-```bash
-git checkout main
-git merge template
-```
-*Resolve any conflicts in `src/features/portfolio/data/user.ts` by keeping your version.*
+## Synthetic Monitoring & Quality Assurance
 
-## 🧹 Cleanup Commands
+To ensure professional-grade stability and avoid regressions:
 
-- `pnpm sanitize:portfolio`: Deletes all blog posts and registry components.
-- `pnpm reset:template`: Resets all personal data to generic placeholders (ideal for the template branch).
+### 1. Build Sanity Checks
+Always run `pnpm build` before pushing to `main`. This ensures all registry components and MDX files are correctly processed.
 
-## 🚀 Deployment
-Your build command is configured to automatically rebuild the shadcn registry:
-```bash
-pnpm build
-```
-*Note: This requires `bun` to be installed on your system for the `registry:build` step. Vercel automatically supports this if you use the default settings.*
+### 2. Automated Testing
+Consider adding a GitHub Action for "Synthetic Monitoring" (Visual Regression):
+- **Tooling**: Playwright or Happo.io.
+- **Workflow**: On every PR, take snapshots of the landing page and blog posts to ensure the UI remains "pixel-perfect".
+
+### 3. Registry Audits
+Run `pnpm registry:build` whenever you modify a component in `src/registry/`. This keeps the auto-generated registry files in sync with your source code.
+
+## Troubleshooting Builds
+
+If the build fails with "Export encountered errors":
+1. Check for broken image URLs in `data/`.
+2. Ensure all `lucide-react` icons are correctly imported.
+3. Verify that any new SVGs added to `icons.tsx` follow the React component pattern (PascalCase, `IconProps`).
+
+## Key Maintenance Files
+
+| File | Purpose |
+| --- | --- |
+| `src/features/portfolio/data/` | Your personal identity and content. |
+| `src/registry/` | Custom UI components (Source of Truth). |
+| `src/config/site.ts` | Global metadata and deployment URLs. |
+| `src/components/brand-mark.tsx` | Your custom KP monogram logo. |

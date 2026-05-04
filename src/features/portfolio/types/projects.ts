@@ -20,6 +20,8 @@ export type Project = {
   description?: string
   /** Logo image URL (absolute or path under /public). */
   logo?: string
+  /** Preview image for hover gallery (Tina-style). */
+  previewImage?: string
   /** Whether the project card is expanded by default in the UI. */
   isExpanded?: boolean
 }

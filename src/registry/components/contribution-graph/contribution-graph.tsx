@@ -354,6 +354,7 @@ export type ContributionGraphCalendarProps = Omit<
   "children"
 > & {
   hideMonthLabels?: boolean
+  showWeekNumbers?: boolean
   className?: string
   children: (props: {
     activity: Activity
@@ -365,6 +366,7 @@ export type ContributionGraphCalendarProps = Omit<
 export const ContributionGraphCalendar = ({
   title = "Contribution Graph",
   hideMonthLabels = false,
+  showWeekNumbers = false,
   className,
   children,
   ...props
@@ -385,8 +387,11 @@ export const ContributionGraphCalendar = ({
     [weeks, labels.months]
   )
 
-  const DAY_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""]
+  const DAY_LABELS = ["", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
   const LABEL_WIDTH = 30
+
+  const calendarHeight =
+    height + labelHeight + (showWeekNumbers ? labelHeight : 0)
 
   return (
     <div
@@ -395,8 +400,8 @@ export const ContributionGraphCalendar = ({
     >
       <svg
         className="block overflow-visible"
-        height={height}
-        viewBox={`-${LABEL_WIDTH} 0 ${width + LABEL_WIDTH} ${height}`}
+        height={calendarHeight}
+        viewBox={`-${LABEL_WIDTH} 0 ${width + LABEL_WIDTH} ${calendarHeight}`}
         width={width + LABEL_WIDTH}
       >
         <title>{title}</title>
@@ -407,12 +412,33 @@ export const ContributionGraphCalendar = ({
                 dominantBaseline="hanging"
                 key={weekIndex}
                 x={(blockSize + blockMargin) * weekIndex}
+                y={0}
                 fontSize={fontSize - 4}
                 className="fill-muted-foreground/50 font-mono"
               >
                 {label}
               </text>
             ))}
+          </g>
+        )}
+
+        {showWeekNumbers && (
+          <g className="fill-current">
+            {weeks.map((_, weekIndex) => {
+              if (weekIndex % 2 !== 0) return null
+              return (
+                <text
+                  key={weekIndex}
+                  dominantBaseline="hanging"
+                  x={(blockSize + blockMargin) * weekIndex}
+                  y={height + labelHeight + 4}
+                  fontSize={fontSize - 6}
+                  className="fill-muted-foreground/30 font-mono"
+                >
+                  w{weekIndex + 1}
+                </text>
+              )
+            })}
           </g>
         )}
 
@@ -446,7 +472,9 @@ export const ContributionGraphCalendar = ({
 
             return (
               <Fragment key={`${weekIndex}-${dayIndex}`}>
-                {children({ activity, dayIndex, weekIndex })}
+                <g transform={`translate(0, ${labelHeight})`}>
+                  {children({ activity, dayIndex, weekIndex })}
+                </g>
               </Fragment>
             )
           })

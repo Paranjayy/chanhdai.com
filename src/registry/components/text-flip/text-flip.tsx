@@ -53,10 +53,13 @@ export function TextFlip({
   onIndexChange,
 }: TextFlipProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
 
   const items = Children.toArray(children)
 
   useEffect(() => {
+    if (isPaused) return
+
     const timer = setInterval(() => {
       setCurrentIndex((prev) => {
         const next = (prev + 1) % items.length
@@ -66,7 +69,7 @@ export function TextFlip({
     }, interval * 1000)
 
     return () => clearInterval(timer)
-  }, [items.length, interval, onIndexChange])
+  }, [items.length, interval, onIndexChange, isPaused])
 
   return (
     <AnimatePresence mode="wait" initial={false}>
@@ -78,6 +81,8 @@ export function TextFlip({
         exit="exit"
         transition={transition}
         variants={variants}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
         {items[currentIndex]}
       </Component>

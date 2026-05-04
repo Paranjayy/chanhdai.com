@@ -13,6 +13,11 @@ export function LiveAgeCounter({ className, ...props }: Props) {
     if (!USER.dob) return
 
     const dob = new Date(USER.dob)
+    if (isNaN(dob.getTime())) {
+      console.error("Invalid DOB:", USER.dob)
+      return
+    }
+
     const interval = setInterval(() => {
       const now = new Date()
       const diff = now.getTime() - dob.getTime()

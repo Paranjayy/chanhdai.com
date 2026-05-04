@@ -41,6 +41,7 @@ export function GitHubContributionGraph({
       <ContributionGraphCalendar
         className="no-scrollbar px-2"
         title="GitHub Contributions"
+        showWeekNumbers
       >
         {({ activity, dayIndex, weekIndex }) => (
           <Tooltip>
@@ -57,7 +58,7 @@ export function GitHubContributionGraph({
             />
             <TooltipContent className="font-sans">
               <p>
-                {activity.count} contribution{activity.count > 1 ? "s" : null}{" "}
+                {activity.count} contribution{activity.count !== 1 ? "s" : null}{" "}
                 on {format(new Date(activity.date), "dd.MM.yyyy")}
               </p>
             </TooltipContent>
@@ -76,40 +77,78 @@ export function GitHubContributionGraph({
           </ContributionGraphTotalCount>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-1 text-muted-foreground">
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                Streak
-              </span>
-              <span className="font-mono text-sm font-medium text-foreground">
-                {currentStreak}
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                Best
-              </span>
-              <span className="font-mono text-sm font-medium text-foreground">
-                {bestStreak}
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                Most
-              </span>
-              <span className="font-mono text-sm font-medium text-foreground">
-                {Math.max(...data.map((d) => d.count))}
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                Average
-              </span>
-              <span className="font-mono text-sm font-medium text-foreground">
-                {(
-                  data.reduce((acc, curr) => acc + curr.count, 0) / data.length
-                ).toFixed(1)}
-              </span>
-            </div>
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <div className="flex cursor-help items-center gap-1.5">
+                    <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
+                      Streak
+                    </span>
+                    <span className="font-mono text-sm font-medium text-foreground">
+                      {currentStreak}
+                    </span>
+                  </div>
+                }
+              />
+              <TooltipContent>
+                Current consecutive days with contributions
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <div className="flex cursor-help items-center gap-1.5">
+                    <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
+                      Best
+                    </span>
+                    <span className="font-mono text-sm font-medium text-foreground">
+                      {bestStreak}
+                    </span>
+                  </div>
+                }
+              />
+              <TooltipContent>
+                Longest consecutive days with contributions
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <div className="flex cursor-help items-center gap-1.5">
+                    <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
+                      Most
+                    </span>
+                    <span className="font-mono text-sm font-medium text-foreground">
+                      {Math.max(...data.map((d) => d.count))}
+                    </span>
+                  </div>
+                }
+              />
+              <TooltipContent>
+                Highest number of contributions in a single day
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <div className="flex cursor-help items-center gap-1.5">
+                    <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
+                      Average
+                    </span>
+                    <span className="font-mono text-sm font-medium text-foreground">
+                      {(
+                        data.reduce((acc, curr) => acc + curr.count, 0) /
+                        data.length
+                      ).toFixed(1)}
+                    </span>
+                  </div>
+                }
+              />
+              <TooltipContent>Average contributions per day</TooltipContent>
+            </Tooltip>
           </div>
         </div>
 

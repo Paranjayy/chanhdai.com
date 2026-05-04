@@ -6,25 +6,25 @@ export function BrandMark({
 }: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      viewBox="0 0 32 24"
+      viewBox="0 0 16 11"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("h-10 w-12", className)}
+      className={cn("h-10 w-auto", className)}
       {...props}
     >
       {/* K */}
-      <rect x="4" y="4" width="3" height="16" fill="currentColor" />
-      <rect x="7" y="11" width="3" height="2" fill="currentColor" />
-      <rect x="10" y="7" width="3" height="4" fill="currentColor" />
-      <rect x="10" y="13" width="3" height="4" fill="currentColor" />
-      <rect x="13" y="4" width="3" height="3" fill="currentColor" />
-      <rect x="13" y="17" width="3" height="3" fill="currentColor" />
+      <rect x="0" y="0" width="2" height="11" fill="currentColor" />
+      <rect x="2" y="4" width="2" height="3" fill="currentColor" />
+      <rect x="4" y="2" width="2" height="2" fill="currentColor" />
+      <rect x="6" y="0" width="2" height="2" fill="currentColor" />
+      <rect x="4" y="7" width="2" height="2" fill="currentColor" />
+      <rect x="6" y="9" width="2" height="2" fill="currentColor" />
 
       {/* P */}
-      <rect x="20" y="4" width="3" height="16" fill="currentColor" />
-      <rect x="23" y="4" width="5" height="2" fill="currentColor" />
-      <rect x="23" y="11" width="5" height="2" fill="currentColor" />
-      <rect x="27" y="6" width="2" height="5" fill="currentColor" />
+      <rect x="10" y="0" width="2" height="11" fill="currentColor" />
+      <rect x="12" y="0" width="4" height="2" fill="currentColor" />
+      <rect x="14" y="2" width="2" height="4" fill="currentColor" />
+      <rect x="12" y="5" width="4" height="2" fill="currentColor" />
     </svg>
   )
 }

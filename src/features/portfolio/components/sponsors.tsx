@@ -33,16 +33,17 @@ export function Sponsors() {
       </PanelHeader>
 
       <div className="relative">
-        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
+        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-3">
           <div className="border-r border-line" />
+          <div className="border-x border-line" />
           <div className="border-l border-line" />
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {FEATURED_SPONSORS.map((item) => (
             <SponsorItem
               key={item.name}
-              className="min-h-22.5 [&_svg]:w-full [&_svg]:max-w-75 [&_svg]:shrink-0"
+              className="min-h-16 [&_svg]:w-full [&_svg]:max-w-48 [&_svg]:shrink-0"
               href={addQueryParams(item.url, UTM_PARAMS)}
               aria-label={`${item.name} logo`}
             >
@@ -51,13 +52,13 @@ export function Sponsors() {
           ))}
 
           <SponsorItem
-            className="min-h-22.5"
+            className="min-h-16"
             href={SPONSORSHIP_URL}
             aria-label="Sponsor My Work"
           >
             <PlusIcon
               className="flex size-full items-center justify-center text-muted-foreground"
-              size={24}
+              size={20}
               aria-hidden
             />
           </SponsorItem>

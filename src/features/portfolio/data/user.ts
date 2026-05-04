@@ -26,7 +26,7 @@ export const USER: User = {
       company: "IIT Madras",
       website: "https://www.iitm.ac.in/",
       experienceId: "iit-madras",
-      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/1280px-IIT_Madras_Logo.svg.png",
+      logo: "https://upload.wikimedia.org/wikipedia/en/6/69/IIT_Madras_Logo.svg",
     },
   ],
   dob: "2005-12-24",

@@ -1,6 +1,6 @@
 export type SocialLink = {
-  /** Icon image URL (absolute or path under /public) shown beside the title. */
-  icon: string
+  /** Icon image URL or React component. */
+  icon: string | React.ReactNode
   title: string
   /** Optional handle/username or subtitle displayed under the title. */
   subtitle?: string
