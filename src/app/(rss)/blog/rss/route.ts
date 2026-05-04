@@ -20,14 +20,14 @@ export function GET() {
     .join("\n")
 
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
-  <rss version="2.0">
-    <channel>
-      <title>Blog | ${SITE_INFO.name}</title>
-      <link>${SITE_INFO.url}</link>
-      <description>${SITE_INFO.description}</description>
-      ${itemsXml}
-    </channel>
-  </rss>`
+<rss version="2.0">
+  <channel>
+    <title>Blog | ${SITE_INFO.name}</title>
+    <link>${SITE_INFO.url}</link>
+    <description>${SITE_INFO.description}</description>
+    ${itemsXml}
+  </channel>
+</rss>`
 
   return new Response(rssFeed, {
     headers: {

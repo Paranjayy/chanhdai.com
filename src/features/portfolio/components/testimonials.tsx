@@ -1,17 +1,12 @@
 import { ArrowUpRightIcon } from "lucide-react"
 
-import {
-  Marquee,
-  MarqueeContent,
-  MarqueeFade,
-  MarqueeItem,
-} from "@/components/kibo-ui/marquee"
 import { Button } from "@/components/ui/button"
 import { Panel } from "@/features/portfolio/components/panel"
 import { VerifiedIcon } from "@/features/portfolio/components/verified-icon"
 import {
   TESTIMONIALS_1,
   TESTIMONIALS_2,
+  TESTIMONIALS_PINNED,
 } from "@/features/portfolio/data/testimonials"
 import type { Testimonial as TestimonialType } from "@/features/portfolio/types/testimonials"
 import {
@@ -25,12 +20,7 @@ import {
   TestimonialQuote,
   TestimonialVerifiedBadge,
 } from "@/registry/components/testimonial"
-import { TestimonialSpotlight } from "@/registry/components/testimonial-spotlight"
 import { Twemoji } from "@/registry/components/twemoji/twemoji"
-
-const FEATURED_TESTIMONIALS = [...TESTIMONIALS_1, ...TESTIMONIALS_2]
-  .filter((item) => item.isFeatured)
-  .sort((a, b) => Number(a.order ?? 999) - Number(b.order ?? 999))
 
 export function Testimonials() {
   return (
@@ -40,23 +30,26 @@ export function Testimonials() {
     >
       <h2 className="sr-only">Testimonials</h2>
 
-      <div className="flex h-2 w-full" />
+      <div className="flex flex-col gap-2">
+        <TestimonialList data={TESTIMONIALS_PINNED} />
+        <TestimonialList data={[...TESTIMONIALS_1, ...TESTIMONIALS_2]} />
+      </div>
 
-      <TestimonialList data={TESTIMONIALS_1} />
-
-      <div className="flex h-2 w-full" />
-
-      <TestimonialList data={TESTIMONIALS_2} direction="right" />
-
-      <div className="absolute right-0 bottom-0 z-10 -translate-x-2 rounded-lg bg-background ring-1 ring-background">
-        <Button className="size-7" variant="outline" size="icon-sm" asChild>
+      <div className="flex justify-center pt-4 pb-2">
+        <Button
+          className="gap-2 border-none pr-2.5 pl-3"
+          size="sm"
+          variant="outline"
+          asChild
+        >
           <a
             href="/testimonials"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View more testimonials"
           >
-            <ArrowUpRightIcon />
+            View All Testimonials
+            <ArrowUpRightIcon className="size-4" />
           </a>
         </Button>
       </div>
@@ -64,37 +57,21 @@ export function Testimonials() {
   )
 }
 
-function TestimonialList({
-  data,
-  direction,
-}: {
-  data: TestimonialType[]
-  direction?: "right" | "left"
-}) {
+function TestimonialList({ data }: { data: TestimonialType[] }) {
   return (
-    <Marquee>
-      <MarqueeFade side="left" />
-      <MarqueeFade side="right" />
-
-      <MarqueeContent direction={direction} autoFill={false}>
-        {data.map((item) => (
-          <MarqueeItem
-            key={item.url}
-            className="mx-1 h-full max-w-xs min-w-2xs"
-            style={item.style}
-          >
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener"
-              className="block h-full rounded-xl ring-1 ring-foreground/10 transition-[background-color] ease-out ring-inset hover:bg-accent-muted"
-            >
-              <TestimonialItem {...item} />
-            </a>
-          </MarqueeItem>
-        ))}
-      </MarqueeContent>
-    </Marquee>
+    <div className="grid grid-cols-1 gap-2 px-2 sm:grid-cols-2">
+      {data.map((item) => (
+        <a
+          key={item.url}
+          href={item.url}
+          target="_blank"
+          rel="noopener"
+          className="block h-full cursor-crosshair rounded-xl ring-1 ring-foreground/10 transition-[background-color] ease-out ring-inset hover:bg-accent-muted"
+        >
+          <TestimonialItem {...item} />
+        </a>
+      ))}
+    </div>
   )
 }
 

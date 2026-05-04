@@ -18,6 +18,7 @@ import { PostShareMenu } from "@/features/blog/components/post-share-menu"
 import { getAllBlockStaticParams } from "@/lib/blocks"
 import { getRegistryItem } from "@/lib/registry"
 import { cn } from "@/lib/utils"
+import type { PageProps } from "@/types/next"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -35,7 +36,7 @@ const getCachedRegistryItem = cache(async (name: string) => {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/blocks/[category]/[name]">): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const { category, name } = await params
 
   const item = await getCachedRegistryItem(name)
@@ -75,9 +76,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function BlockViewPage({
-  params,
-}: PageProps<"/blocks/[category]/[name]">) {
+export default async function BlockViewPage({ params }: PageProps) {
   const { category, name } = await params
 
   const blocks = await getCachedStaticParams()

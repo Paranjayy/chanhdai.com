@@ -1,6 +1,3 @@
-import { ArrowUpRightIcon } from "lucide-react"
-import Image from "next/image"
-
 import { UTM_PARAMS } from "@/config/site"
 import type { SocialLink } from "@/features/portfolio/types/social-links"
 import { cn } from "@/lib/utils"
@@ -34,9 +31,16 @@ export function SocialLinkItem({ icon, title, subtitle, href }: SocialLink) {
           />
         )}
       </div>
-      <span className="max-w-full truncate font-mono text-[10px] font-medium text-muted-foreground transition-colors group-hover:text-foreground">
-        {subtitle || title}
-      </span>
+      <div className="flex flex-col items-center justify-center">
+        <span className="max-w-full truncate font-sans text-xs font-semibold text-foreground transition-colors group-hover:text-foreground">
+          {title}
+        </span>
+        {subtitle && (
+          <span className="max-w-full truncate font-mono text-[9px] text-muted-foreground transition-colors group-hover:text-foreground/80">
+            @{subtitle}
+          </span>
+        )}
+      </div>
     </a>
   )
 }

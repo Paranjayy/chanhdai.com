@@ -6,6 +6,7 @@ import { registryCategories } from "@/config/registry"
 import { X_HANDLE } from "@/config/site"
 import { getAllBlockIds } from "@/lib/blocks"
 import { cn } from "@/lib/utils"
+import type { PageProps } from "@/types/next"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -19,7 +20,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/blocks/[category]">): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const { category } = await params
 
   const item = registryCategories.find((item) => item.slug === category)
@@ -59,9 +60,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function BlocksPage({
-  params,
-}: PageProps<"/blocks/[category]">) {
+export default async function BlocksPage({ params }: PageProps) {
   const { category } = await params
   const blockIds = await getAllBlockIds(["registry:block"], [category])
 

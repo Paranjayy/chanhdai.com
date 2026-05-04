@@ -7,6 +7,7 @@ import { PreviewProvider } from "@/app/(preview)/components/preview-provider"
 import { getCachedThemes } from "@/app/(preview)/lib/get-themes"
 import { X_HANDLE } from "@/config/site"
 import { getRegistryItem } from "@/lib/registry"
+import type { PageProps } from "@/types/next"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -35,7 +36,7 @@ const getCachedRegistryItem = cache(async (name: string) => {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/preview/[name]">): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const { name } = await params
 
   const item = await getCachedRegistryItem(name)
@@ -79,9 +80,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function PreviewPage({
-  params,
-}: PageProps<"/preview/[name]">) {
+export default async function PreviewPage({ params }: PageProps) {
   const name = (await params).name
 
   const [item, themes] = await Promise.all([

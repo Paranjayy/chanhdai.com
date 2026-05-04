@@ -36,6 +36,7 @@ import {
 import type { Doc } from "@/features/doc/types/document"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
+import type { PageProps } from "@/types/next"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -48,7 +49,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/components/[slug]">): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const slug = (await params).slug
   const doc = getDocBySlug(slug)
 
@@ -111,9 +112,7 @@ function getPageJsonLd(doc: Doc): WithContext<PageSchema> {
   }
 }
 
-export default async function Page({
-  params,
-}: PageProps<"/components/[slug]">) {
+export default async function Page({ params }: PageProps) {
   const slug = (await params).slug
   const doc = getDocBySlug(slug)
 

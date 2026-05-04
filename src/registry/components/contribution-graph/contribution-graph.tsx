@@ -334,7 +334,11 @@ export const ContributionGraphBlock = ({
 
   return (
     <rect
-      className={cn(THEME, className)}
+      className={cn(
+        THEME,
+        "transition-[fill,stroke-width] hover:stroke-foreground/20 hover:stroke-[1.5px]",
+        className
+      )}
       data-count={activity.count}
       data-date={activity.date}
       data-level={activity.level}
@@ -425,17 +429,17 @@ export const ContributionGraphCalendar = ({
         {showWeekNumbers && (
           <g className="fill-current">
             {weeks.map((_, weekIndex) => {
-              if (weekIndex % 2 !== 0) return null
+              if (weekIndex % 4 !== 0) return null
               return (
                 <text
                   key={weekIndex}
                   dominantBaseline="hanging"
                   x={(blockSize + blockMargin) * weekIndex}
-                  y={height + labelHeight + 4}
-                  fontSize={fontSize - 6}
-                  className="fill-muted-foreground/30 font-mono"
+                  y={height + labelHeight + 6}
+                  fontSize={fontSize - 7}
+                  className="fill-muted-foreground/40 font-mono font-bold tracking-tighter select-none"
                 >
-                  w{weekIndex + 1}
+                  W{weekIndex + 1}
                 </text>
               )
             })}

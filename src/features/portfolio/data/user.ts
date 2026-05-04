@@ -31,9 +31,9 @@ export const USER: User = {
   ],
   dob: "2005-12-24",
   about: `
-Student at Indian Institute of Technology Madras pursuing a BS in Data Science and Applications. 
-Exploring, learning and building interesting projects. 
-Currently focused on mastering the foundations and shipping real-world applications.
+I'm a **BS Student in Data Science & Applications** at IIT Madras, where I spend my days (and many nights) building **scalable AI systems** and exploring the nuances of **modular design**.
+
+When I'm not coding, you can find me brewing the perfect **coffee**, capturing moments in the **wild**, or diving into a new **book**. I'm obsessed with finding the intersection between **technical excellence** and **visual delight**.
 `,
   avatar: "https://github.com/Paranjayy.png",
   ogImage: "https://paranjay.dev/og.png",

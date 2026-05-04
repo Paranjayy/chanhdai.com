@@ -44,7 +44,7 @@ export async function getStargazerCount(
       return countWithoutToken ?? 0
     },
     ["github-stargazer-count", repo],
-    { revalidate: 86400 } // Cache for 1 day
+    { revalidate: 3600 } // Cache for 1 hour
   )()
 }
 

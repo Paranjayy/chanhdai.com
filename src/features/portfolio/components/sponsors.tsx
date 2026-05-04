@@ -43,7 +43,7 @@ export function Sponsors() {
           {FEATURED_SPONSORS.map((item) => (
             <SponsorItem
               key={item.name}
-              className="min-h-16 [&_svg]:w-full [&_svg]:max-w-48 [&_svg]:shrink-0"
+              className="min-h-16 [&_svg]:w-full [&_svg]:max-w-32 [&_svg]:shrink-0"
               href={addQueryParams(item.url, UTM_PARAMS)}
               aria-label={`${item.name} logo`}
             >

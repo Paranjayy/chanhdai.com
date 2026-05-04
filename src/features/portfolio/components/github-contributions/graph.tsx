@@ -80,12 +80,12 @@ export function GitHubContributionGraph({
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <div className="flex cursor-help items-center gap-1.5">
+                  <div className="flex cursor-help flex-col items-start">
                     <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                      Streak
+                      Current Streak
                     </span>
-                    <span className="font-mono text-sm font-medium text-foreground">
-                      {currentStreak}
+                    <span className="font-mono text-lg font-bold text-foreground">
+                      {currentStreak}d
                     </span>
                   </div>
                 }
@@ -98,12 +98,12 @@ export function GitHubContributionGraph({
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <div className="flex cursor-help items-center gap-1.5">
+                  <div className="flex cursor-help flex-col items-start border-l border-line pl-4">
                     <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                      Best
+                      Best Streak
                     </span>
-                    <span className="font-mono text-sm font-medium text-foreground">
-                      {bestStreak}
+                    <span className="font-mono text-lg font-bold text-foreground">
+                      {bestStreak}d
                     </span>
                   </div>
                 }
@@ -116,11 +116,11 @@ export function GitHubContributionGraph({
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <div className="flex cursor-help items-center gap-1.5">
+                  <div className="flex cursor-help flex-col items-start border-l border-line pl-4">
                     <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                      Most
+                      Peak
                     </span>
-                    <span className="font-mono text-sm font-medium text-foreground">
+                    <span className="font-mono text-lg font-bold text-foreground">
                       {Math.max(...data.map((d) => d.count))}
                     </span>
                   </div>
@@ -134,15 +134,15 @@ export function GitHubContributionGraph({
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <div className="flex cursor-help items-center gap-1.5">
+                  <div className="flex cursor-help flex-col items-start border-l border-line pl-4">
                     <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
                       Average
                     </span>
-                    <span className="font-mono text-sm font-medium text-foreground">
+                    <span className="font-mono text-lg font-bold text-foreground">
                       {(
                         data.reduce((acc, curr) => acc + curr.count, 0) /
                         data.length
-                      ).toFixed(1)}
+                      ).toFixed(2)}
                     </span>
                   </div>
                 }

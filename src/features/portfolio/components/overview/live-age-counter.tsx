@@ -18,12 +18,16 @@ export function LiveAgeCounter({ className, ...props }: Props) {
       return
     }
 
-    const interval = setInterval(() => {
+    const calculateAge = () => {
       const now = new Date()
       const diff = now.getTime() - dob.getTime()
       const ageInYears = diff / (1000 * 60 * 60 * 24 * 365.25)
       setAge(ageInYears.toFixed(9))
-    }, 50)
+    }
+
+    calculateAge() // Initial calculation
+
+    const interval = setInterval(calculateAge, 50)
 
     return () => clearInterval(interval)
   }, [])

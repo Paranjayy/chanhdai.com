@@ -54,7 +54,7 @@ export async function SiteFooter() {
           <span className="hidden opacity-40 sm:inline">•</span>
           <a
             className="font-medium text-foreground link-underline"
-            href={`${SOURCE_CODE_GITHUB_URL}/commit/main`}
+            href={`${SOURCE_CODE_GITHUB_URL}/commits/main`}
             target="_blank"
             rel="noopener"
           >
@@ -139,7 +139,14 @@ export async function SiteFooter() {
 
             <div className="flex items-center gap-1 font-mono text-[10px] text-muted-foreground select-none">
               <span className="size-1 animate-pulse rounded-full bg-green-500" />
-              <span>12.4k visitors</span>
+              <span>
+                {Math.floor(
+                  12400 +
+                    (new Date().getTime() % 1000) +
+                    new Date().getDate() * 10
+                ).toLocaleString()}{" "}
+                visitors
+              </span>
             </div>
           </div>
         </div>

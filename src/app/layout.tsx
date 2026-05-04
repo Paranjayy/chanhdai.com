@@ -8,6 +8,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app"
 import type { WebSite, WithContext } from "schema-dts"
 
 import { Providers } from "@/components/providers"
+import { CrosshairCursor } from "@/components/ui/crosshair-cursor"
 import { META_THEME_COLORS, SITE_INFO, X_HANDLE } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
 import { fontVariables } from "@/lib/fonts"
@@ -138,6 +139,7 @@ export default function RootLayout({
         <Providers>
           <NuqsAdapter>{children}</NuqsAdapter>
         </Providers>
+        <CrosshairCursor />
         <Analytics />
       </body>
     </html>

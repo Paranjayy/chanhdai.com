@@ -19,6 +19,7 @@ import { FloatingHoverImage } from "@/components/ui/floating-hover-image"
 import { Tag } from "@/components/ui/tag"
 import { Prose } from "@/components/ui/typography"
 import { UTM_PARAMS } from "@/config/site"
+import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
 
 import type { Project } from "../../types/projects"
@@ -40,7 +41,10 @@ export function ProjectItem({
       alt={project.title}
       className="w-full"
     >
-      <Collapsible className={className} defaultOpen={project.isExpanded}>
+      <Collapsible
+        className={cn("cursor-crosshair", className)}
+        defaultOpen={project.isExpanded}
+      >
         <div className="flex items-center hover:bg-accent-muted/50">
           {project.logo ? (
             <Image
