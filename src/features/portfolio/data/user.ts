@@ -1,52 +1,36 @@
 import type { User } from "@/features/portfolio/types/user"
 
 export const USER: User = {
-  firstName: "Paranjay",
-  lastName: "Khachar",
-  displayName: "Paranjay Khachar",
-  username: "Paranjayy",
+  firstName: "John",
+  lastName: "Doe",
+  displayName: "John Doe",
+  username: "johndoe",
   gender: "male",
   pronouns: "he/him",
-  bio: "BS Student (Data Science & Applications) @ IIT Madras. Passionate about building robust, scalable AI systems.",
+  bio: "Full-stack developer and designer. Passionate about building modern web experiences.",
   flipSentences: [
-    "Night Owl 🦉 building scalable AI systems.",
-    "2,500+ GitHub Contributions in 2026.",
-    "IIT Madras BS Student (DS & Applications).",
-    "Passionate about open-source and modular design.",
+    "Building modern web experiences.",
+    "Passionate about open-source.",
+    "Loves clean code and modular design.",
   ],
-  address: "Gujarat, India",
-  email: "a3BhcmFuamF5MjQ1QGdtYWlsLmNvbQ==", // kparanjay245@gmail.com
-  secondaryEmail: "cGFyYW5qYXlAcGFyYW5qYXkuZGV2", // paranjay@paranjay.dev
-  studentEmail: "MjVmMzAwNTkyOEBkcy5zdHVkeS5paXRtLmFjLmlu", // 25f3005928@ds.study.iitm.ac.in
-  website: "https://paranjay.dev",
-  jobTitle: "IIT Madras BS Student",
+  address: "San Francisco, CA",
+  email: "am9obmRvZUBleGFtcGxlLmNvbQ==", // johndoe@example.com
+  website: "https://example.com",
+  jobTitle: "Software Engineer",
   jobs: [
     {
-      title: "BS Student (Data Science & Applications)",
-      company: "IIT Madras",
-      website: "https://www.iitm.ac.in/",
-      experienceId: "iit-madras",
-      logo: "https://upload.wikimedia.org/wikipedia/en/6/69/IIT_Madras_Logo.svg",
+      title: "Software Engineer",
+      company: "Acme Inc.",
+      website: "https://example.com",
+      experienceId: "acme",
     },
   ],
-  dob: "2005-12-24",
+  dob: "1995-01-01",
   about: `
-I'm a **BS Student in Data Science & Applications** at IIT Madras, where I spend my days (and many nights) building **scalable AI systems** and exploring the nuances of **modular design**.
-
-When I'm not coding, you can find me brewing the perfect **coffee**, capturing moments in the **wild**, or diving into a new **book**. I'm obsessed with finding the intersection between **technical excellence** and **visual delight**.
+I'm a software engineer and designer with a passion for building beautiful and functional web applications.
 `,
-  avatar: "https://github.com/Paranjayy.png",
-  ogImage: "https://paranjay.dev/og.png",
-  timeZone: "Asia/Kolkata",
-  namePronunciationUrl: "https://utfs.io/f/pronunciation-placeholder.mp3",
-  keywords: [
-    "software engineer",
-    "ai",
-    "next.js",
-    "typescript",
-    "open source",
-    "IIT Madras",
-    "data science",
-  ],
-  dateCreated: "2024-05-02",
+  avatar: "https://github.com/shadcn.png",
+  timeZone: "America/Los_Angeles",
+  keywords: ["software engineer", "next.js", "typescript", "open source"],
+  dateCreated: "2024-01-01",
 }

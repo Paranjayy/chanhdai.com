@@ -3,7 +3,7 @@ import type { NavItem } from "@/types/nav"
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://paranjay.dev",
+  url: process.env.APP_URL || "https://example.com",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -45,14 +45,13 @@ export const MOBILE_NAV: NavItem[] = [
   ...MAIN_NAV,
 ]
 
-export const X_HANDLE = "@paranjay245"
-export const GITHUB_USERNAME = "Paranjayy"
-export const SOURCE_CODE_GITHUB_REPO = "Paranjayy/chanhdai.com"
-export const SOURCE_CODE_GITHUB_URL =
-  "https://github.com/Paranjayy/chanhdai.com"
+export const X_HANDLE = "@username"
+export const GITHUB_USERNAME = "username"
+export const SOURCE_CODE_GITHUB_REPO = "username/portfolio"
+export const SOURCE_CODE_GITHUB_URL = "https://github.com/username/portfolio"
 
-export const SPONSORSHIP_URL = "https://github.com/sponsors/Paranjayy"
+export const SPONSORSHIP_URL = "https://github.com/sponsors/username"
 
 export const UTM_PARAMS = {
-  utm_source: "paranjay.dev",
+  utm_source: "portfolio",
 }
