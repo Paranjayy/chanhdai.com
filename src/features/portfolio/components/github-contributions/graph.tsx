@@ -28,7 +28,14 @@ export function GitHubContributionGraph({
 }) {
   const data = use(contributions)
 
-  const { currentStreak, bestStreak } = calculateStreaks(data)
+  const {
+    currentStreak,
+    bestStreak,
+    currentStreakStart,
+    currentStreakEnd,
+    bestStreakStart,
+    bestStreakEnd,
+  } = calculateStreaks(data)
 
   return (
     <ContributionGraph
@@ -47,19 +54,26 @@ export function GitHubContributionGraph({
           <Tooltip>
             <TooltipTrigger
               render={
-                <g>
+                <a
+                  href={`https://github.com/${GITHUB_USERNAME}/${GITHUB_USERNAME}`}
+                  target="_blank"
+                  rel="noopener"
+                  className="cursor-pointer"
+                >
                   <ContributionGraphBlock
                     activity={activity}
                     dayIndex={dayIndex}
                     weekIndex={weekIndex}
                   />
-                </g>
+                </a>
               }
             />
             <TooltipContent className="font-sans">
-              <p>
-                {activity.count} contribution{activity.count !== 1 ? "s" : null}{" "}
-                on {format(new Date(activity.date), "dd.MM.yyyy")}
+              <p className="font-medium">
+                {activity.count} contribution{activity.count !== 1 ? "s" : null}
+              </p>
+              <p className="text-[10px] text-muted-foreground">
+                {format(new Date(activity.date), "EEEE, do MMMM yyyy")}
               </p>
             </TooltipContent>
           </Tooltip>
@@ -90,8 +104,16 @@ export function GitHubContributionGraph({
                   </div>
                 }
               />
-              <TooltipContent>
-                Current consecutive days with contributions
+              <TooltipContent className="space-y-1">
+                <p>Current consecutive days with contributions</p>
+                {currentStreakStart && (
+                  <p className="text-[10px] text-muted-foreground">
+                    {format(new Date(currentStreakStart), "MMM d")} -{" "}
+                    {currentStreakEnd
+                      ? format(new Date(currentStreakEnd), "MMM d")
+                      : "Present"}
+                  </p>
+                )}
               </TooltipContent>
             </Tooltip>
 
@@ -108,8 +130,14 @@ export function GitHubContributionGraph({
                   </div>
                 }
               />
-              <TooltipContent>
-                Longest consecutive days with contributions
+              <TooltipContent className="space-y-1">
+                <p>Longest consecutive days with contributions</p>
+                {bestStreakStart && bestStreakEnd && (
+                  <p className="text-[10px] text-muted-foreground">
+                    {format(new Date(bestStreakStart), "MMM d, yyyy")} -{" "}
+                    {format(new Date(bestStreakEnd), "MMM d, yyyy")}
+                  </p>
+                )}
               </TooltipContent>
             </Tooltip>
 
@@ -162,31 +190,47 @@ function calculateStreaks(activities: Activity[]) {
   let currentStreak = 0
   let bestStreak = 0
   let tempStreak = 0
+  let tempStreakStart: string | null = null
+  let bestStreakStart: string | null = null
+  let bestStreakEnd: string | null = null
 
-  // Activities are usually sorted by date
+  // Activities are usually sorted by date (ascending)
   activities.forEach((activity) => {
     if (activity.count > 0) {
+      if (tempStreak === 0) tempStreakStart = activity.date
       tempStreak++
       if (tempStreak > bestStreak) {
         bestStreak = tempStreak
+        bestStreakStart = tempStreakStart
+        bestStreakEnd = activity.date
       }
     } else {
       tempStreak = 0
+      tempStreakStart = null
     }
   })
 
   // Calculate current streak (working backwards from the last activity)
+  let currentStreakStart: string | null = null
+  let currentStreakEnd: string | null = null
   for (let i = activities.length - 1; i >= 0; i--) {
     if (activities[i].count > 0) {
+      if (currentStreakEnd === null) currentStreakEnd = activities[i].date
       currentStreak++
+      currentStreakStart = activities[i].date
     } else {
-      // If today has 0 but yesterday had > 0, we check if today is still "active"
-      // But for simplicity, we just stop at the first 0
       if (currentStreak > 0) break
     }
   }
 
-  return { currentStreak, bestStreak }
+  return {
+    currentStreak,
+    bestStreak,
+    currentStreakStart,
+    currentStreakEnd,
+    bestStreakStart,
+    bestStreakEnd,
+  }
 }
 
 export function GitHubContributionFallback() {

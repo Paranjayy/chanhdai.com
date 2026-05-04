@@ -5,8 +5,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     icon: <Icons.XIcon />,
     title: "X",
-    subtitle: "paranjay245",
-    href: "https://x.com/paranjay245",
+    subtitle: "paranjaydotdev",
+    href: "https://x.com/paranjaydotdev",
   },
   {
     icon: <Icons.GitHubIcon />,

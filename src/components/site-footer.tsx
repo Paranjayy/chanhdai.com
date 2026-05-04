@@ -54,12 +54,13 @@ export async function SiteFooter() {
           <span className="hidden opacity-40 sm:inline">•</span>
           <a
             className="font-medium text-foreground link-underline"
-            href={`${SOURCE_CODE_GITHUB_URL}/commits/main`}
+            href="https://github.com/ncdai/chanhdai.com"
             target="_blank"
             rel="noopener"
           >
-            Last updated: {new Date().toLocaleDateString("en-GB")}
+            ncdai/chanhdai.com
           </a>
+          <GitHubStars repo={ORIGINAL_REPO} stargazersCount={stargazersCount} />
         </div>
 
         <div className="screen-line-top screen-line-bottom flex w-full before:z-1 after:z-1">
@@ -96,7 +97,7 @@ export async function SiteFooter() {
             <div className="flex items-center gap-2">
               <a
                 className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-                href="https://x.com/paranjay245"
+                href="https://x.com/paranjaydotdev"
                 target="_blank"
                 rel="noopener"
                 aria-label="X"
@@ -137,17 +138,14 @@ export async function SiteFooter() {
 
             <Separator />
 
-            <div className="flex items-center gap-1 font-mono text-[10px] text-muted-foreground select-none">
-              <span className="size-1 animate-pulse rounded-full bg-green-500" />
-              <span>
-                {Math.floor(
-                  12400 +
-                    (new Date().getTime() % 1000) +
-                    new Date().getDate() * 10
-                ).toLocaleString()}{" "}
-                visitors
-              </span>
-            </div>
+            <a
+              className="flex font-mono text-[10px] font-medium text-muted-foreground transition-[color] hover:text-foreground"
+              href={`${SOURCE_CODE_GITHUB_URL}/commits/main`}
+              target="_blank"
+              rel="noopener"
+            >
+              Updated: {new Date().toLocaleDateString("en-GB")}
+            </a>
           </div>
         </div>
 

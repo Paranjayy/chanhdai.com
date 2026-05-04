@@ -24,6 +24,7 @@ export function FluidGradientText({
   svgViewBoxHeight = 300,
   className,
 }: FluidGradientTextProps) {
+  const id = useState(() => Math.random().toString(36).substring(2, 9))[0]
   const actualHeight = text2 ? svgViewBoxHeight * 1.8 : svgViewBoxHeight
   const xRaw = useMotionValue(svgViewBoxWidth / 2)
   const yRaw = useMotionValue(actualHeight / 2)
@@ -32,7 +33,7 @@ export function FluidGradientText({
   const y = useSpring(yRaw, { stiffness: 150, damping: 25 })
 
   const [isHovered, setIsHovered] = useState(false)
-  const fillOpacity = useSpring(isHovered ? 1 : 0, {
+  const fillOpacity = useSpring(isHovered ? 1 : 0.05, {
     stiffness: 100,
     damping: 30,
   })
@@ -60,6 +61,7 @@ export function FluidGradientText({
     <div
       className={cn("relative size-full overflow-hidden", className)}
       onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
     >
       <svg
@@ -67,6 +69,7 @@ export function FluidGradientText({
         viewBox={`0 0 ${svgViewBoxWidth} ${actualHeight}`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid slice"
       >
         <motion.text
           x="50%"
@@ -74,14 +77,13 @@ export function FluidGradientText({
           textAnchor="middle"
           dominantBaseline="central"
           stroke="currentColor"
-          strokeOpacity="0.4"
-          strokeWidth="0.75"
-          fill="url(#fluid_gradient_text_linear)"
+          strokeOpacity="0.2"
+          strokeWidth="1"
+          fill={`url(#fluid-text-grad-${id})`}
           fillOpacity={fillOpacity}
-          filter="drop-shadow(0 0 1px currentColor)"
           style={{
-            fontFamily: "Helvetica, sans-serif",
-            fontSize: svgViewBoxHeight * 0.7,
+            fontFamily: "var(--font-sans), system-ui, sans-serif",
+            fontSize: svgViewBoxHeight * 0.75,
             fontWeight: "900",
             letterSpacing: "-0.05em",
             textTransform: "uppercase",
@@ -96,14 +98,13 @@ export function FluidGradientText({
             textAnchor="middle"
             dominantBaseline="central"
             stroke="currentColor"
-            strokeOpacity="0.4"
-            strokeWidth="0.75"
-            fill="url(#fluid_gradient_text_linear)"
+            strokeOpacity="0.2"
+            strokeWidth="1"
+            fill={`url(#fluid-text-grad-${id})`}
             fillOpacity={fillOpacity}
-            filter="drop-shadow(0 0 1px currentColor)"
             style={{
-              fontFamily: "Helvetica, sans-serif",
-              fontSize: svgViewBoxHeight * 0.7,
+              fontFamily: "var(--font-sans), system-ui, sans-serif",
+              fontSize: svgViewBoxHeight * 0.75,
               fontWeight: "900",
               letterSpacing: "-0.05em",
               textTransform: "uppercase",
@@ -114,7 +115,7 @@ export function FluidGradientText({
         )}
         <defs>
           <motion.linearGradient
-            id="fluid_gradient_text_linear"
+            id={`fluid-text-grad-${id}`}
             x1={x}
             y1={y}
             x2={svgViewBoxWidth}
@@ -122,9 +123,9 @@ export function FluidGradientText({
             gradientUnits="userSpaceOnUse"
           >
             <stop offset="0" stopColor="currentColor" stopOpacity="0.1" />
-            <stop offset="0.45" stopColor="currentColor" stopOpacity="0.2" />
+            <stop offset="0.45" stopColor="currentColor" stopOpacity="0.3" />
             <stop offset="0.5" stopColor="currentColor" stopOpacity="1" />
-            <stop offset="0.55" stopColor="currentColor" stopOpacity="0.2" />
+            <stop offset="0.55" stopColor="currentColor" stopOpacity="0.3" />
             <stop offset="1" stopColor="currentColor" stopOpacity="0.1" />
           </motion.linearGradient>
         </defs>
