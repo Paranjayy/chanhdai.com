@@ -47,14 +47,14 @@ function DashboardItem({
   icon: React.ReactNode
 }) {
   return (
-    <div className="bg-background p-4 flex flex-col gap-2">
-      <div className="flex items-center gap-2 text-muted-foreground">
+    <div className="group flex flex-col gap-2 bg-background p-4 transition-colors hover:bg-accent-muted/50">
+      <div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground">
         {icon}
         <span className="font-mono text-[10px] font-bold tracking-widest uppercase">{title}</span>
       </div>
       <div className="flex flex-col">
-        <span className="text-lg font-bold tracking-tight">{value}</span>
-        <span className="text-xs text-muted-foreground">{subtitle}</span>
+        <span className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">{value}</span>
+        <span className="text-xs text-muted-foreground group-hover:text-foreground/70">{subtitle}</span>
       </div>
     </div>
   )

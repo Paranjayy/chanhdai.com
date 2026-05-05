@@ -17,7 +17,7 @@ export function BookmarkItem({
   return (
     <a
       className={cn("flex items-center pr-2 hover:bg-accent-muted", className)}
-      href={addQueryParams(bookmark.url, UTM_PARAMS)}
+      href={addQueryParams(bookmark.href, UTM_PARAMS)}
       target="_blank"
       rel="noopener"
     >
@@ -35,6 +35,11 @@ export function BookmarkItem({
         <h3 className="leading-snug font-medium text-balance">
           {bookmark.title}
         </h3>
+        {bookmark.description && (
+          <p className="text-sm text-muted-foreground line-clamp-2">
+            {bookmark.description}
+          </p>
+        )}
 
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
           {bookmark.author && (
@@ -51,14 +56,16 @@ export function BookmarkItem({
             </>
           )}
 
-          <dl>
-            <dt className="sr-only">Bookmarked on</dt>
-            <dd>
-              <time dateTime={new Date(bookmark.bookmarkedAt).toISOString()}>
-                {format(new Date(bookmark.bookmarkedAt), "dd.MM.yyyy")}
-              </time>
-            </dd>
-          </dl>
+          {bookmark.bookmarkedAt && (
+            <dl>
+              <dt className="sr-only">Bookmarked on</dt>
+              <dd>
+                <time dateTime={new Date(bookmark.bookmarkedAt).toISOString()}>
+                  {format(new Date(bookmark.bookmarkedAt), "dd.MM.yyyy")}
+                </time>
+              </dd>
+            </dl>
+          )}
         </div>
       </div>
 

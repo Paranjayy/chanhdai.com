@@ -24,20 +24,12 @@ export function ProfileHeader() {
 
       <div className="flex flex-1 flex-col">
         <div className="flex grow items-end pb-1 pl-4">
-          <div
-            className="line-clamp-1 font-mono text-xs text-zinc-300 select-none max-sm:hidden dark:text-zinc-800"
-            aria-hidden
-          >
-            {"text-3xl "}
-            <span className="inline dark:hidden">text-zinc-950</span>
-            <span className="hidden dark:inline">text-zinc-50</span>
-            {" font-medium"}
-          </div>
+          {/* Removed debug template text */}
         </div>
 
         <div className="border-t border-line">
           <div className="flex items-center gap-2 pl-4">
-            <h1 className="-translate-y-px text-3xl font-semibold tracking-tight">
+            <h1 className="-translate-y-px text-2xl font-semibold tracking-tight sm:text-3xl">
               {USER.displayName}
             </h1>
 

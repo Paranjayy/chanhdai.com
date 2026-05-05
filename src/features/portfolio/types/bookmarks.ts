@@ -1,7 +1,8 @@
 export type Bookmark = {
   title: string
-  url: string
+  href: string
+  description?: string
   author?: string
   icon?: React.ReactElement
-  bookmarkedAt: string
+  bookmarkedAt?: string
 }

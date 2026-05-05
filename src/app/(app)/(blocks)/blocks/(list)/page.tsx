@@ -38,12 +38,8 @@ export const metadata: Metadata = {
 }
 
 const FEATURED_BLOCKS = [
-  "team-01",
-  "hero-01",
-  "blog-02",
-  "blog-01",
-  "testimonials-01",
-  "testimonials-02",
+  "github-contributions-01",
+  "wakatime-01",
   "experience-01",
 ]
 

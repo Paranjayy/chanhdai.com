@@ -157,4 +157,32 @@ export const blocks: Registry["items"] = [
       previewClassName: "min-h-svh place-items-center-safe content-center-safe",
     },
   },
+  {
+    name: "github-contributions-01",
+    title: "GitHub Contributions 01",
+    description: "A GitHub contributions graph with mock data.",
+    type: "registry:block",
+    registryDependencies: ["github-contributions"],
+    files: [
+      {
+        path: "blocks/github-contributions-01/github-contributions-01.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["content", "portfolio"],
+  },
+  {
+    name: "wakatime-01",
+    title: "WakaTime 01",
+    description: "A WakaTime coding activity block with mock data.",
+    type: "registry:block",
+    registryDependencies: [getRegistryItemUrl("wakatime-stats")],
+    files: [
+      {
+        path: "blocks/wakatime-01/wakatime-01.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["content", "portfolio"],
+  },
 ]

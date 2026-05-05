@@ -562,4 +562,17 @@ export const components: Registry["items"] = [
     ],
     docs: "https://chanhdai.com/components/fluid-gradient-text",
   },
+  {
+    name: "wakatime-stats",
+    type: "registry:component",
+    title: "WakaTime Stats",
+    description:
+      "Visualize coding time across different languages and platforms.",
+    files: [
+      {
+        path: "components/wakatime-stats/wakatime-stats.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
 ]

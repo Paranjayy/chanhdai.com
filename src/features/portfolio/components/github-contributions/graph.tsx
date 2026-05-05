@@ -95,7 +95,7 @@ export function GitHubContributionGraph({
             )}
           </ContributionGraphTotalCount>
 
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-4 text-muted-foreground sm:gap-y-1">
             <Tooltip>
               <TooltipTrigger
                 render={
@@ -125,7 +125,7 @@ export function GitHubContributionGraph({
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <div className="flex cursor-help flex-col items-start border-l border-line pl-4">
+                  <div className="flex cursor-help flex-col items-start sm:border-l sm:border-line sm:pl-4">
                     <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
                       Best Streak
                     </span>
@@ -149,7 +149,7 @@ export function GitHubContributionGraph({
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <div className="flex cursor-help flex-col items-start border-l border-line pl-4">
+                  <div className="flex cursor-help flex-col items-start sm:border-l sm:border-line sm:pl-4">
                     <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
                       Peak
                     </span>
@@ -172,7 +172,7 @@ export function GitHubContributionGraph({
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <div className="flex cursor-help flex-col items-start border-l border-line pl-4">
+                  <div className="flex cursor-help flex-col items-start sm:border-l sm:border-line sm:pl-4">
                     <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
                       Average
                     </span>

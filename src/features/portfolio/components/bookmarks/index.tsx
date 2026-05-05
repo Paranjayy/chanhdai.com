@@ -7,7 +7,9 @@ import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel"
 import { BookmarkItem } from "./bookmark-item"
 
 const SORTED_BOOKMARKS = [...BOOKMARKS].sort((a, b) => {
-  return compareDesc(new Date(a.bookmarkedAt), new Date(b.bookmarkedAt))
+  const dateA = a.bookmarkedAt ? new Date(a.bookmarkedAt).getTime() : 0
+  const dateB = b.bookmarkedAt ? new Date(b.bookmarkedAt).getTime() : 0
+  return dateB - dateA
 })
 
 export function Bookmarks() {
