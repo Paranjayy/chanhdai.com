@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "github-contributions-01",
+  "title": "GitHub Contributions 01",
+  "author": "ncdai <dai@chanhdai.com>",
+  "description": "A GitHub contributions graph with mock data.",
+  "registryDependencies": [
+    "github-contributions"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/github-contributions-01/github-contributions-01.tsx",
+      "content": "import { GitHubContributions } from \"@/registry/components/github-contributions\"\nimport { Activity } from \"@/registry/components/contribution-graph\"\n\nexport function GitHubContributions01() {\n  const contributions = Promise.resolve(MOCK_CONTRIBUTIONS)\n\n  return (\n    <div className=\"container mx-auto px-4 py-8\">\n      <div className=\"rounded-xl border border-line bg-background p-6\">\n        <GitHubContributions\n          contributions={contributions}\n          githubProfileUrl=\"https://github.com/Paranjayy\"\n        />\n      </div>\n    </div>\n  )\n}\n\nconst MOCK_CONTRIBUTIONS: Activity[] = Array.from({ length: 365 }, (_, i) => {\n  const date = new Date()\n  date.setDate(date.getDate() - (364 - i))\n  return {\n    date: date.toISOString().split(\"T\")[0],\n    count: Math.floor(Math.random() * 10),\n    level: Math.floor(Math.random() * 5),\n  }\n})\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "content",
+    "portfolio"
+  ],
+  "type": "registry:block"
+}

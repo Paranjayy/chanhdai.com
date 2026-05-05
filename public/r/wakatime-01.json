@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wakatime-01",
+  "title": "WakaTime 01",
+  "author": "ncdai <dai@chanhdai.com>",
+  "description": "A WakaTime coding activity block with mock data.",
+  "registryDependencies": [
+    "https://paranjay.dev/r/wakatime-stats.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/blocks/wakatime-01/wakatime-01.tsx",
+      "content": "import { WakaTimeStats } from \"@/registry/components/wakatime-stats/wakatime-stats\"\n\nexport function Wakatime01() {\n  return (\n    <div className=\"container mx-auto px-4 py-8\">\n      <div className=\"rounded-xl border border-line bg-background p-6\">\n        <div className=\"mb-6 flex items-center justify-between\">\n          <div>\n            <h3 className=\"text-lg font-bold tracking-tight text-foreground\">\n              Coding Activity\n            </h3>\n            <p className=\"text-sm text-muted-foreground\">\n              Across all platforms this week\n            </p>\n          </div>\n          <div className=\"text-right\">\n            <span className=\"font-mono text-2xl font-bold text-foreground\">\n              42h 15m\n            </span>\n          </div>\n        </div>\n        \n        <WakaTimeStats data={MOCK_WAKATIME} />\n      </div>\n    </div>\n  )\n}\n\nconst MOCK_WAKATIME = [\n  { name: \"TypeScript\", percent: 45, color: \"#3178c6\" },\n  { name: \"React\", percent: 25, color: \"#61dafb\" },\n  { name: \"Next.js\", percent: 15, color: \"#000000\" },\n  { name: \"Tailwind CSS\", percent: 10, color: \"#38bdf8\" },\n  { name: \"Other\", percent: 5, color: \"#cccccc\" },\n]\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "content",
+    "portfolio"
+  ],
+  "type": "registry:block"
+}

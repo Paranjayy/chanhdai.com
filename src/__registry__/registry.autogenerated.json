@@ -689,6 +689,19 @@
       "author": "ncdai <dai@chanhdai.com>"
     },
     {
+      "name": "wakatime-stats",
+      "title": "WakaTime Stats",
+      "description": "Visualize coding time across different languages and platforms.",
+      "files": [
+        {
+          "path": "src/registry/components/wakatime-stats/wakatime-stats.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
       "name": "login-01",
       "title": "Login 01",
       "description": "A simple login form.",
@@ -894,6 +907,46 @@
       "categories": [
         "content",
         "team"
+      ],
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
+      "name": "github-contributions-01",
+      "title": "GitHub Contributions 01",
+      "description": "A GitHub contributions graph with mock data.",
+      "registryDependencies": [
+        "github-contributions"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/github-contributions-01/github-contributions-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "content",
+        "portfolio"
+      ],
+      "type": "registry:block",
+      "author": "ncdai <dai@chanhdai.com>"
+    },
+    {
+      "name": "wakatime-01",
+      "title": "WakaTime 01",
+      "description": "A WakaTime coding activity block with mock data.",
+      "registryDependencies": [
+        "https://paranjay.dev/r/wakatime-stats.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/wakatime-01/wakatime-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "content",
+        "portfolio"
       ],
       "type": "registry:block",
       "author": "ncdai <dai@chanhdai.com>"

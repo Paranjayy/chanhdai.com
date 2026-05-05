@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wakatime-stats",
+  "title": "WakaTime Stats",
+  "author": "ncdai <dai@chanhdai.com>",
+  "description": "Visualize coding time across different languages and platforms.",
+  "files": [
+    {
+      "path": "src/registry/components/wakatime-stats/wakatime-stats.tsx",
+      "content": "\"use client\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type WakaTimeStatsProps = {\n  data: {\n    name: string\n    percent: number\n    color: string\n  }[]\n  className?: string\n}\n\nexport function WakaTimeStats({ data, className }: WakaTimeStatsProps) {\n  return (\n    <div className={cn(\"space-y-4\", className)}>\n      <div className=\"flex h-3 w-full overflow-hidden rounded-full bg-muted\">\n        {data.map((item, index) => (\n          <div\n            key={index}\n            style={{\n              width: `${item.percent}%`,\n              backgroundColor: item.color,\n            }}\n            className=\"h-full transition-all duration-500\"\n            title={`${item.name}: ${item.percent}%`}\n          />\n        ))}\n      </div>\n      <div className=\"grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-3 md:grid-cols-4\">\n        {data.map((item, index) => (\n          <div key={index} className=\"flex items-center gap-2\">\n            <div\n              className=\"size-2 rounded-full\"\n              style={{ backgroundColor: item.color }}\n            />\n            <span className=\"font-mono text-[10px] font-medium text-muted-foreground uppercase tracking-tight\">\n              {item.name}\n            </span>\n            <span className=\"font-mono text-[10px] font-bold text-foreground\">\n              {item.percent}%\n            </span>\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
