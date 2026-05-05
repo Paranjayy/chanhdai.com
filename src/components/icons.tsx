@@ -18,6 +18,7 @@ import {
   ZapIcon,
   LaptopIcon,
   MusicIcon,
+  ImageIcon,
 } from "lucide-react"
 
 type IconProps = React.HTMLAttributes<SVGElement>
@@ -647,6 +648,7 @@ export const Icons = {
   ),
   laptop: (props: IconProps) => <LaptopIcon {...props} />,
   music: (props: IconProps) => <MusicIcon {...props} />,
+  photo: (props: IconProps) => <ImageIcon {...props} />,
   steam: (props: IconProps) => (
     <svg viewBox="0 0 24 24" aria-hidden {...props}>
       <path
