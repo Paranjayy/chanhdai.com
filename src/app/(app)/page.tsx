@@ -75,10 +75,10 @@ export default function Page() {
         <Projects />
         <Separator />
 
-        <Awards />
-        <Separator />
-
-        <Certifications />
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <Awards className="md:border-r" />
+          <Certifications className="border-t-0 md:border-t-0" />
+        </div>
         <Separator />
 
         <Bookmarks />

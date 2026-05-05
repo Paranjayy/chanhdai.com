@@ -12,7 +12,7 @@ export function About() {
       </PanelHeader>
 
       <PanelContent>
-        <Prose>
+        <Prose className="max-w-3xl">
           <Markdown>
             {USER.about}
           </Markdown>

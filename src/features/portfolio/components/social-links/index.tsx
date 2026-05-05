@@ -10,7 +10,7 @@ export function SocialLinks({ exclude }: { exclude?: string[] }) {
   return (
     <Panel className="before:content-none after:content-none">
       <h2 className="sr-only">Social Links</h2>
-      <div className="grid grid-cols-2 border-t border-l border-line sm:grid-cols-3">
+      <div className="grid grid-cols-2 border-t border-l border-line sm:grid-cols-3 lg:grid-cols-4">
         {links.map((link, index) => {
           return <SocialLinkItem key={index} {...link} />
         })}

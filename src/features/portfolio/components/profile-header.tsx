@@ -23,8 +23,16 @@ export function ProfileHeader() {
       </div>
 
       <div className="flex flex-1 flex-col">
-        <div className="flex grow items-end pb-1 pl-4">
-          {/* Removed debug template text */}
+        <div className="flex grow items-end justify-between pb-1 pl-4 pr-4">
+          <div className="flex items-center gap-2 pb-0.5">
+            <span className="relative flex size-1.5 shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500"></span>
+            </span>
+            <span className="font-mono text-[10px] font-bold tracking-widest text-muted-foreground uppercase select-none">
+              Available for work
+            </span>
+          </div>
         </div>
 
         <div className="border-t border-line">

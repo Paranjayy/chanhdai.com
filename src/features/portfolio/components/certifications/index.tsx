@@ -4,9 +4,9 @@ import { CERTIFICATIONS } from "../../data/certifications"
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel"
 import { CertificationItem } from "./certification-item"
 
-export function Certifications() {
+export function Certifications({ className }: { className?: string }) {
   return (
-    <Panel id="certs">
+    <Panel id="certs" className={className}>
       <PanelHeader>
         <PanelTitle>
           Certifications

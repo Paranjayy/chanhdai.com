@@ -10,9 +10,9 @@ const SORTED_AWARDS = [...AWARDS].sort((a, b) => {
   return compareDesc(new Date(a.date), new Date(b.date))
 })
 
-export function Awards() {
+export function Awards({ className }: { className?: string }) {
   return (
-    <Panel id="awards">
+    <Panel id="awards" className={className}>
       <PanelHeader>
         <PanelTitle>
           Awards

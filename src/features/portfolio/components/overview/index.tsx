@@ -43,7 +43,7 @@ export function Overview() {
           )
         })}
 
-        <div className="grid gap-x-4 gap-y-2.5 sm:grid-cols-2">
+        <div className="grid gap-x-4 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
           <IntroItem>
             <IntroItemIcon>
               <MapPinIcon />
@@ -93,16 +93,6 @@ export function Overview() {
             </IntroItemContent>
           </IntroItem>
 
-          <IntroItem>
-            <IntroItemIcon>
-              <Icons.github className="size-4" />
-            </IntroItemIcon>
-            <IntroItemContent aria-label="GitHub Stats">
-              <span className="font-mono text-xs">
-                Avg: <span className="text-foreground">--</span> / day
-              </span>
-            </IntroItemContent>
-          </IntroItem>
         </div>
       </PanelContent>
     </Panel>
