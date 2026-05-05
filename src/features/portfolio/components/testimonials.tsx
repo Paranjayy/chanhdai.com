@@ -67,9 +67,9 @@ export function Testimonials() {
               <MarqueeFade side="right" />
             </Marquee>
 
-            <Marquee className="py-1" reverse>
+            <Marquee className="py-1">
               <MarqueeFade side="left" />
-              <MarqueeContent pauseOnHover speed={35}>
+              <MarqueeContent pauseOnHover speed={35} direction="right">
                 {TESTIMONIALS_2.map((item) => (
                   <MarqueeItem key={item.url}>
                     <a

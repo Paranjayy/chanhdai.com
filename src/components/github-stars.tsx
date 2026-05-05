@@ -5,20 +5,26 @@ import {
 } from "@/components/base/ui/tooltip"
 import { Button } from "@/components/ui/button"
 import { UTM_PARAMS } from "@/config/site"
+import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
 
 type GitHubStarsProps = {
   repo: string
   stargazersCount: number
+  className?: string
 }
 
-export function GitHubStars({ repo, stargazersCount }: GitHubStarsProps) {
+export function GitHubStars({
+  repo,
+  stargazersCount,
+  className,
+}: GitHubStarsProps) {
   return (
     <Tooltip>
       <TooltipTrigger
         render={
           <Button
-            className="gap-1.5 border-none pr-1.5 pl-2"
+            className={cn("gap-1.5 border-none pr-1.5 pl-2", className)}
             variant="ghost"
             size="sm"
             asChild
