@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 
+import { getStargazerCount } from "@/components/nav-item-github"
 import {
   PageHeading,
   PageHeadingTagline,
@@ -40,13 +41,23 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projectsWithStars = await Promise.all(
+    PROJECTS.map(async (project) => {
+      if (project.githubRepo) {
+        const stars = await getStargazerCount(project.githubRepo)
+        return { ...project, stargazersCount: stars }
+      }
+      return project
+    })
+  )
+
   return (
     <div className="min-h-svh">
       <PageHeading>
         <PageHeadingTagline>Portfolio</PageHeadingTagline>
         <PageHeadingTitle>
-          A selection of projects that I've built or contributed to.
+          A selection of projects that I&apos;ve built or contributed to.
         </PageHeadingTitle>
       </PageHeading>
 
@@ -54,7 +65,7 @@ export default function ProjectsPage() {
 
       <div className="container mx-auto max-w-5xl px-4 py-8">
         <div className="grid border-t border-line">
-          {PROJECTS.map((project, index) => (
+          {projectsWithStars.map((project, index) => (
             <div
               key={project.id}
               className={cn(
@@ -71,7 +82,7 @@ export default function ProjectsPage() {
       <div className="h-8" />
 
       <SiteFooterInteractiveLogotype />
-      
+
       <div className="h-8" />
     </div>
   )

@@ -14,6 +14,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
+import { GitHubStars } from "@/components/github-stars"
 import { Markdown } from "@/components/markdown"
 import { FloatingHoverImage } from "@/components/ui/floating-hover-image"
 import { Tag } from "@/components/ui/tag"
@@ -109,6 +110,17 @@ export function ProjectItem({
                   <p>Open Project Link</p>
                 </TooltipContent>
               </Tooltip>
+
+              {project.githubRepo && (
+                <GitHubStars
+                  className="mx-2"
+                  repo={project.githubRepo}
+                  stargazersCount={
+                    (project as Project & { stargazersCount?: number })
+                      .stargazersCount || 0
+                  }
+                />
+              )}
 
               <div className="shrink-0 text-muted-foreground [&_svg]:size-4">
                 <CollapsibleChevronsIcon duration={0.15} />

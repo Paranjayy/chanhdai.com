@@ -15,8 +15,15 @@ type SpotifyData = {
   songUrl?: string
 }
 
+type WakaTimeData = {
+  total_seconds: number
+  human_readable_total: string
+  daily_average: number
+}
+
 export function Dashboard() {
   const [spotify, setSpotify] = useState<SpotifyData>({ isPlaying: false })
+  const [wakatime, setWakatime] = useState<WakaTimeData | null>(null)
 
   useEffect(() => {
     const fetchSpotify = async () => {
@@ -29,8 +36,22 @@ export function Dashboard() {
       }
     }
 
+    const fetchWakaTime = async () => {
+      try {
+        const res = await fetch("/api/stats/wakatime")
+        const data = await res.json()
+        setWakatime(data)
+      } catch (e) {
+        console.error("Failed to fetch WakaTime", e)
+      }
+    }
+
     fetchSpotify()
-    const interval = setInterval(fetchSpotify, 30000) // Update every 30s
+    fetchWakaTime()
+    const interval = setInterval(() => {
+      fetchSpotify()
+      fetchWakaTime()
+    }, 60000) // Update every 1m
     return () => clearInterval(interval)
   }, [])
 
@@ -39,11 +60,20 @@ export function Dashboard() {
       <DashboardItem
         title="Coding Activity"
         value={
-          <>
-            <CountUp value={42} />h 15m
-          </>
+          wakatime ? (
+            <div className="flex items-baseline gap-1">
+              <CountUp value={Math.floor(wakatime.total_seconds / 3600)} />
+              <span className="text-sm font-medium opacity-40">h</span>
+              <CountUp
+                value={Math.floor((wakatime.total_seconds % 3600) / 60)}
+              />
+              <span className="text-sm font-medium opacity-40">m</span>
+            </div>
+          ) : (
+            "---"
+          )
         }
-        subtitle="This week"
+        subtitle={wakatime ? "Last 7 days" : "Loading..."}
         icon={<Icons.laptop className="size-4" />}
       />
       <DashboardItem

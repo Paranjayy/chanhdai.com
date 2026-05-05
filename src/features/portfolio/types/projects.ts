@@ -22,6 +22,8 @@ export type Project = {
   logo?: string
   /** Preview image for hover gallery (Tina-style). */
   previewImage?: string
+  /** Optional GitHub repository (e.g., "Paranjayy/Learning-OSS"). */
+  githubRepo?: string
   /** Whether the project card is expanded by default in the UI. */
   isExpanded?: boolean
 }

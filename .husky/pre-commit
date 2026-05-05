@@ -1,1 +1,5 @@
-pnpm lint-staged
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx lint-staged
+entire hooks git pre-commit 2>/dev/null || true

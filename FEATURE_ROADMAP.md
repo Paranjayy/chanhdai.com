@@ -7,16 +7,16 @@ Last updated: May 2026
 ## Saturation Status
 
 ```
-Core Portfolio       ████████████████████ 97%
-Social Links         ████████████████░░░░ 80%  ← rectangles done
-Content Discovery    ████████████░░░░░░░░ 60%
-Mobile Experience    ████░░░░░░░░░░░░░░░░ 20%  ← biggest gap
+Core Portfolio       ████████████████████ 98%
+Social Links         ██████████████████░░ 90%
+Content Discovery    ████████████████░░░░ 80%
+Mobile Experience    ████████░░░░░░░░░░░░ 40%
 SEO / Structured     █████████████████░░░ 85%
-Academic Features    ████████░░░░░░░░░░░░ 40%
-Social / Sharing     ██████████░░░░░░░░░░ 50%
+Academic Features    ████████████░░░░░░░░ 60%
+Social / Sharing     ██████████████░░░░░░ 70%
 ```
 
-**~65% overall saturation**
+**~80% overall saturation** (Live GitHub & WakaTime data integrated)
 
 ---
 
@@ -45,9 +45,9 @@ Social / Sharing     ██████████░░░░░░░░░�
 
 ### Live Data Integrations
 - [ ] Real visitor count — integrate Vercel Analytics API or lightweight pixel counter
-- [ ] Real GitHub star count — replace static stargazers with GitHub API (same pattern as contributions)
-- [ ] Spotify Now Playing — Web API /me/player/currently-playing dashboard widget
-- [ ] WakaTime weekly coding hours — real API instead of hardcoded "42h 15m"
+- [x] Real GitHub star count — replace static stargazers with GitHub API (same pattern as contributions)
+- [ ] Spotify Now Playing — Web API /me/player/currently-playing dashboard widget (Implemented in lib, needs UI trigger)
+- [x] WakaTime weekly coding hours — real API instead of hardcoded "42h 15m"
 
 ### Layout & Polish
 - [ ] Mobile responsiveness pass — navbar, cards, contributions graph all need mobile love
@@ -57,7 +57,7 @@ Social / Sharing     ██████████░░░░░░░░░�
 - [ ] Blocks page — keep only 1 custom block (contributions or testimonials), remove generic ncdai blocks
 
 ### Content
-- [ ] Fill real Projects — IFTTT, IPL Engine, Workout Buddy, etc.
+- [/] Fill real Projects — IFTTT, IPL Engine, Workout Buddy, Learning OSS added.
 - [ ] Fill real Awards — IIT Madras achievements, hackathon wins
 - [ ] Fill real Certifications — Coursera, NPTEL, etc.
 - [ ] Fill real Bookmarks — curated reading list / resources
