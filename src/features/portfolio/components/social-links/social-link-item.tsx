@@ -9,7 +9,7 @@ export function SocialLinkItem({ icon, title, subtitle, href }: SocialLink) {
   return (
     <a
       className={cn(
-        "group flex flex-col items-center justify-center gap-2 p-3 transition-all duration-200 hover:bg-accent-muted",
+        "group flex flex-row items-center justify-start gap-3 px-4 py-3 transition-all duration-200 hover:bg-accent-muted",
         "border-r border-b border-line last:border-r-0"
       )}
       href={addQueryParams(href, UTM_PARAMS)}
@@ -17,7 +17,7 @@ export function SocialLinkItem({ icon, title, subtitle, href }: SocialLink) {
       rel="noopener"
       title={`${title}${subtitle ? ` (${subtitle})` : ""}`}
     >
-      <div className="relative size-6 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+      <div className="relative size-5 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
         {isComponent ? (
           <div className="size-full text-muted-foreground transition-colors group-hover:text-foreground">
             {icon}
@@ -31,12 +31,12 @@ export function SocialLinkItem({ icon, title, subtitle, href }: SocialLink) {
           />
         )}
       </div>
-      <div className="flex flex-col items-center justify-center">
-        <span className="max-w-full truncate font-sans text-xs font-semibold text-foreground transition-colors group-hover:text-foreground">
+      <div className="flex flex-col min-w-0">
+        <span className="truncate font-sans text-xs font-semibold text-foreground transition-colors group-hover:text-foreground leading-tight">
           {title}
         </span>
         {subtitle && (
-          <span className="max-w-full truncate font-mono text-[9px] text-muted-foreground transition-colors group-hover:text-foreground/80">
+          <span className="truncate font-mono text-[9px] text-muted-foreground transition-colors group-hover:text-foreground/80 leading-tight">
             @{subtitle}
           </span>
         )}
