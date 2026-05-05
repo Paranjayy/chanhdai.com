@@ -75,11 +75,11 @@ const DEFAULT_LABELS: Labels = {
 }
 
 const THEME = cn(
-  'data-[level="0"]:fill-muted-foreground/10',
-  'data-[level="1"]:fill-emerald-500/30',
-  'data-[level="2"]:fill-emerald-500/55',
-  'data-[level="3"]:fill-emerald-500/80',
-  'data-[level="4"]:fill-emerald-500'
+  'data-[level="0"]:fill-[var(--contribution-level-0)]',
+  'data-[level="1"]:fill-[var(--contribution-level-1)]',
+  'data-[level="2"]:fill-[var(--contribution-level-2)]',
+  'data-[level="3"]:fill-[var(--contribution-level-3)]',
+  'data-[level="4"]:fill-[var(--contribution-level-4)]'
 )
 
 type ContributionGraphContextType = {
@@ -323,7 +323,7 @@ export const ContributionGraphBlock = ({
   className,
   ...props
 }: ContributionGraphBlockProps) => {
-  const { blockSize, blockMargin, blockRadius, labelHeight, maxLevel } =
+  const { blockSize, blockMargin, blockRadius, maxLevel } =
     useContributionGraph()
 
   if (activity.level < 0 || activity.level > maxLevel) {

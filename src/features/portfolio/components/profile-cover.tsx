@@ -3,7 +3,7 @@
 import { useRef } from "react"
 
 import { BrandContextMenu } from "@/components/brand-context-menu"
-import { KPMark } from "@/components/chanhdai-mark"
+import { BrandMark } from "@/components/brand-mark"
 import { cn } from "@/lib/utils"
 
 export function ProfileCover() {
@@ -20,7 +20,7 @@ export function ProfileCover() {
           "bg-black/0.75 bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center [--pattern-foreground:var(--color-zinc-950)]/5 dark:bg-white/0.75 dark:[--pattern-foreground:var(--color-white)]/5"
         )}
       >
-        <KPMark className="w-2/5 max-w-sm text-foreground opacity-10 sm:w-1/3" />
+        <BrandMark className="w-2/5 max-w-sm text-foreground opacity-10 sm:w-1/3" />
       </div>
     </BrandContextMenu>
   )

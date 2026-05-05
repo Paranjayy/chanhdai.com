@@ -1,23 +1,64 @@
 "use client"
 
-import { Panel } from "./panel"
+import { useEffect, useState } from "react"
+
+import { CountUp } from "@/components/count-up"
 import { Icons } from "@/components/icons"
 import { cn } from "@/lib/utils"
 
+import { Panel } from "./panel"
+
+type SpotifyData = {
+  isPlaying: boolean
+  title?: string
+  artist?: string
+  songUrl?: string
+}
+
 export function Dashboard() {
+  const [spotify, setSpotify] = useState<SpotifyData>({ isPlaying: false })
+
+  useEffect(() => {
+    const fetchSpotify = async () => {
+      try {
+        const res = await fetch("/api/spotify/now-playing")
+        const data = await res.json()
+        setSpotify(data)
+      } catch (e) {
+        console.error("Failed to fetch Spotify", e)
+      }
+    }
+
+    fetchSpotify()
+    const interval = setInterval(fetchSpotify, 30000) // Update every 30s
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <Panel className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
       <DashboardItem
         title="Coding Activity"
-        value="42h 15m"
+        value={
+          <>
+            <CountUp value={42} />h 15m
+          </>
+        }
         subtitle="This week"
         icon={<Icons.laptop className="size-4" />}
       />
       <DashboardItem
         title="Spotify"
-        value="Not Playing"
-        subtitle="Last: Moonlight Sonata"
-        icon={<Icons.music className="size-4" />}
+        value={spotify.isPlaying ? spotify.title! : "Not Playing"}
+        subtitle={spotify.isPlaying ? `by ${spotify.artist}` : "Resting"}
+        icon={
+          <Icons.music
+            className={cn(
+              "size-4",
+              spotify.isPlaying && "animate-pulse text-emerald-500"
+            )}
+          />
+        }
+        href={spotify.songUrl}
       />
       <DashboardItem
         title="Discord"
@@ -40,22 +81,40 @@ function DashboardItem({
   value,
   subtitle,
   icon,
+  href,
 }: {
   title: string
-  value: string
+  value: React.ReactNode
   subtitle: string
   icon: React.ReactNode
+  href?: string
 }) {
-  return (
-    <div className="group flex flex-col gap-2 bg-background p-4 transition-colors hover:bg-accent-muted/50">
+  const Content = (
+    <div className="group flex h-full flex-col gap-2 bg-background p-4 transition-colors hover:bg-accent-muted/50">
       <div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground">
         {icon}
-        <span className="font-mono text-[10px] font-bold tracking-widest uppercase">{title}</span>
+        <span className="font-mono text-[10px] font-bold tracking-widest uppercase">
+          {title}
+        </span>
       </div>
       <div className="flex flex-col">
-        <span className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">{value}</span>
-        <span className="text-xs text-muted-foreground group-hover:text-foreground/70">{subtitle}</span>
+        <span className="line-clamp-1 text-xl font-bold tracking-tight text-foreground sm:text-2xl">
+          {value}
+        </span>
+        <span className="text-xs text-muted-foreground group-hover:text-foreground/70">
+          {subtitle}
+        </span>
       </div>
     </div>
   )
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener" className="block">
+        {Content}
+      </a>
+    )
+  }
+
+  return Content
 }

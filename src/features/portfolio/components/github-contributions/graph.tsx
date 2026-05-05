@@ -2,14 +2,14 @@
 
 import { format } from "date-fns"
 import { LoaderIcon } from "lucide-react"
-import { use } from "react"
+import { use, useState } from "react"
 
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
-import { GITHUB_USERNAME, UTM_PARAMS } from "@/config/site"
+import { CountUp } from "@/components/count-up"
 import type { Activity } from "@/registry/components/contribution-graph"
 import {
   ContributionGraph,
@@ -19,9 +19,8 @@ import {
   ContributionGraphLegend,
   ContributionGraphTotalCount,
 } from "@/registry/components/contribution-graph"
-import { useState } from "react"
+
 import { GitHubStatsModal } from "./stats-modal"
-import { addQueryParams } from "@/utils/url"
 
 export function GitHubContributionGraph({
   contributions,
@@ -75,7 +74,8 @@ export function GitHubContributionGraph({
               />
               <TooltipContent className="font-sans">
                 <p className="font-medium">
-                  {activity.count} contribution{activity.count !== 1 ? "s" : null}
+                  {activity.count} contribution
+                  {activity.count !== 1 ? "s" : null}
                 </p>
                 <p className="text-[10px] text-muted-foreground">
                   {format(new Date(activity.date), "EEEE, do MMMM yyyy")}
@@ -86,112 +86,115 @@ export function GitHubContributionGraph({
         </ContributionGraphCalendar>
 
         <ContributionGraphFooter className="px-2">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
-          <ContributionGraphTotalCount>
-            {({ totalCount, year }) => (
-              <div className="text-muted-foreground">
-                {totalCount.toLocaleString("en")} contributions in {year}
-              </div>
-            )}
-          </ContributionGraphTotalCount>
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
+            <ContributionGraphTotalCount>
+              {({ totalCount, year }) => (
+                <div className="text-muted-foreground">
+                  {totalCount.toLocaleString("en")} contributions in {year}
+                </div>
+              )}
+            </ContributionGraphTotalCount>
 
             <div className="flex flex-wrap items-center gap-x-6 gap-y-4 text-muted-foreground sm:gap-y-1">
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <div className="flex cursor-help flex-col items-start">
-                    <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                      Current Streak
-                    </span>
-                    <span className="font-mono text-lg font-bold text-foreground">
-                      {currentStreak}d
-                    </span>
-                  </div>
-                }
-              />
-              <TooltipContent className="space-y-1">
-                <p>Current consecutive days with contributions</p>
-                {currentStreakStart && (
-                  <p className="text-[10px] text-muted-foreground">
-                    {format(new Date(currentStreakStart), "MMM d")} -{" "}
-                    {currentStreakEnd
-                      ? format(new Date(currentStreakEnd), "MMM d")
-                      : "Present"}
-                  </p>
-                )}
-              </TooltipContent>
-            </Tooltip>
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <div className="flex cursor-help flex-col items-start">
+                      <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
+                        Current Streak
+                      </span>
+                      <span className="font-mono text-lg font-bold text-foreground">
+                        <CountUp value={currentStreak} />d
+                      </span>
+                    </div>
+                  }
+                />
+                <TooltipContent className="space-y-1">
+                  <p>Current consecutive days with contributions</p>
+                  {currentStreakStart && (
+                    <p className="text-[10px] text-muted-foreground">
+                      {format(new Date(currentStreakStart), "MMM d")} -{" "}
+                      {currentStreakEnd
+                        ? format(new Date(currentStreakEnd), "MMM d")
+                        : "Present"}
+                    </p>
+                  )}
+                </TooltipContent>
+              </Tooltip>
 
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <div className="flex cursor-help flex-col items-start sm:border-l sm:border-line sm:pl-4">
-                    <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                      Best Streak
-                    </span>
-                    <span className="font-mono text-lg font-bold text-foreground">
-                      {bestStreak}d
-                    </span>
-                  </div>
-                }
-              />
-              <TooltipContent className="space-y-1">
-                <p>Longest consecutive days with contributions</p>
-                {bestStreakStart && bestStreakEnd && (
-                  <p className="text-[10px] text-muted-foreground">
-                    {format(new Date(bestStreakStart), "MMM d, yyyy")} -{" "}
-                    {format(new Date(bestStreakEnd), "MMM d, yyyy")}
-                  </p>
-                )}
-              </TooltipContent>
-            </Tooltip>
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <div className="flex cursor-help flex-col items-start sm:border-l sm:border-line sm:pl-4">
+                      <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
+                        Best Streak
+                      </span>
+                      <span className="font-mono text-lg font-bold text-foreground">
+                        <CountUp value={bestStreak} />d
+                      </span>
+                    </div>
+                  }
+                />
+                <TooltipContent className="space-y-1">
+                  <p>Longest consecutive days with contributions</p>
+                  {bestStreakStart && bestStreakEnd && (
+                    <p className="text-[10px] text-muted-foreground">
+                      {format(new Date(bestStreakStart), "MMM d, yyyy")} -{" "}
+                      {format(new Date(bestStreakEnd), "MMM d, yyyy")}
+                    </p>
+                  )}
+                </TooltipContent>
+              </Tooltip>
 
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <div className="flex cursor-help flex-col items-start sm:border-l sm:border-line sm:pl-4">
-                    <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                      Peak
-                    </span>
-                    <span className="font-mono text-lg font-bold text-foreground">
-                      {peak}
-                    </span>
-                  </div>
-                }
-              />
-              <TooltipContent className="space-y-1">
-                <p>Highest number of contributions in a single day</p>
-                {peakDate && (
-                  <p className="text-[10px] text-muted-foreground">
-                    Achieved on {format(new Date(peakDate), "MMMM do, yyyy")}
-                  </p>
-                )}
-              </TooltipContent>
-            </Tooltip>
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <div className="flex cursor-help flex-col items-start sm:border-l sm:border-line sm:pl-4">
+                      <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
+                        Peak
+                      </span>
+                      <span className="font-mono text-lg font-bold text-foreground">
+                        <CountUp value={peak} />
+                      </span>
+                    </div>
+                  }
+                />
+                <TooltipContent className="space-y-1">
+                  <p>Highest number of contributions in a single day</p>
+                  {peakDate && (
+                    <p className="text-[10px] text-muted-foreground">
+                      Achieved on {format(new Date(peakDate), "MMMM do, yyyy")}
+                    </p>
+                  )}
+                </TooltipContent>
+              </Tooltip>
 
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <div className="flex cursor-help flex-col items-start sm:border-l sm:border-line sm:pl-4">
-                    <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
-                      Average
-                    </span>
-                    <span className="font-mono text-lg font-bold text-foreground">
-                      {(
-                        data.reduce((acc, curr) => acc + curr.count, 0) /
-                        data.length
-                      ).toFixed(2)}
-                    </span>
-                  </div>
-                }
-              />
-              <TooltipContent>Average contributions per day</TooltipContent>
-            </Tooltip>
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <div className="flex cursor-help flex-col items-start sm:border-l sm:border-line sm:pl-4">
+                      <span className="text-[10px] font-medium tracking-wider text-muted-foreground/60 uppercase">
+                        Average
+                      </span>
+                      <span className="font-mono text-lg font-bold text-foreground">
+                        <CountUp
+                          value={
+                            data.reduce((acc, curr) => acc + curr.count, 0) /
+                            data.length
+                          }
+                          formatter={(v) => v.toFixed(2)}
+                        />
+                      </span>
+                    </div>
+                  }
+                />
+                <TooltipContent>Average contributions per day</TooltipContent>
+              </Tooltip>
+            </div>
           </div>
-        </div>
 
-        <ContributionGraphLegend />
-      </ContributionGraphFooter>
+          <ContributionGraphLegend />
+        </ContributionGraphFooter>
       </ContributionGraph>
       <GitHubStatsModal open={modalOpen} onOpenChange={setModalOpen} />
     </>
