@@ -29,9 +29,9 @@ export function Dashboard() {
     const fetchSpotify = async () => {
       try {
         const res = await fetch("/api/spotify/now-playing")
-        const data = await res.json()
+        const data = (await res.json()) as SpotifyData
         setSpotify(data)
-      } catch (e) {
+      } catch (e: any) {
         console.error("Failed to fetch Spotify", e)
       }
     }
@@ -39,9 +39,9 @@ export function Dashboard() {
     const fetchWakaTime = async () => {
       try {
         const res = await fetch("/api/stats/wakatime")
-        const data = await res.json()
+        const data = (await res.json()) as WakaTimeData
         setWakatime(data)
-      } catch (e) {
+      } catch (e: any) {
         console.error("Failed to fetch WakaTime", e)
       }
     }

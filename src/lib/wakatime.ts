@@ -20,13 +20,13 @@ export const getWakaTimeStats = async () => {
     }
   )
 
-  const data = await response.json()
+  const data = (await response.json()) as any
 
   return {
-    total_seconds: data.data.total_seconds,
-    human_readable_total: data.data.human_readable_total,
-    daily_average: data.data.daily_average,
-    human_readable_daily_average: data.data.human_readable_daily_average,
-    languages: data.data.languages,
+    total_seconds: data?.data?.total_seconds || 0,
+    human_readable_total: data?.data?.human_readable_total || "0h 0m",
+    daily_average: data?.data?.daily_average || 0,
+    human_readable_daily_average: data?.data?.human_readable_daily_average || "0h 0m",
+    languages: data?.data?.languages || [],
   }
 }

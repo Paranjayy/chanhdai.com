@@ -27,7 +27,8 @@ export const getNowPlaying = async () => {
     return { isPlaying: false }
   }
 
-  const { access_token } = await getAccessToken()
+  const data = (await getAccessToken()) as any
+  const access_token = data.access_token
 
   const response = await fetch(NOW_PLAYING_ENDPOINT, {
     headers: {
@@ -39,9 +40,9 @@ export const getNowPlaying = async () => {
     return { isPlaying: false }
   }
 
-  const song = await response.json()
+  const song = (await response.json()) as any
 
-  if (song.item === null) {
+  if (!song || song.item === null) {
     return { isPlaying: false }
   }
 

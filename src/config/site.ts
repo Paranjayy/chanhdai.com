@@ -18,26 +18,32 @@ export const MAIN_NAV: NavItem[] = [
   {
     title: "Projects",
     href: "/projects",
+    icon: "FolderGit2",
   },
   {
     title: "Components",
     href: "/components",
+    icon: "Cpu",
   },
   {
     title: "Blocks",
     href: "/blocks",
+    icon: "LayoutGrid",
   },
   {
     title: "Blog",
     href: "/blog",
+    icon: "PenTool",
   },
   {
     title: "Gallery",
     href: "/gallery",
+    icon: "Image",
   },
   {
     title: "Sponsors",
     href: "/sponsors",
+    icon: "Heart",
   },
 ]
 
@@ -45,6 +51,7 @@ export const MOBILE_NAV: NavItem[] = [
   {
     title: "Home",
     href: "/",
+    icon: "Home",
   },
   ...MAIN_NAV,
 ]

@@ -10,7 +10,10 @@ import {
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
 import { CountUp } from "@/components/count-up"
-import type { Activity } from "@/registry/components/contribution-graph"
+import type {
+  Activity,
+  Marker,
+} from "@/registry/components/contribution-graph"
 import {
   ContributionGraph,
   ContributionGraphBlock,
@@ -28,6 +31,16 @@ export function GitHubContributionGraph({
   contributions: Promise<Activity[]>
 }) {
   const data = use(contributions)
+
+  if (!data || data.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-12 text-center">
+        <p className="text-sm text-muted-foreground">
+          No contribution data available.
+        </p>
+      </div>
+    )
+  }
 
   const {
     currentStreak,
@@ -47,6 +60,7 @@ export function GitHubContributionGraph({
       <ContributionGraph
         className="mx-auto py-2"
         data={data}
+        markers={GITHUB_MARKERS}
         blockSize={11}
         blockMargin={3}
         blockRadius={2}
@@ -56,33 +70,41 @@ export function GitHubContributionGraph({
           title="GitHub Contributions"
           showWeekNumbers
         >
-          {({ activity, dayIndex, weekIndex }) => (
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <div
-                    onClick={() => setModalOpen(true)}
-                    className="cursor-pointer"
-                  >
-                    <ContributionGraphBlock
-                      activity={activity}
-                      dayIndex={dayIndex}
-                      weekIndex={weekIndex}
-                    />
-                  </div>
-                }
-              />
-              <TooltipContent className="font-sans">
-                <p className="font-medium">
-                  {activity.count} contribution
-                  {activity.count !== 1 ? "s" : null}
-                </p>
-                <p className="text-[10px] text-muted-foreground">
-                  {format(new Date(activity.date), "EEEE, do MMMM yyyy")}
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          )}
+          {({ activity, dayIndex, weekIndex }) => {
+            const marker = GITHUB_MARKERS[activity.date]
+            return (
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <div
+                      onClick={() => setModalOpen(true)}
+                      className="cursor-pointer"
+                    >
+                      <ContributionGraphBlock
+                        activity={activity}
+                        dayIndex={dayIndex}
+                        weekIndex={weekIndex}
+                      />
+                    </div>
+                  }
+                />
+                <TooltipContent className="font-sans">
+                  {marker && (
+                    <p className="mb-1 text-[10px] font-bold text-amber-500 uppercase tracking-wider">
+                      {marker.label}
+                    </p>
+                  )}
+                  <p className="font-medium">
+                    {activity.count} contribution
+                    {activity.count !== 1 ? "s" : null}
+                  </p>
+                  <p className="text-[10px] text-muted-foreground">
+                    {format(new Date(activity.date), "EEEE, do MMMM yyyy")}
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            )
+          }}
         </ContributionGraphCalendar>
 
         <ContributionGraphFooter className="px-2">
@@ -263,4 +285,11 @@ export function GitHubContributionFallback() {
       <LoaderIcon className="animate-spin text-muted-foreground" />
     </div>
   )
+}
+
+const GITHUB_MARKERS: Record<string, Marker> = {
+  "2024-02-01": { label: "Inter-IIT Gold", color: "#fbbf24" },
+  "2024-05-15": { label: "IPL Engine Launch", color: "#3b82f6" },
+  "2021-10-01": { label: "JEE Advanced 2021", color: "#ef4444" },
+  "2026-05-05": { label: "Portfolio Optimized", color: "#10b981" },
 }

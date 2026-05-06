@@ -14,11 +14,12 @@ import { useMediaQuery } from "@/hooks/use-media-query"
 import { haptic } from "@/registry/lib/haptic"
 import type { NavItem } from "@/types/nav"
 
+import { motion, AnimatePresence } from "motion/react"
+import * as LucideIcons from "lucide-react"
+
 export function NavMobile({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false)
-
-  const isDesktop = useMediaQuery("(min-width: 40rem)") // sm breakpoint
-
+  const isDesktop = useMediaQuery("(min-width: 40rem)")
   const pathname = usePathname()
 
   const handleOpenChange = useCallback((open: boolean) => {
@@ -37,30 +38,46 @@ export function NavMobile({ items }: { items: NavItem[] }) {
       </PopoverTrigger>
 
       <PopoverContent
-        className="w-48 rounded-xl p-1"
+        className="w-56 overflow-hidden rounded-2xl p-2"
         side="top"
         align="center"
-        sideOffset={8}
+        sideOffset={12}
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
-        <div className="flex flex-col">
-          {items.map((link) => {
+        <div className="flex flex-col gap-1">
+          {items.map((link, idx) => {
             const active =
               pathname === link.href ||
-              (link.href === "/" // Home page
+              (link.href === "/"
                 ? ["/", "/index"].includes(pathname || "")
                 : pathname?.startsWith(link.href))
 
+            // @ts-ignore - Dynamic icon resolution
+            const Icon = LucideIcons[link.icon || "Circle"] || LucideIcons.Circle
+
             return (
-              <Link
+              <motion.div
                 key={link.href}
-                href={link.href}
-                data-active={active}
-                className="rounded-lg px-3 py-1.5 text-base data-active:bg-accent"
-                onClick={() => handleOpenChange(false)}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.03 }}
               >
-                {link.title}
-              </Link>
+                <Link
+                  href={link.href}
+                  data-active={active}
+                  className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-base transition-colors hover:bg-accent data-active:bg-accent data-active:text-primary"
+                  onClick={() => handleOpenChange(false)}
+                >
+                  <Icon className="h-5 w-5 opacity-70" />
+                  <span className="font-medium">{link.title}</span>
+                  {active && (
+                    <motion.div
+                      layoutId="active-indicator"
+                      className="ml-auto h-1.5 w-1.5 rounded-full bg-primary"
+                    />
+                  )}
+                </Link>
+              </motion.div>
             )
           })}
         </div>

@@ -5,7 +5,7 @@
 import type { Plugin } from "@opencode-ai/plugin"
 
 export const EntirePlugin: Plugin = async ({ directory }) => {
-  const ENTIRE_CMD = "entire"
+  const ENTIRE_CMD = 'entire'
   // Track seen user messages to fire turn-start only once per message
   const seenUserMessages = new Set<string>()
   // Track current session ID for message events (which don't include sessionID)
@@ -13,7 +13,6 @@ export const EntirePlugin: Plugin = async ({ directory }) => {
   // Track the model used by the most recent assistant message
   let currentModel: string | null = null
   // In-memory store for message metadata (role, tokens, etc.)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const messageStore = new Map<string, any>()
 
   /**
@@ -25,11 +24,7 @@ export const EntirePlugin: Plugin = async ({ directory }) => {
     if (ENTIRE_CMD !== "entire") {
       return ["sh", "-c", `${ENTIRE_CMD} hooks opencode ${hookName}`]
     }
-    return [
-      "sh",
-      "-c",
-      `if ! command -v entire >/dev/null 2>&1; then exit 0; fi; exec entire hooks opencode ${hookName}`,
-    ]
+    return ["sh", "-c", `if ! command -v entire >/dev/null 2>&1; then exit 0; fi; exec entire hooks opencode ${hookName}`]
   }
 
   /**
@@ -87,7 +82,6 @@ export const EntirePlugin: Plugin = async ({ directory }) => {
       try {
         switch (event.type) {
           case "session.created": {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const session = (event as any).properties?.info
             if (!session?.id) break
             // Reset per-session tracking state when switching sessions.
@@ -107,7 +101,6 @@ export const EntirePlugin: Plugin = async ({ directory }) => {
           }
 
           case "message.updated": {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const msg = (event as any).properties?.info
             if (!msg) break
 
@@ -142,17 +135,12 @@ export const EntirePlugin: Plugin = async ({ directory }) => {
           }
 
           case "message.part.updated": {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const part = (event as any).properties?.part
             if (!part?.messageID) break
 
             // Fire turn-start on the first text part of a new user message
             const msg = messageStore.get(part.messageID)
-            if (
-              msg?.role === "user" &&
-              part.type === "text" &&
-              !seenUserMessages.has(msg.id)
-            ) {
+            if (msg?.role === "user" && part.type === "text" && !seenUserMessages.has(msg.id)) {
               seenUserMessages.add(msg.id)
               const sessionID = msg.sessionID ?? currentSessionID
               if (sessionID) {
@@ -169,7 +157,6 @@ export const EntirePlugin: Plugin = async ({ directory }) => {
           case "session.status": {
             // session.status fires in both TUI and non-interactive (run) mode.
             // session.idle is deprecated and not reliably emitted in run mode.
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const props = (event as any).properties
             if (props?.status?.type !== "idle") break
             const sessionID = props?.sessionID ?? currentSessionID
@@ -184,7 +171,6 @@ export const EntirePlugin: Plugin = async ({ directory }) => {
           }
 
           case "session.compacted": {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const sessionID = (event as any).properties?.sessionID
             if (!sessionID) break
             await callHook("compaction", {
@@ -194,7 +180,6 @@ export const EntirePlugin: Plugin = async ({ directory }) => {
           }
 
           case "session.deleted": {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const session = (event as any).properties?.info
             if (!session?.id) break
             seenUserMessages.clear()

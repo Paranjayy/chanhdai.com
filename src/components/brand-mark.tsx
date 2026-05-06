@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 export function BrandMark({
   className,
   ...props
-}: React.SVGProps<SVGSVGElement>) {
+}: any) {
   return (
     <motion.svg
       viewBox="0 0 16 11"
@@ -105,7 +105,7 @@ export function BrandMark({
   )
 }
 
-const containerVariants = {
+const containerVariants: any = {
   initial: {},
   animate: {
     transition: {
@@ -115,7 +115,7 @@ const containerVariants = {
   },
 }
 
-const itemVariants = {
+const itemVariants: any = {
   initial: { opacity: 0, scale: 0.8, y: 2 },
   animate: {
     opacity: 1,

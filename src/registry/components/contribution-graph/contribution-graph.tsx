@@ -82,9 +82,16 @@ const THEME = cn(
   'data-[level="4"]:fill-[var(--contribution-level-4)]'
 )
 
+export type Marker = {
+  label: string
+  color?: string
+  icon?: ReactNode
+}
+
 type ContributionGraphContextType = {
   data: Activity[]
   weeks: Week[]
+  markers?: Record<string, Marker>
   blockMargin: number
   blockRadius: number
   blockSize: number
@@ -233,6 +240,7 @@ const getMonthLabels = (
 
 export type ContributionGraphProps = HTMLAttributes<HTMLDivElement> & {
   data: Activity[]
+  markers?: Record<string, Marker>
   blockMargin?: number
   blockRadius?: number
   blockSize?: number
@@ -248,6 +256,7 @@ export type ContributionGraphProps = HTMLAttributes<HTMLDivElement> & {
 
 export const ContributionGraph = ({
   data,
+  markers,
   blockMargin = 4,
   blockRadius = 2,
   blockSize = 12,
@@ -287,6 +296,7 @@ export const ContributionGraph = ({
       value={{
         data,
         weeks,
+        markers,
         blockMargin,
         blockRadius,
         blockSize,
@@ -323,7 +333,7 @@ export const ContributionGraphBlock = ({
   className,
   ...props
 }: ContributionGraphBlockProps) => {
-  const { blockSize, blockMargin, blockRadius, maxLevel } =
+  const { blockSize, blockMargin, blockRadius, maxLevel, markers } =
     useContributionGraph()
 
   if (activity.level < 0 || activity.level > maxLevel) {
@@ -332,24 +342,40 @@ export const ContributionGraphBlock = ({
     )
   }
 
+  const marker = markers?.[activity.date]
+
+  const x = (blockSize + blockMargin) * weekIndex
+  const y = (blockSize + blockMargin) * dayIndex
+
   return (
-    <rect
-      className={cn(
-        THEME,
-        "transition-[fill,stroke-width] hover:stroke-foreground/20 hover:stroke-[1.5px]",
-        className
+    <g className="group/block">
+      <rect
+        className={cn(
+          THEME,
+          "transition-[fill,stroke-width] hover:stroke-foreground/20 hover:stroke-[1.5px]",
+          className
+        )}
+        data-count={activity.count}
+        data-date={activity.date}
+        data-level={activity.level}
+        height={blockSize}
+        rx={blockRadius}
+        ry={blockRadius}
+        width={blockSize}
+        x={x}
+        y={y}
+        {...props}
+      />
+      {marker && (
+        <circle
+          cx={x + blockSize / 2}
+          cy={y + blockSize / 2}
+          r={blockSize / 5}
+          className="pointer-events-none fill-background opacity-80 transition-transform group-hover/block:scale-125"
+          style={{ fill: marker.color }}
+        />
       )}
-      data-count={activity.count}
-      data-date={activity.date}
-      data-level={activity.level}
-      height={blockSize}
-      rx={blockRadius}
-      ry={blockRadius}
-      width={blockSize}
-      x={(blockSize + blockMargin) * weekIndex}
-      y={(blockSize + blockMargin) * dayIndex}
-      {...props}
-    />
+    </g>
   )
 }
 

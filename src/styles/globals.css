@@ -416,11 +416,11 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 
   /* Contribution Graph Levels */
-  --contribution-level-0: oklch(0.967 0.001 286.375 / 10%);
-  --contribution-level-1: oklch(0.921 0.034 153.182);
-  --contribution-level-2: oklch(0.835 0.066 152.954);
-  --contribution-level-3: oklch(0.669 0.115 152.734);
-  --contribution-level-4: oklch(0.527 0.154 150.069);
+  --contribution-level-0: oklch(0.21 0.006 285.885 / 50%);
+  --contribution-level-1: oklch(0.442 0.047 153.25);
+  --contribution-level-2: oklch(0.569 0.088 152.12);
+  --contribution-level-3: oklch(0.705 0.141 150.81);
+  --contribution-level-4: oklch(0.835 0.201 150.31);
 }
 
 @layer base {
